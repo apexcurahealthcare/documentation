@@ -9,9 +9,9 @@ export const ListboxWrapper = ({ children }: { children: React.ReactNode }) => (
 );
 
 export default function Sidebar({ page }: { page: PageName}) {
-  const SIDEMENU: ISideMenuSection[] = Constants.SIDEMENU[page];
+  const SIDEMENU: ISideMenuSection[] = Constants.SIDEMENU[page] || [];
   const [selectedKeys, setSelectedKeys] = useState(
-    new Set([SIDEMENU[0]?.items[0]?.title])
+    new Set([SIDEMENU?.[0]?.items[0]?.title])
   );
 
   return (

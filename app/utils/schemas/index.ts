@@ -1,7 +1,7 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { UIComponents } from "./ui-components";
 
-export type PageName = "ui-components" | "view-engine";
+export type PageName = "" | "ui-components" | "view-engine";
 
 type SchemaMap = {
   [key in PageName]: NodeSchema;
@@ -11,14 +11,22 @@ type H3Text = { id?: string; text: string }
 
 class Schema {
   private static schemas: SchemaMap = {
+    "": {
+      type: "div",
+      children: [],
+    },
     "ui-components": UIComponents,
     "view-engine": UIComponents
   };
 
   static get(pageName: PageName): NodeSchema {
-    const schema = this.schemas[pageName];
+    const schema = this.schemas?.[pageName];
     if (!schema) {
-      throw new Error(`Schema for page "${pageName}" not found.`);
+      // throw new Error(`Schema for page "${pageName}" not found.`);
+      return {
+        type: "div",
+        children: [],
+      } as NodeSchema; // Return a default empty schema for non-existent pages.
     }
     return schema;
   }

@@ -1,10 +1,12 @@
 "use client";
-import { Button, Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
+import { Button, Card, CardBody, CardHeader, Chip, Image as HeroImage } from "@heroui/react";
 import GITHUB from "../public/assets/github.svg";
 import NPM from "../public/assets/npm.svg";
 import { Constants } from "./utils/constants";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
+import Image from "next/image";
+ 
 export default function Home() {
   const router = useRouter();
   const openInNewTab = (url: string) => {
@@ -35,7 +37,7 @@ export default function Home() {
                 radius="md"
               >
                 <CardHeader className="w-full h-[120px] overflow-hidden rounded-md p-0">
-                  <Image
+                  <HeroImage
                     src={project.img.src}
                     alt={project.name}
                     className="w-full h-full object-cover"

@@ -13,7 +13,7 @@ export default function OnThisPage({ page }: { page: PageName }) {
   const headings = Schema.getH3Texts(schema);
   const SIDEMENU: ISideMenuSection[] = Constants.SIDEMENU[page];
   const [selectedKeys, setSelectedKeys] = useState(
-    new Set([SIDEMENU[0]?.items[0]?.title])
+    new Set([SIDEMENU?.[0]?.items[0]?.title])
   );
 
   return (
