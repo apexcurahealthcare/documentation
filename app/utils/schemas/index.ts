@@ -1,7 +1,7 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { UIComponents } from "./ui-components";
 
-export type PageName = "" | "ui-components" | "view-engine";
+export type PageName = "ui-components" | "view-engine";
 
 type SchemaMap = {
   [key in PageName]: NodeSchema;
@@ -11,10 +11,6 @@ type H3Text = { id?: string; text: string }
 
 class Schema {
   private static schemas: SchemaMap = {
-    "": {
-      type: "div",
-      children: [],
-    },
     "ui-components": UIComponents,
     "view-engine": UIComponents
   };
