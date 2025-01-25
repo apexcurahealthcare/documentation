@@ -1,6 +1,5 @@
 "use client";
-import { Button, Card, CardBody, CardHeader, Chip } from "@heroui/react";
-import Image from "next/image";
+import { Button, Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import GITHUB from "../public/assets/github.svg";
 import NPM from "../public/assets/npm.svg";
 import { Constants } from "./utils/constants";
@@ -37,7 +36,7 @@ export default function Home() {
               >
                 <CardHeader className="w-full h-[120px] overflow-hidden rounded-md p-0">
                   <Image
-                    src={project.img}
+                    src={project.img.src}
                     alt={project.name}
                     className="w-full h-full object-cover"
                   />
