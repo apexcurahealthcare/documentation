@@ -7,21 +7,25 @@ const project = Constants.PROJECTS.find(
 
 export const UIComponents: NodeSchema = {
   type: "div",
-  className: "flex flex-col gap-6",
+  className: "flex flex-col gap-6 sm:gap-4",
   children: [
     {
       type: "h1",
       text: "Introduction",
+      isApplyMotion: true,
     },
     {
       type: "image",
       src: project?.img?.src || "",
       alt: `${project?.name} Image`,
+      className: "sm:h-[200px]",
       isBlurred: true,
       isZoomed: true,
+      isApplyMotion: true,
     },
     {
       type: "p",
+      isApplyMotion: true,
       text: (
         <>
           Hello team! 👋 Welcome to the official documentation for{" "}
@@ -32,6 +36,7 @@ export const UIComponents: NodeSchema = {
     },
     {
       type: "p",
+      isApplyMotion: true,
       text: (
         <>
           Built with{" "}
@@ -45,20 +50,24 @@ export const UIComponents: NodeSchema = {
     },
     {
       type: "p",
+      isApplyMotion: true,
       text: `This library is all about making our lives easier. It provides a set of reusable, customizable, and well-documented components that follow our design standards and best practices. Whether you’re working on a new feature, fixing a bug, or prototyping an idea, this library is here to save you time and effort.`,
     },
     {
       type: "h3",
+      isApplyMotion: true,
       text: "Why This Library? 🤔",
     },
     {
       type: "p",
+      isApplyMotion: true,
       text: "Here’s why we built this and why it matters:",
     },
     {
       type: "ul",
-      children: Constants.INTRO_MATTERS.map((matter: any) => ({
+      children: Constants.INTRO_MATTERS.map((matter: any, index: number) => ({
         type: "li",
+        isApplyMotion: true,
         text: (
           <>
             <span className="font-semibold">{matter.heading}</span>:{" "}

@@ -19,7 +19,7 @@ export default function OnThisPage({ page }: { page: PageName }) {
   return (
     <ListboxWrapper>
       <Listbox
-        className="p-6 sticky top-[64px] h-screen"
+        className="p-6 sticky top-[64px] h-screen sm:hidden"
         selectedKeys={selectedKeys}
         selectionMode="single"
         aria-label="On this page"

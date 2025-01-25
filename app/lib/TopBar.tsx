@@ -17,7 +17,7 @@ export default function TopBar() {
   const router = useRouter();
   return (
     <Navbar isBordered maxWidth="full" className="border-none">
-      <NavbarContent justify="start" className="">
+      <NavbarContent justify="start">
         <NavbarBrand>
           <div
             className="flex items-center justify-start cursor-pointer"
@@ -36,10 +36,10 @@ export default function TopBar() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent as="div" className="items-center" justify="end">
+      <NavbarContent as="div" className="items-center gap-2" justify="end">
         <Input
           classNames={{
-            base: "max-w-[15rem] h-10",
+            base: "max-w-[15rem] h-10 sm:hidden",
             mainWrapper: "h-full",
             input: "text-xs",
             inputWrapper:
