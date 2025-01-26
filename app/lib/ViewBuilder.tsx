@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Zain } from "next/font/google";
 const zain = Zain({
   weight: ["200", "300", "400", "700", "800", "900"],
+  subsets: ["latin"],
   variable: "--font-zain",
 })
 interface BaseNode {
