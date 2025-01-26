@@ -2,7 +2,11 @@
 import React, { ReactNode } from "react";
 import { Image } from "@heroui/react";
 import { motion } from "framer-motion";
-
+import { Zain } from "next/font/google";
+const zain = Zain({
+  weight: ["200", "300", "400", "700", "800", "900"],
+  variable: "--font-zain",
+})
 interface BaseNode {
   type: string;
   className?: string;
@@ -61,7 +65,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
     return null;
   };
 
-  const renderElement = (element: ReactNode, isApplyMotion?: boolean) => {
+  const renderElement = (element: ReactNode) => {
     if (isApplyMotion) {
       return (
         <motion.div
@@ -79,38 +83,33 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   switch (type) {
     case "h1":
       return renderElement(
-        <h1 id={id} className={`text-4xl font-bold ${className}`}>
+        <h1 id={id} className={`text-5xl sm:font-bold font-extrabold ${zain.className} ${className}`}>
           {(schema as TextNode).text}
-        </h1>,
-        schema.isApplyMotion
+        </h1>
       );
     case "h2":
       return renderElement(
-        <h2 id={id} className={`text-3xl font-bold ${className}`}>
+        <h2 id={id} className={`text-4xl sm:font-bold font-extrabold ${zain.className} ${className}`}>
           {(schema as TextNode).text}
-        </h2>,
-        schema.isApplyMotion
+        </h2>
       );
     case "h3":
       return renderElement(
-        <h3 id={id} className={`text-2xl font-bold ${className}`}>
+        <h3 id={id} className={`text-3xl sm:font-bold font-extrabold ${zain.className} ${className}`}>
           {(schema as TextNode).text}
-        </h3>,
-        schema.isApplyMotion
+        </h3>
       );
     case "p":
       return renderElement(
         <p id={id} className={`leading-8 ${className}`}>
           {(schema as TextNode).text}
-        </p>,
-        schema.isApplyMotion
+        </p>
       );
     case "li":
       return renderElement(
         <li id={id} className={`leading-8 ${className}`}>
           {(schema as TextNode).text}
-        </li>,
-        schema.isApplyMotion
+        </li>
       );
     case "image":
       const imageNode = schema as ImageNode;
@@ -122,22 +121,19 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
           className={`h-[300px] w-full object-cover ${className}`}
           isZoomed={imageNode.isZoomed}
           isBlurred={imageNode.isBlurred}
-        />,
-        schema.isApplyMotion
+        />
       );
     case "div":
       return renderElement(
         <div id={id} className={className}>
           {renderChildren()}
-        </div>,
-        schema.isApplyMotion
+        </div>
       );
     case "ul":
       return renderElement(
         <ul id={id} className={`list-disc ml-8 ${className}`}>
           {renderChildren()}
-        </ul>,
-        schema.isApplyMotion
+        </ul>
       );
     default:
       console.warn(`Unknown element type: ${type}`);

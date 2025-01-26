@@ -13,6 +13,7 @@ export const UIComponents: NodeSchema = {
       type: "h1",
       text: "Introduction",
       isApplyMotion: true,
+      className: "uppercase"
     },
     {
       type: "image",
@@ -20,7 +21,6 @@ export const UIComponents: NodeSchema = {
       alt: `${project?.name} Image`,
       className: "sm:h-[200px]",
       isBlurred: true,
-      isZoomed: true,
       isApplyMotion: true,
     },
     {

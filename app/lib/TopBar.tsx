@@ -15,6 +15,10 @@ import { useRouter } from "next/navigation";
 
 export default function TopBar() {
   const router = useRouter();
+  const openInNewTab = () => {
+    const url = "https://www.figma.com/design/bdvo3Y0I2jITEZoUSiOYTR/Apex-Cura-APPS-REV?node-id=146-2080&t=Uzr2BXaC3tG3kk5Q-1";
+    window.open(url, "_blank", "noreferrer");
+  };
   return (
     <Navbar isBordered maxWidth="full" className="border-none">
       <NavbarContent justify="start">
@@ -54,6 +58,7 @@ export default function TopBar() {
           isIconOnly
           className="p-2 border-[1px]"
           radius="full"
+          onPress={openInNewTab}
           variant="bordered"
         >
           <Image
