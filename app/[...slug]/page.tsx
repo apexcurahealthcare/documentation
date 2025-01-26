@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import ViewBuilder from "../lib/ViewBuilder";
 import Schema, { PageName } from "../utils/schemas";
 import { Constants } from "../utils/constants";
+import Breads from "../lib/Breads";
 export async function generateMetadata({
   params,
 }: {
@@ -21,8 +22,21 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
   if (!schema) {
     return null;
   }
+  const project = Constants.PROJECTS.find((p) => p.route === `/${slug[0]}`);
 
-  return <ViewBuilder schema={schema} />;
+  return (
+    <div className="flex flex-col gap-4">
+      <div>
+        <Breads
+          items={[
+            { key: "/", label: "Home" },
+            { key: project?.route || "", label: project?.name || "" },
+          ]}
+        />
+      </div>
+      <ViewBuilder schema={schema} />;
+    </div>
+  );
 };
 
 export default Page;
