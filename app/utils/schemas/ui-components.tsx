@@ -10,7 +10,7 @@ export const UIComponents: NodeSchema = {
   className: "flex flex-col gap-6 sm:gap-4",
   children: [
     {
-      type: "h1",
+      type: "h2",
       text: "Introduction",
       isApplyMotion: true,
       className: "uppercase"

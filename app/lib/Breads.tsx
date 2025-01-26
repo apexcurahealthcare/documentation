@@ -2,7 +2,7 @@
 import { BreadcrumbItem, Breadcrumbs } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-
+import { motion } from "motion/react";
 // Define the BreadcrumbItem type
 type BreadcrumbItemType = {
   key: string;
@@ -19,19 +19,25 @@ const Breads = ({ items }: Props) => {
   const [currentPage, setCurrentPage] = useState<string>(last.key);
   const router = useRouter();
   return (
-    <Breadcrumbs
-      underline="active"
-      onAction={(e: any) => {
-        setCurrentPage(e);
-        router.push(e);
-      }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ y: [20, 0], opacity: [0, 1] }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      {items.map((item) => (
-        <BreadcrumbItem key={item.key} isCurrent={currentPage === item.key}>
-          {item.label}
-        </BreadcrumbItem>
-      ))}
-    </Breadcrumbs>
+      <Breadcrumbs
+        underline="active"
+        onAction={(e: any) => {
+          setCurrentPage(e);
+          router.push(e);
+        }}
+      >
+        {items.map((item) => (
+          <BreadcrumbItem key={item.key} isCurrent={currentPage === item.key}>
+            {item.label}
+          </BreadcrumbItem>
+        ))}
+      </Breadcrumbs>
+    </motion.div>
   );
 };
 

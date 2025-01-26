@@ -3,6 +3,7 @@ import ViewBuilder from "../lib/ViewBuilder";
 import Schema, { PageName } from "../utils/schemas";
 import { Constants } from "../utils/constants";
 import Breads from "../lib/Breads";
+import Copyright from "../lib/Copyright";
 export async function generateMetadata({
   params,
 }: {
@@ -26,7 +27,7 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div>
+      <div className="hidden sm:block">
         <Breads
           items={[
             { key: "/", label: "Home" },
@@ -34,7 +35,8 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
           ]}
         />
       </div>
-      <ViewBuilder schema={schema} />;
+      <ViewBuilder schema={schema} />
+      <Copyright />
     </div>
   );
 };

@@ -86,16 +86,16 @@ const SIDEMENU: ISideMenu = {
           title: "Introduction",
         },
         {
+          route: "/installation",
+          title: "Installation",
+        },
+        {
           route: "/developers",
           title: "Developers",
         },
         {
           route: "/developer-access",
           title: "Developer Access",
-        },
-        {
-          route: "/installation",
-          title: "Installation",
         },
       ],
     },
