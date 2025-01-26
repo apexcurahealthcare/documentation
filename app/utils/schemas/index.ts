@@ -1,21 +1,27 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
-import { UIComponents } from "./ui-components";
+import { UIComponentsIntro } from "./ui-components/intro";
+import { UIComponentsInstallation } from "./ui-components/installation";
 
 export type PageName = "ui-components" | "view-engine";
 
+export type NestedPages = "ui-components/installation";
+
+export type AllPages = PageName | NestedPages;
+
 type SchemaMap = {
-  [key in PageName]: NodeSchema;
+  [key in AllPages]: NodeSchema;
 };
 
-type H3Text = { id?: string; text: string }
+type H3Text = { id?: string; text: string };
 
 class Schema {
   private static schemas: SchemaMap = {
-    "ui-components": UIComponents,
-    "view-engine": UIComponents
+    "ui-components": UIComponentsIntro,
+    "ui-components/installation": UIComponentsInstallation,
+    "view-engine": UIComponentsIntro
   };
 
-  static get(pageName: PageName): NodeSchema {
+  static get(pageName: AllPages): NodeSchema {
     const schema = this.schemas?.[pageName];
     if (!schema) {
       // throw new Error(`Schema for page "${pageName}" not found.`);

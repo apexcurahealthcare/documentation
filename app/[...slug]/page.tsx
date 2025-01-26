@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ViewBuilder from "../lib/ViewBuilder";
-import Schema, { PageName } from "../utils/schemas";
+import Schema, { AllPages, PageName } from "../utils/schemas";
 import { Constants } from "../utils/constants";
 import Breads from "../lib/Breads";
 import Copyright from "../lib/Copyright";
@@ -18,8 +18,8 @@ export async function generateMetadata({
 }
 const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
   const { slug } = await params;
-
-  const schema = Schema.get(slug[0]);
+  const schemaSlug = slug.join("/");
+  const schema = Schema.get(schemaSlug as AllPages);
   if (!schema) {
     return null;
   }

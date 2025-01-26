@@ -1,11 +1,10 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
-import { Constants } from "../constants";
-
+import { Constants } from "../../constants";
 const project = Constants.PROJECTS.find(
   (p: any) => p.route === "/ui-components"
 );
 
-export const UIComponents: NodeSchema = {
+export const UIComponentsIntro: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-6 sm:gap-4",
   children: [
