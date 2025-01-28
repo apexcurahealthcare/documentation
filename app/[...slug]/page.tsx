@@ -1,12 +1,10 @@
 import { Metadata } from "next";
-import ViewBuilder from "../lib/ViewBuilder";
-import Schema, { AllPages, PageName } from "../utils/schemas";
-import { Constants, ISideMenuSection } from "../utils/constants";
 import Breads from "../lib/Breads";
 import Copyright from "../lib/Copyright";
-import { Button } from "@heroui/react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Pagination from "../lib/Pagination";
+import ViewBuilder from "../lib/ViewBuilder";
+import { Constants, ISideMenuSection } from "../utils/constants";
+import Schema, { AllPages, PageName } from "../utils/schemas";
 export async function generateMetadata({
   params,
 }: {
