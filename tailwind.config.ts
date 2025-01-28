@@ -33,7 +33,7 @@ export default {
     }) {
       addUtilities({
         ".d-center": {
-          "@apply flex flex-col items-center justify-center": {},
+          "@apply !flex !flex-col !items-center !justify-center": {},
         },
       });
     }),
