@@ -43,7 +43,7 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
   }
 
   return (
-    <div className="flex flex-col gap-4 mb-16" key={schemaSlug}>
+    <div className="flex flex-col gap-6 mb-16" key={schemaSlug}>
       <div className="hidden sm:block">
         <Breads
           items={[

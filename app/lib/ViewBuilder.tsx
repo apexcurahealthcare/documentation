@@ -1,15 +1,15 @@
 "use client";
-import React, { ReactNode } from "react";
 import { Image, Snippet } from "@heroui/react";
 import { motion } from "framer-motion";
-import { Zain } from "next/font/google";
+import { Outfit } from "next/font/google";
+import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-const zain = Zain({
-  weight: ["200", "300", "400", "700", "800", "900"],
+const outfit = Outfit({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  variable: "--font-zain",
-});
+  variable: "--font-outfit",
+})
 interface BaseNode {
   type: string;
   className?: string;
@@ -97,7 +97,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h1
           id={id}
-          className={`text-5xl sm:font-bold font-extrabold ${zain.className} ${className}`}
+          className={`text-4xl sm:font-semibold font-bold ${outfit.className} ${className}`}
         >
           {(schema as TextNode).text}
         </h1>
@@ -106,7 +106,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h2
           id={id}
-          className={`text-4xl sm:font-bold font-extrabold ${zain.className} ${className}`}
+          className={`text-3xl sm:font-semibold font-bold ${outfit.className} ${className}`}
         >
           {(schema as TextNode).text}
         </h2>
@@ -115,7 +115,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h3
           id={id}
-          className={`text-3xl sm:font-bold font-extrabold ${zain.className} ${className}`}
+          className={`text-2xl sm:font-semibold font-bold ${outfit.className} ${className}`}
         >
           {(schema as TextNode).text}
         </h3>
@@ -146,7 +146,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       );
     case "snippet":
       const snippetNode = schema as SnippetNode;
-      return renderElement(<Snippet fullWidth>{snippetNode?.text}</Snippet>);
+      return renderElement(<Snippet size="sm" fullWidth>{snippetNode?.text}</Snippet>);
     case "code":
       const codeNode = schema as CodeNode;
       return renderElement(
