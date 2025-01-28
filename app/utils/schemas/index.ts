@@ -1,10 +1,11 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { UIComponentsIntro } from "./ui-components/intro";
 import { UIComponentsInstallation } from "./ui-components/installation";
+import { UIComponentsButton } from "./ui-components/button";
 
 export type PageName = "ui-components" | "view-engine";
 
-export type NestedPages = "ui-components/installation";
+export type NestedPages = "ui-components/installation" | "ui-components/button";
 
 export type AllPages = PageName | NestedPages;
 
@@ -18,6 +19,7 @@ class Schema {
   private static schemas: SchemaMap = {
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
+    "ui-components/button": UIComponentsButton,
     "view-engine": UIComponentsIntro
   };
 
@@ -36,10 +38,10 @@ class Schema {
     const h3Texts: H3Text[] = [];
 
     const traverse = (node: NodeSchema) => {
-      if (node.type === "h3" && "text" in node) {
+      if (["h3", "h4"].includes(node.type) && "text" in node) {
         h3Texts.push({
           id: node.id || "",
-          text: node.text as string, // Include the text
+          text: node.text as string,
         });
       }
 

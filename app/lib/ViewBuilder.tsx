@@ -1,4 +1,5 @@
 "use client";
+import { ElementExecutor } from "@apexcura/core";
 import { Image, Snippet } from "@heroui/react";
 import { motion } from "framer-motion";
 import { Outfit } from "next/font/google";
@@ -6,6 +7,7 @@ import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import useScreenDimensions from "../(hooks)/useScreenDimensions";
+import TabsComponent from "./TabsComponent";
 const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -28,6 +30,21 @@ interface SnippetNode extends BaseNode {
 }
 interface CodeNode extends BaseNode {
   code: ReactNode;
+}
+
+export interface TabNode {
+  key: string;
+  title: string;
+  schema: NodeSchema
+}
+
+interface TabsNode extends BaseNode {
+  id: string;
+  items: TabNode[];
+}
+
+interface ExecutorNode extends BaseNode {
+  schema: any;
 }
 
 interface ImageNode extends BaseNode {
@@ -56,7 +73,9 @@ interface ListItemNode extends BaseNode {
 export type NodeSchema =
   | TextNode
   | CodeNode
+  | TabsNode
   | SnippetNode
+  | ExecutorNode
   | ImageNode
   | ContainerNode
   | ListNode
@@ -122,6 +141,15 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
           {(schema as TextNode).text}
         </h3>
       );
+    case "h4":
+      return renderElement(
+        <h4
+          id={id}
+          className={`text-xl sm:font-semibold font-bold ${outfit.className} ${className}`}
+        >
+          {(schema as TextNode).text}
+        </h4>
+      );
     case "p":
       return renderElement(
         <p id={id} className={`leading-8 ${className}`}>
@@ -164,6 +192,13 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
           {String(codeNode?.code)}
         </SyntaxHighlighter>
       );
+    case "tabs":
+      const tabsNode = schema as TabsNode;
+      return renderElement(<TabsComponent items={tabsNode.items} />);
+    case "element-executor":
+      const executorNode = schema as ExecutorNode;
+      console.log(executorNode.schema)
+      return <ElementExecutor data={executorNode?.schema}/>
     case "div":
       return renderElement(
         <div id={id} className={className}>

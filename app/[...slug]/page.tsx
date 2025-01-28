@@ -27,13 +27,13 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
   const project = Constants.PROJECTS.find((p) => p.route === `/${slug[0]}`);
   const page = slug[0];
   const SIDEMENU: ISideMenuSection[] = Constants.SIDEMENU[page] || [];
-  const section = SIDEMENU.find((section: any) =>
-    section.items.some((item: any) => item.route === `/${slug?.[1] || ""}`)
-  );
+  const items = SIDEMENU.reduce((acc: any, curr: any) => {
+    acc = [...acc, ...curr.items];
+    return acc;
+  }, []);
   let PREVIOUS, NEXT;
 
-  if (section) {
-    const items = section.items;
+  if (items.length) {
     const currentIndex = items.findIndex(
       (item: any) => item.route === `/${slug?.[1] || ""}`
     );

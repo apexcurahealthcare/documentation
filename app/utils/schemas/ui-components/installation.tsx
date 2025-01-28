@@ -1,9 +1,5 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
-import { Constants } from "../../constants";
 import { Code } from "@heroui/react";
-const project = Constants.PROJECTS.find(
-  (p: any) => p.route === "/ui-components"
-);
 
 export const UIComponentsInstallation: NodeSchema = {
   type: "div",
