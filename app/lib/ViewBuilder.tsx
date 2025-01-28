@@ -1,13 +1,15 @@
 "use client";
 import React, { ReactNode } from "react";
-import { Image } from "@heroui/react";
+import { Image, Snippet } from "@heroui/react";
 import { motion } from "framer-motion";
 import { Zain } from "next/font/google";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 const zain = Zain({
   weight: ["200", "300", "400", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--font-zain",
-})
+});
 interface BaseNode {
   type: string;
   className?: string;
@@ -18,6 +20,13 @@ interface BaseNode {
 interface TextNode extends BaseNode {
   type: "h1" | "h2" | "h3" | "p" | "li";
   text: string | ReactNode;
+}
+
+interface SnippetNode extends BaseNode {
+  text: string;
+}
+interface CodeNode extends BaseNode {
+  code: ReactNode;
 }
 
 interface ImageNode extends BaseNode {
@@ -45,6 +54,8 @@ interface ListItemNode extends BaseNode {
 
 export type NodeSchema =
   | TextNode
+  | CodeNode
+  | SnippetNode
   | ImageNode
   | ContainerNode
   | ListNode
@@ -67,7 +78,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   };
 
   const renderElement = (element: ReactNode) => {
-    if (isApplyMotion) {
+    if (isApplyMotion !== false) {
       return (
         <motion.div
           initial={{ opacity: 0 }}
@@ -84,19 +95,28 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   switch (type) {
     case "h1":
       return renderElement(
-        <h1 id={id} className={`text-5xl sm:font-bold font-extrabold ${zain.className} ${className}`}>
+        <h1
+          id={id}
+          className={`text-5xl sm:font-bold font-extrabold ${zain.className} ${className}`}
+        >
           {(schema as TextNode).text}
         </h1>
       );
     case "h2":
       return renderElement(
-        <h2 id={id} className={`text-4xl sm:font-bold font-extrabold ${zain.className} ${className}`}>
+        <h2
+          id={id}
+          className={`text-4xl sm:font-bold font-extrabold ${zain.className} ${className}`}
+        >
           {(schema as TextNode).text}
         </h2>
       );
     case "h3":
       return renderElement(
-        <h3 id={id} className={`text-3xl sm:font-bold font-extrabold ${zain.className} ${className}`}>
+        <h3
+          id={id}
+          className={`text-3xl sm:font-bold font-extrabold ${zain.className} ${className}`}
+        >
           {(schema as TextNode).text}
         </h3>
       );
@@ -123,6 +143,20 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
           isZoomed={imageNode.isZoomed}
           isBlurred={imageNode.isBlurred}
         />
+      );
+    case "snippet":
+      const snippetNode = schema as SnippetNode;
+      return renderElement(<Snippet fullWidth>{snippetNode?.text}</Snippet>);
+    case "code":
+      const codeNode = schema as CodeNode;
+      return renderElement(
+        <SyntaxHighlighter
+          language="javascript"
+          style={atomOneDark}
+          customStyle={{ borderRadius: "10px", padding: "15px" }}
+        >
+          {String(codeNode?.code)}
+        </SyntaxHighlighter>
       );
     case "div":
       return renderElement(

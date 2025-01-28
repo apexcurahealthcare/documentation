@@ -1,5 +1,6 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Constants } from "../../constants";
+import { Code } from "@heroui/react";
 const project = Constants.PROJECTS.find(
   (p: any) => p.route === "/ui-components"
 );
@@ -11,69 +12,66 @@ export const UIComponentsInstallation: NodeSchema = {
     {
       type: "h2",
       text: "Installation",
-      isApplyMotion: true,
-      className: "uppercase"
-    },
-    {
-      type: "image",
-      src: project?.img?.src || "",
-      alt: `${project?.name} Image`,
-      className: "sm:h-[200px]",
-      isBlurred: true,
-      isApplyMotion: true,
+      className: "uppercase",
     },
     {
       type: "p",
-      isApplyMotion: true,
       text: (
         <>
-          Hello team! 👋 Welcome to the official documentation for{" "}
-          <span className="font-semibold">{project?.name}</span>, our
-          organization’s very own UI components library.
+          This guide will walk you through the steps to install the{" "}
+          <Code>@apexcura/ui-components</Code> package in your project. Let’s
+          get started!
         </>
       ),
-    },
-    {
-      type: "p",
-      isApplyMotion: true,
-      text: (
-        <>
-          Built with{" "}
-          <span className="font-semibold">
-            React, TypeScript, Ant Design (AntD), and Tailwind CSS
-          </span>
-          , this library is designed to help us build consistent, scalable, and
-          visually stunning applications faster and more efficiently.
-        </>
-      ),
-    },
-    {
-      type: "p",
-      isApplyMotion: true,
-      text: `This library is all about making our lives easier. It provides a set of reusable, customizable, and well-documented components that follow our design standards and best practices. Whether you’re working on a new feature, fixing a bug, or prototyping an idea, this library is here to save you time and effort.`,
     },
     {
       type: "h3",
-      isApplyMotion: true,
-      text: "Why This Library? 🤔",
+      text: "Install the Package 📦",
     },
     {
       type: "p",
-      isApplyMotion: true,
-      text: "Here’s why we built this and why it matters:",
+      text: (
+        <>
+          To install the <Code>@apexcura/ui-components</Code> package, run the
+          following command in your project directory:
+        </>
+      ),
     },
     {
-      type: "ul",
-      children: Constants.INTRO_MATTERS.map((matter: any, index: number) => ({
-        type: "li",
-        isApplyMotion: true,
-        text: (
-          <>
-            <span className="font-semibold">{matter.heading}</span>:{" "}
-            {matter.description}
-          </>
-        ),
-      })),
+      type: "snippet",
+      text: `npm install @apexcura/ui-components`,
+    },
+    {
+      type: "p",
+      text: "This will add the library to your project’s node_modules and update your package.json file.",
+    },
+    {
+      type: "h3",
+      text: "What’s Next? 🚀",
+    },
+    {
+      type: "p",
+      text: (
+        <>
+          Once the package is installed, you can start using the components in
+          your project. Here’s an example of how to import and use a{" "}
+          <Code>Button</Code>
+          component:
+        </>
+      ),
+    },
+    {
+      type: "code",
+      code: `import { Button } from '@apexcura/ui-components';
+
+const MyComponent = () => {
+  return (
+    <Button onClick={() => alert('Hello, team!')}>
+      Click Me
+    </Button>
+  );
+};
+`,
     },
   ],
 };

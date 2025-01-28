@@ -1,14 +1,15 @@
 "use client";
 import { Button } from "@heroui/react";
 import { useState } from "react";
-import Schema, { PageName } from "../utils/schemas";
+import Schema, { AllPages, PageName } from "../utils/schemas";
 
 export const ListboxWrapper = ({ children }: { children: React.ReactNode }) => (
   <div className="w-full">{children}</div>
 );
 
-export default function OnThisPage({ page }: { page: PageName }) {
-  const schema = Schema.get(page);
+export default function OnThisPage({ page, slug }: { page: PageName, slug: string[] }) {
+  const schemaSlug = slug.join("/");
+  const schema = Schema.get(schemaSlug as AllPages);
   const headings = Schema.getH3Texts(schema);
   const [selectedKey, setSelectedKey] = useState<string | undefined>("");
 
@@ -18,12 +19,12 @@ export default function OnThisPage({ page }: { page: PageName }) {
         <h3 className="text-md text-dark font-medium leading-8">
           On this page
         </h3>
-        {headings.map((item) => (
+        {headings.map((item, i:number) => (
           <Button
             variant="light"
             size="sm"
             fullWidth={true}
-            key={item.id}
+            key={i}
             className={`text-start flex justify-start ${
               `/${selectedKey}` === item.id
                 ? "text-primary font-medium"
