@@ -29,7 +29,7 @@ export default function Sidebar({
           {section.items.map((item) => (
             <Button
               variant="light"
-              size="sm"
+              size="md"
               fullWidth={true}
               key={item.title}
               className={` ${

@@ -22,7 +22,7 @@ export default function OnThisPage({ page, slug }: { page: PageName, slug: strin
         {headings.map((item, i:number) => (
           <Button
             variant="light"
-            size="sm"
+            size="md"
             fullWidth={true}
             key={i}
             className={`text-start flex justify-start ${
