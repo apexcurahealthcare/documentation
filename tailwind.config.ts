@@ -3,6 +3,7 @@ import plugin from "tailwindcss/plugin";
 import type { PluginAPI, Config } from "tailwindcss/types/config";
 
 export default {
+  important: true,
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
