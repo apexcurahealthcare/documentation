@@ -1,5 +1,7 @@
 import UIUX from "../../public/assets/ui_ux.jpg";
 import VIEWENGINE from "../../public/assets/view_engine.jpg";
+import AGENT from "../../public/assets/agent.svg";
+import OPRX from "../../public/assets/rx.svg";
 import { PageName } from "./schemas";
 
 const INTRO_MATTERS = [
@@ -58,6 +60,25 @@ const PROJECTS = [
     npm: "https://www.npmjs.com/package/@apexcura/core",
     tags: ["Element Executor", "UI Renderer"],
   },
+  {
+    id: 3,
+    name: "Ai Agent",
+    route: "/agent",
+    description:
+      "Apex Agent is a cutting-edge, AI-powered solution designed to revolutionize hospital management. Seamlessly integrating with your existing hospital management system (HIMS), Apex Agent provides a suite of advanced features to streamline operations, enhance patient engagement, and boost overall efficiency.",
+    img: AGENT,
+    git: "https://github.com/ApexCura/view-engine",
+    tags: ["Calls", "Leads", "Chatbot", "Campaigns"],
+  },
+  {
+    id: 4,
+    name: "OP RX",
+    route: "/op-rx",
+    description: "A user-friendly outpatient prescription app that enhances patient care and streamlines pharmacy operations. Designed to seamlessly integrate into your hospital’s workflow, Apex Rx ensures accuracy, efficiency, and convenience at every step.",
+    img: OPRX,
+    git: "https://github.com/ApexCura/view-engine",
+    tags: ["OP Prescription", "Queue monitoring"],
+  }
 ];
 
 export interface ISideMenuItem {

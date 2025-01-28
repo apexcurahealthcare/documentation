@@ -36,10 +36,11 @@ export default function Home() {
                 className="border hover:border-none p-2 cursor-pointer hover:shadow-projectCard hover:scale-105 transition-all ease-in-out duration-300"
                 radius="md"
               >
-                <CardHeader className="w-full h-[120px] overflow-hidden rounded-md p-0">
+                <CardHeader className="w-full bg-primary/5 h-[120px] d-center overflow-hidden rounded-md p-0">
                   <HeroImage
                     src={project.img.src}
                     alt={project.name}
+                    isZoomed={true}
                     className="w-full h-full object-cover"
                   />
                 </CardHeader>
@@ -67,7 +68,7 @@ export default function Home() {
                           className="w-full h-full object-contain"
                         />
                       </Button>
-                      <Button
+                      {project?.npm && <Button
                         isIconOnly
                         variant="light"
                         size="sm"
@@ -79,10 +80,10 @@ export default function Home() {
                           alt="NPM"
                           className="w-full h-full object-contain"
                         />
-                      </Button>
+                      </Button>}
                     </div>
                   </div>
-                  <p className="text-xs text-gray-500 mb-2 line-clamp-2 flex-1">
+                  <p className="text-xs text-gray-500 mb-2 line-clamp-2 sm:line-clamp-3 flex-1">
                     {project.description}
                   </p>
                   <div className="flex gap-2">
