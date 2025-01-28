@@ -1,9 +1,12 @@
 import { Metadata } from "next";
 import ViewBuilder from "../lib/ViewBuilder";
 import Schema, { AllPages, PageName } from "../utils/schemas";
-import { Constants } from "../utils/constants";
+import { Constants, ISideMenuSection } from "../utils/constants";
 import Breads from "../lib/Breads";
 import Copyright from "../lib/Copyright";
+import { Button } from "@heroui/react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import Pagination from "../lib/Pagination";
 export async function generateMetadata({
   params,
 }: {
@@ -24,9 +27,25 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
     return null;
   }
   const project = Constants.PROJECTS.find((p) => p.route === `/${slug[0]}`);
+  const page = slug[0];
+  const SIDEMENU: ISideMenuSection[] = Constants.SIDEMENU[page] || [];
+  const section = SIDEMENU.find((section: any) =>
+    section.items.some((item: any) => item.route === `/${slug?.[1] || ""}`)
+  );
+  let PREVIOUS, NEXT;
+
+  if (section) {
+    const items = section.items;
+    const currentIndex = items.findIndex(
+      (item: any) => item.route === `/${slug?.[1] || ""}`
+    );
+
+    PREVIOUS = currentIndex > 0 ? items[currentIndex - 1] : null;
+    NEXT = currentIndex < items.length - 1 ? items[currentIndex + 1] : null;
+  }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 mb-16">
       <div className="hidden sm:block">
         <Breads
           items={[
@@ -36,6 +55,16 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
         />
       </div>
       <ViewBuilder schema={schema} />
+      <Pagination
+        next={{
+          href: `/${page}${NEXT?.route}` || "",
+          label: NEXT?.title || "",
+        }}
+        previous={{
+          href: `/${page}${PREVIOUS?.route}` || "",
+          label: PREVIOUS?.title || "",
+        }}
+      />
       <Copyright />
     </div>
   );

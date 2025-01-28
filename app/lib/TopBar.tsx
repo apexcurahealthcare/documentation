@@ -29,10 +29,10 @@ export default function TopBar() {
           >
             <Image src={LOGOSM} alt="Logo" />
             <div className="ml-1">
-              <p className="font-[650] text-xl text-primary">
-                Apex<span className="font-semibold">Cura</span>
+              <p className="font-[550] text-lg leading-none text-primary">
+                Apex
               </p>
-              <p className="text-default-700 font-medium text-xs leading-none">
+              <p className="text-lg font-medium">
                 Documentation
               </p>
             </div>
