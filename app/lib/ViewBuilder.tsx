@@ -5,11 +5,12 @@ import { Outfit } from "next/font/google";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import useScreenDimensions from "../(hooks)/useScreenDimensions";
 const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
   variable: "--font-outfit",
-})
+});
 interface BaseNode {
   type: string;
   className?: string;
@@ -67,6 +68,7 @@ interface ViewBuilderProps {
 
 const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   const { type, className, id, isApplyMotion } = schema;
+  const dimensions = useScreenDimensions();
 
   const renderChildren = () => {
     if ("children" in schema) {
@@ -146,7 +148,11 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       );
     case "snippet":
       const snippetNode = schema as SnippetNode;
-      return renderElement(<Snippet size="sm" fullWidth>{snippetNode?.text}</Snippet>);
+      return renderElement(
+        <Snippet size={dimensions?.width < 639 ? "sm" : "md"} fullWidth>
+          {snippetNode?.text}
+        </Snippet>
+      );
     case "code":
       const codeNode = schema as CodeNode;
       return renderElement(
