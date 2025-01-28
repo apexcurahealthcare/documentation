@@ -127,15 +127,7 @@ const SIDEMENU: ISideMenu = {
         {
           route: "/button",
           title: "Button",
-        },
-        {
-          route: "/daterange-picker",
-          title: "Date Range Picker",
-        },
-        {
-          route: "/tabs",
-          title: "Tabs",
-        },
+        }
       ],
     },
   ],
