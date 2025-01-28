@@ -178,9 +178,11 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
     case "snippet":
       const snippetNode = schema as SnippetNode;
       return renderElement(
-        <Snippet size={dimensions?.width < 639 ? "sm" : "md"} fullWidth>
-          {snippetNode?.text}
-        </Snippet>
+        <div className="w-full overflow-x-auto">
+          <Snippet size={dimensions?.width < 639 ? "sm" : "md"}>
+            {snippetNode?.text}
+          </Snippet>
+        </div>
       );
     case "code":
       const codeNode = schema as CodeNode;
