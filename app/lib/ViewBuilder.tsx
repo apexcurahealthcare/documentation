@@ -8,6 +8,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import useScreenDimensions from "../(hooks)/useScreenDimensions";
 import TabsComponent from "./TabsComponent";
+import IconsList from "./IconsList";
 const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -47,6 +48,10 @@ interface ExecutorNode extends BaseNode {
   schema: any;
 }
 
+interface IconsListNode extends BaseNode {
+  type: "icons"
+}
+
 interface ImageNode extends BaseNode {
   type: "image";
   src: string;
@@ -76,6 +81,7 @@ export type NodeSchema =
   | TabsNode
   | SnippetNode
   | ExecutorNode
+  | IconsListNode
   | ImageNode
   | ContainerNode
   | ListNode
@@ -202,6 +208,8 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       const executorNode = schema as ExecutorNode;
       console.log(executorNode.schema)
       return <ElementExecutor data={executorNode?.schema}/>
+    case "icons":
+      return renderElement(<IconsList />)
     case "div":
       return renderElement(
         <div id={id} className={className}>

@@ -1,5 +1,6 @@
 import UIUX from "../../public/assets/ui_ux.jpg";
 import VIEWENGINE from "../../public/assets/view_engine.jpg";
+import ICONS from "../../public/assets/icons-health.jpg";
 import AGENT from "../../public/assets/agent.svg";
 import OPRX from "../../public/assets/rx.svg";
 import { PageName } from "./schemas";
@@ -61,6 +62,15 @@ const PROJECTS = [
     tags: ["Element Executor", "UI Renderer"],
   },
   {
+    id:5,
+    name: "Apex Icons",
+    route: "/apex-icons",
+    description: "Collection of icons including most of hospital themed designed for all apex projects maintaining a common UI and theme",
+    img: ICONS,
+    git: "https://github.com/ApexCura/icons-package",
+    tags: ["Icons", "SVG", "Classnames"],
+  },
+  {
     id: 3,
     name: "Ai Agent",
     route: "/agent",
@@ -97,6 +107,26 @@ export type ISideMenu = {
 };
 
 const SIDEMENU: ISideMenu = {
+  "apex-icons": [
+    {
+      key: "getting-started",
+      title: "Getting Started",
+      items: [
+        {
+          route: "/",
+          title: "Introduction",
+        },
+        {
+          route: "/installation",
+          title: "Installation",
+        },
+        {
+          route: "/developers",
+          title: "Developers",
+        },
+      ],
+    },
+  ],
   "ui-components": [
     {
       key: "getting-started",

@@ -2,8 +2,9 @@ import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { UIComponentsIntro } from "./ui-components/intro";
 import { UIComponentsInstallation } from "./ui-components/installation";
 import { UIComponentsButton } from "./ui-components/button";
+import { ApexIconsIntro } from "./apex-icons/intro";
 
-export type PageName = "ui-components" | "view-engine";
+export type PageName = "apex-icons" |"ui-components" | "view-engine";
 
 export type NestedPages = "ui-components/installation" | "ui-components/button";
 
@@ -17,6 +18,7 @@ type H3Text = { id?: string; text: string };
 
 class Schema {
   private static schemas: SchemaMap = {
+    "apex-icons": ApexIconsIntro,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
     "ui-components/button": UIComponentsButton,

@@ -86,7 +86,7 @@ export default function Home() {
                   <p className="text-xs text-gray-500 mb-2 line-clamp-2 sm:line-clamp-3 flex-1">
                     {project.description}
                   </p>
-                  <div className="flex gap-2">
+                  <div className="flex gap-1">
                     {project.tags.map((tag) => (
                       <Chip key={tag} size="sm" className="bg-gray-100 text-xs">
                         <span className="font-medium text-gray-800">{tag}</span>
