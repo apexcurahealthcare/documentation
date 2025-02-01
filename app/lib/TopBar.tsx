@@ -47,7 +47,7 @@ export default function TopBar() {
             mainWrapper: "h-full",
             input: "text-xs",
             inputWrapper:
-              "h-full font-normal px-4 text-default-500 bg-default-400/20 dark:bg-default-500/20 shadow-none",
+              "h-full font-normal px-4 text-default-500 bg-default-400/10 dark:bg-default-500/20 shadow-none",
           }}
           placeholder="Type to search..."
           size="sm"

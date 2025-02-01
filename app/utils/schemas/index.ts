@@ -4,6 +4,7 @@ import { UIComponentsInstallation } from "./ui-components/installation";
 import { UIComponentsButton } from "./ui-components/button";
 import { ApexIconsIntro } from "./apex-icons/intro";
 import { ApexIconsInstallation } from "./apex-icons/installation";
+import { ApexIconsList } from "./apex-icons/list";
 
 export type PageName = "apex-icons" |"ui-components" | "view-engine";
 
@@ -21,7 +22,7 @@ class Schema {
   private static schemas: SchemaMap = {
     "apex-icons": ApexIconsIntro,
     "apex-icons/installation": ApexIconsInstallation,
-    "apex-icons/list": ApexIconsInstallation,
+    "apex-icons/list": ApexIconsList,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
     "ui-components/button": UIComponentsButton,
