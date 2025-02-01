@@ -18,7 +18,7 @@ export default function Home() {
         <span className="text-primary">ApexCura</span> Projects
       </h1> */}
       <div className="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2 gap-4">
-        {Constants.PROJECTS.map((project) => {
+        {Constants.PROJECTS.map((project, i) => {
           return (
             <motion.div
               key={project.id}
@@ -29,6 +29,7 @@ export default function Home() {
               transition={{
                 duration: 0.5,
                 ease: "easeInOut",
+                delay: i * 0.15
               }}
             >
               <Card
