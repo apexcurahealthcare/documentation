@@ -137,7 +137,7 @@ const SIDEMENU: ISideMenu = {
       title: "Getting Started",
       items: [
         {
-          route: "/introduction",
+          route: "/",
           title: "Introduction",
         },
         {

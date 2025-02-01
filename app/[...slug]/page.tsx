@@ -1,10 +1,8 @@
 import { Metadata } from "next";
-import Breads from "../lib/Breads";
 import Copyright from "../lib/Copyright";
-import Pagination from "../lib/Pagination";
-import ViewBuilder from "../lib/ViewBuilder";
 import { Constants, ISideMenuSection } from "../utils/constants";
 import Schema, { AllPages, PageName } from "../utils/schemas";
+import DetailsPage from "../lib/Details";
 export async function generateMetadata({
   params,
 }: {
@@ -31,38 +29,19 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
     acc = [...acc, ...curr.items];
     return acc;
   }, []);
-  let PREVIOUS, NEXT;
 
+  let PREVIOUS, NEXT;
   if (items.length) {
     const currentIndex = items.findIndex(
       (item: any) => item.route === `/${slug?.[1] || ""}`
     );
-
     PREVIOUS = currentIndex > 0 ? items[currentIndex - 1] : null;
     NEXT = currentIndex < items.length - 1 ? items[currentIndex + 1] : null;
   }
 
   return (
     <div className="flex flex-col gap-6 mb-16 sm:mb-4" key={schemaSlug}>
-      <div className="hidden sm:block">
-        <Breads
-          items={[
-            { key: "/", label: "Home" },
-            { key: project?.route || "", label: project?.name || "" },
-          ]}
-        />
-      </div>
-      <ViewBuilder schema={schema} />
-      <Pagination
-        next={{
-          href: `/${page}${NEXT?.route}` || "",
-          label: NEXT?.title || "",
-        }}
-        previous={{
-          href: `/${page}${PREVIOUS?.route}` || "",
-          label: PREVIOUS?.title || "",
-        }}
-      />
+      <DetailsPage schema={schema} project={project} page={page} PREVIOUS={PREVIOUS} NEXT={NEXT} />
       <Copyright />
     </div>
   );
