@@ -37,27 +37,28 @@ export default function Sidebar({
   return (
     <div className="p-6 sticky top-[64px] h-screen sm:hidden flex flex-col gap-2 overflow-y-scroll [&::-webkit-scrollbar]:hidden">
       {SIDEMENU.map((section, sectionIndex) => (
-        <motion.div
+        <div
           key={section.key}
-          custom={sectionIndex} // Pass index to variants
-          initial="hidden"
-          whileInView="visible"
-          variants={sectionVariants}
+          // custom={sectionIndex} // Pass index to variants
+          // initial="hidden"
+          // whileInView="visible"
+          // variants={sectionVariants}
         >
           <h3 className="text-md text-dark font-medium leading-8">
             {section.title}
           </h3>
           {section.items.map((item, itemIndex) => (
-            <motion.div
-              key={item.title}
-              custom={sectionIndex + itemIndex / 10} // Slightly stagger items
-              initial="hidden"
-              whileInView="visible"
-              variants={sectionVariants}
-            >
+            // <motion.div
+            //   key={item.title}
+            //   custom={sectionIndex + itemIndex / 10} // Slightly stagger items
+            //   initial="hidden"
+            //   whileInView="visible"
+            //   variants={sectionVariants}
+            // >
               <Button
                 variant="light"
                 size="md"
+                key={item.title}
                 fullWidth={true}
                 className={`${
                   `/${selectedKey}` === item.route
@@ -74,9 +75,9 @@ export default function Sidebar({
                   <span>{item.title}</span>
                 </span>
               </Button>
-            </motion.div>
+            // </motion.div>
           ))}
-        </motion.div>
+        </div>
       ))}
     </div>
   );
