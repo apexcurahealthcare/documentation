@@ -5,6 +5,20 @@ import AGENT from "../../public/assets/agent.svg";
 import OPRX from "../../public/assets/rx.svg";
 import { PageName } from "./schemas";
 
+const ICONS_USAGE = [
+  {
+    heading: "aci",
+    description:
+      "The base class for all Apexcura Icons.",
+  },
+  {
+    heading: "aci-{icon-name}",
+    description:
+      'The class name for the specific icon you want to show (eg: <i>aci-add</i> for the add icon).',
+  },
+  
+];
+
 const INTRO_MATTERS = [
   {
     heading: "Consistency Across Projects",
@@ -121,6 +135,10 @@ const SIDEMENU: ISideMenu = {
           title: "Installation",
         },
         {
+          route: "/list",
+          title: "Icons",
+        },
+        {
           route: "/developers",
           title: "Developers",
         },
@@ -183,4 +201,4 @@ const SIDEMENU: ISideMenu = {
   ],
 };
 
-export const Constants = { INTRO_MATTERS, PROJECTS, SIDEMENU };
+export const Constants = { ICONS_USAGE, INTRO_MATTERS, PROJECTS, SIDEMENU };

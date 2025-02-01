@@ -22,7 +22,7 @@ interface BaseNode {
 }
 
 interface TextNode extends BaseNode {
-  type: "h1" | "h2" | "h3" | "p" | "li";
+  type: "h1" | "h2" | "h3" | "h4" | "p" | "li";
   text: string | ReactNode;
 }
 
@@ -152,7 +152,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h4
           id={id}
-          className={`text-xl sm:font-semibold font-bold ${outfit.className} ${className}`}
+          className={`text-lg sm:font-semibold font-bold ${outfit.className} ${className}`}
         >
           {(schema as TextNode).text}
         </h4>

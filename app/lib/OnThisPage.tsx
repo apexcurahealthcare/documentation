@@ -55,10 +55,10 @@ export default function OnThisPage({
           >
             <Button
               variant="light"
-              size="md"
+              size="sm"
               fullWidth={true}
               key={i}
-              className={`text-start flex justify-start ${
+              className={`text-start truncate line-clamp-1 flex justify-start ${
                 `/${selectedKey}` === item.id
                   ? "text-primary font-medium"
                   : "text-gray-700"

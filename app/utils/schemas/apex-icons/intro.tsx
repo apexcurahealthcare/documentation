@@ -1,5 +1,6 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Constants } from "../../constants";
+import { Code } from "@heroui/react";
 
 const project = Constants.PROJECTS.find((p: any) => p.route === "/apex-icons");
 
@@ -14,9 +15,6 @@ export const ApexIconsIntro: NodeSchema = {
       className: "uppercase",
     },
     {
-      type: "icons",
-    },
-    {
       type: "image",
       src: project?.img?.src || "",
       alt: `${project?.name} Image`,
@@ -29,9 +27,29 @@ export const ApexIconsIntro: NodeSchema = {
       isApplyMotion: true,
       text: (
         <>
-          Hello team! 👋 Welcome to the official documentation for{" "}
-          <span className="font-semibold">{project?.name}</span>, our
-          organization’s very own UI components library.
+          <span className="font-semibold">Apexcura Icons</span> is a collection
+          of scalable vector icons that can be easily integrated into your
+          projects.
+        </>
+      ),
+    },
+    {
+      type: "p",
+      isApplyMotion: true,
+      text: (
+        <>
+          The icons are loaded via a script file and use a class-based approach,
+          similar to{" "}
+          <a
+            href="https://fontawesome.com/"
+            target="_blank"
+            className="text-primary border-b border-primary border-dotted font-medium"
+          >
+            FontAwesome
+          </a>
+          . You can customize the size, color, and behavior of the icons using
+          utility classes like <Code>aci-dynamic-size</Code> ,{" "}
+          <Code>aci-no-colorize</Code> , and Tailwind CSS classes.
         </>
       ),
     },
@@ -42,40 +60,17 @@ export const ApexIconsIntro: NodeSchema = {
         <>
           Built with{" "}
           <span className="font-semibold">
-            React, TypeScript, Ant Design (AntD), and Tailwind CSS
+            React, Webpack, and Tailwind CSS
           </span>
           , this library is designed to help us build consistent, scalable, and
-          visually stunning applications faster and more efficiently.
+          visually stunning icons faster and more efficiently.
         </>
       ),
     },
     {
       type: "p",
       isApplyMotion: true,
-      text: `This library is all about making our lives easier. It provides a set of reusable, customizable, and well-documented components that follow our design standards and best practices. Whether you’re working on a new feature, fixing a bug, or prototyping an idea, this library is here to save you time and effort.`,
-    },
-    {
-      type: "h3",
-      isApplyMotion: true,
-      text: "Why This Library? 🤔",
-    },
-    {
-      type: "p",
-      isApplyMotion: true,
-      text: "Here’s why we built this and why it matters:",
-    },
-    {
-      type: "ul",
-      children: Constants.INTRO_MATTERS.map((matter: any, index: number) => ({
-        type: "li",
-        isApplyMotion: true,
-        text: (
-          <>
-            <span className="font-semibold">{matter.heading}</span>:{" "}
-            {matter.description}
-          </>
-        ),
-      })),
+      text: `This library is all about making our lives easier. It provides a set of reusable, customizable, and well-documented icons that follow our design standards and best practices.`,
     },
   ],
 };
