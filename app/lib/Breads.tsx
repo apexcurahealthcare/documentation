@@ -1,8 +1,8 @@
 "use client";
 import { BreadcrumbItem, Breadcrumbs } from "@heroui/react";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { motion } from "motion/react";
+import { useState } from "react";
+import RevealWrapper from "./Motion";
 // Define the BreadcrumbItem type
 type BreadcrumbItemType = {
   key: string;
@@ -19,11 +19,7 @@ const Breads = ({ items }: Props) => {
   const [currentPage, setCurrentPage] = useState<string>(last.key);
   const router = useRouter();
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ y: [20, 0], opacity: [0, 1] }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
+    <RevealWrapper>
       <Breadcrumbs
         underline="active"
         onAction={(e: any) => {
@@ -37,7 +33,7 @@ const Breads = ({ items }: Props) => {
           </BreadcrumbItem>
         ))}
       </Breadcrumbs>
-    </motion.div>
+    </RevealWrapper>
   );
 };
 

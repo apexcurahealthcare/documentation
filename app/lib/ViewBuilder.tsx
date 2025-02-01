@@ -9,6 +9,7 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import useScreenDimensions from "../(hooks)/useScreenDimensions";
 import TabsComponent from "./TabsComponent";
 import IconsList from "./IconsList";
+import RevealWrapper from "./Motion";
 const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -36,7 +37,7 @@ interface CodeNode extends BaseNode {
 export interface TabNode {
   key: string;
   title: string;
-  schema: NodeSchema
+  schema: NodeSchema;
 }
 
 interface TabsNode extends BaseNode {
@@ -49,7 +50,7 @@ interface ExecutorNode extends BaseNode {
 }
 
 interface IconsListNode extends BaseNode {
-  type: "icons"
+  type: "icons";
 }
 
 interface ImageNode extends BaseNode {
@@ -106,16 +107,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
 
   const renderElement = (element: ReactNode) => {
     if (isApplyMotion !== false) {
-      return (
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ y: [20, 0], opacity: [0, 1] }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          // viewport={{ once: true }}
-        >
-          {element}
-        </motion.div>
-      );
+      return <RevealWrapper>{element}</RevealWrapper>;
     }
     return element;
   };
@@ -206,10 +198,10 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(<TabsComponent items={tabsNode.items} />);
     case "element-executor":
       const executorNode = schema as ExecutorNode;
-      console.log(executorNode.schema)
-      return <ElementExecutor data={executorNode?.schema}/>
+      console.log(executorNode.schema);
+      return <ElementExecutor data={executorNode?.schema} />;
     case "icons":
-      return renderElement(<IconsList />)
+      return renderElement(<IconsList />);
     case "div":
       return renderElement(
         <div id={id} className={className}>

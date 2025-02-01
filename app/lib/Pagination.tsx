@@ -1,10 +1,9 @@
 "use client";
 import { Button } from "@heroui/react";
-import React from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { Utils } from "../utils";
+import RevealWrapper from "./Motion";
 type props = {
   previous: {
     href: string;
@@ -18,20 +17,16 @@ type props = {
 const Pagination = ({ previous, next }: props) => {
   const router = useRouter();
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ y: [20, 0], opacity: [0, 1] }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
+    <RevealWrapper>
       <div className="grid grid-cols-2">
         {previous?.label ? (
           <Button
             variant="light"
             className="place-self-start"
             startContent={<FaChevronLeft />}
-            onPress={()=> {
+            onPress={() => {
               Utils.scrollToTop();
-              router.push(previous.href)
+              router.push(previous.href);
             }}
           >
             {previous?.label}
@@ -44,7 +39,7 @@ const Pagination = ({ previous, next }: props) => {
             variant="light"
             className="place-self-end"
             endContent={<FaChevronRight />}
-            onPress={()=> {
+            onPress={() => {
               Utils.scrollToTop();
               router.push(next.href);
             }}
@@ -55,7 +50,7 @@ const Pagination = ({ previous, next }: props) => {
           <div></div>
         )}
       </div>
-    </motion.div>
+    </RevealWrapper>
   );
 };
 
