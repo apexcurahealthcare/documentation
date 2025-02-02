@@ -22,7 +22,7 @@ const IconsList = () => {
   useEffect(() => {
     const script = document.createElement("script");
     const timestamp = new Date().getTime(); // Generate a unique timestamp
-    script.src = `https://dev.apexcura.com/api/public/scripts/apexcura.icons.js?t=${timestamp}`;
+    script.src = `https://suite.apexcura.com/api/public/scripts/apexcura.icons.js?t=${timestamp}`;
     script.onload = () => {
       if (window?.acIcons) {
         setIcons(window.acIcons);

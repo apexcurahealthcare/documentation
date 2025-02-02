@@ -5,6 +5,38 @@ import AGENT from "../../public/assets/agent.svg";
 import OPRX from "../../public/assets/rx.svg";
 import { PageName } from "./schemas";
 
+const IMAGES = {
+  user_male: "https://img.freepik.com/free-psd/3d-rendering-teenager-boy-white-t-shirt_1142-53060.jpg?t=st=1738464421~exp=1738468021~hmac=61ccbd07521ae8a79186477cdb69eefe20931046de9cee39fc454e466342d0b8&w=740",
+  user_female: "https://img.freepik.com/free-psd/3d-rendering-teenager-girl-hood-isolated-white-background_1142-53817.jpg?t=st=1738466216~exp=1738469816~hmac=e97b72f87296d92f0fe440facafcb8ecc9f38485893d4a546ba0424317aaf726&w=740"
+}
+
+export type Developer = {
+  shortName: "charan" | "srilekha";
+  fullName: string;
+  email: string;
+  url?: string;
+  urlName?: string;
+  avatar?: string;
+  gender: "male" | "female" | "other";
+}
+
+const DEVELOPERS: Developer[] = [
+  {
+    shortName: "charan",
+    fullName: "Charan vinay",
+    email: "charanvinay@auroraelabs.com",
+    gender: "male",
+    avatar: IMAGES["user_male"]
+  },
+  {
+    shortName: "srilekha",
+    fullName: "Srilekha Tirumalasetti",
+    email: "srilekha@apexcura.com",
+    gender: "female",
+    avatar: IMAGES["user_female"]
+  }
+]
+
 const ICONS_USAGE = [
   {
     heading: "aci",
@@ -93,6 +125,36 @@ const PROJECTS = [
     img: AGENT,
     git: "https://github.com/ApexCura/view-engine",
     tags: ["Calls", "Leads", "Chatbot", "Campaigns"],
+  },
+  {
+    id: 6,
+    name: "Ai Chatbot",
+    route: "/chat-bot",
+    description:
+      "Apex Agent is a cutting-edge, AI-powered solution designed to revolutionize hospital management. Seamlessly integrating with your existing hospital management system (HIMS), Apex Agent provides a suite of advanced features to streamline operations, enhance patient engagement, and boost overall efficiency.",
+    img: AGENT,
+    git: "https://github.com/ApexCura/apexcura-widget-chatbot",
+    tags: ["Chatbot"],
+  },
+  {
+    id: 7,
+    name: "Appointment Widget",
+    route: "/appt-widget",
+    description:
+      "Apex Agent is a cutting-edge, AI-powered solution designed to revolutionize hospital management. Seamlessly integrating with your existing hospital management system (HIMS), Apex Agent provides a suite of advanced features to streamline operations, enhance patient engagement, and boost overall efficiency.",
+    img: AGENT,
+    git: "https://github.com/ApexCura/apexcura-widget-op-booking",
+    tags: ["Appointments"],
+  },
+  {
+    id: 8,
+    name: "Apex Website",
+    route: "/apex-web",
+    description:
+      "Apex Agent is a cutting-edge, AI-powered solution designed to revolutionize hospital management. Seamlessly integrating with your existing hospital management system (HIMS), Apex Agent provides a suite of advanced features to streamline operations, enhance patient engagement, and boost overall efficiency.",
+    img: AGENT,
+    git: "https://github.com/ApexCura/apexcura-nextjs-website",
+    tags: ["Website"],
   },
   {
     id: 4,
@@ -201,4 +263,4 @@ const SIDEMENU: ISideMenu = {
   ],
 };
 
-export const Constants = { ICONS_USAGE, INTRO_MATTERS, PROJECTS, SIDEMENU };
+export const Constants = { DEVELOPERS, ICONS_USAGE, INTRO_MATTERS, PROJECTS, SIDEMENU };

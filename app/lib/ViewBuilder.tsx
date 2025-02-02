@@ -1,15 +1,14 @@
 "use client";
 import { ElementExecutor } from "@apexcura/core";
-import { Image, Snippet } from "@heroui/react";
-import { motion } from "framer-motion";
+import { Image, Snippet, User } from "@heroui/react";
 import { Outfit } from "next/font/google";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import useScreenDimensions from "../(hooks)/useScreenDimensions";
-import TabsComponent from "./TabsComponent";
 import IconsList from "./IconsList";
 import RevealWrapper from "./Motion";
+import TabsComponent from "./TabsComponent";
 const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -52,6 +51,13 @@ interface ExecutorNode extends BaseNode {
 interface IconsListNode extends BaseNode {
   type: "icons";
 }
+interface UserNode extends BaseNode {
+  type: "user";
+  avatar?: string;
+  url?: string;
+  name: string;
+  urlName?: string;
+}
 
 interface ImageNode extends BaseNode {
   type: "image";
@@ -86,6 +92,7 @@ export type NodeSchema =
   | ImageNode
   | ContainerNode
   | ListNode
+  | UserNode
   | ListItemNode;
 
 interface ViewBuilderProps {
@@ -192,6 +199,24 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
         >
           {String(codeNode?.code)}
         </SyntaxHighlighter>
+      );
+    case "user":
+      const userNode = schema as UserNode;
+      return renderElement(
+        <User
+          className="border font-medium w-full p-4 justify-start"
+          avatarProps={{
+            src: userNode?.avatar,
+            name: userNode?.name,
+            color: "primary",
+          }}
+          description={
+            <p className="text-xs font-medium text-primary">
+              {userNode?.urlName || userNode?.url}
+            </p>
+          }
+          name={userNode?.name}
+        />
       );
     case "tabs":
       const tabsNode = schema as TabsNode;

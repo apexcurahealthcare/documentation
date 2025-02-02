@@ -5,10 +5,11 @@ import { UIComponentsButton } from "./ui-components/button";
 import { ApexIconsIntro } from "./apex-icons/intro";
 import { ApexIconsInstallation } from "./apex-icons/installation";
 import { ApexIconsList } from "./apex-icons/list";
+import { ApexIconsDevelopers } from "./apex-icons/developers";
 
 export type PageName = "apex-icons" |"ui-components" | "view-engine";
 
-export type NestedPages = "apex-icons/installation" | "apex-icons/list" | "ui-components/installation" | "ui-components/button";
+export type NestedPages = "apex-icons/installation" | "apex-icons/list" | "apex-icons/developers" | "ui-components/installation" | "ui-components/button";
 
 export type AllPages = PageName | NestedPages;
 
@@ -22,6 +23,7 @@ class Schema {
   private static schemas: SchemaMap = {
     "apex-icons": ApexIconsIntro,
     "apex-icons/installation": ApexIconsInstallation,
+    "apex-icons/developers": ApexIconsDevelopers,
     "apex-icons/list": ApexIconsList,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
