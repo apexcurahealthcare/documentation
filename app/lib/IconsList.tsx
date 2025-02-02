@@ -106,7 +106,7 @@ const IconsList = () => {
                 onClick={() => handleCopy(className)}
               >
                 <span dangerouslySetInnerHTML={{ __html: svg }}></span>
-                <p className="text-[8px] font-semibold text-gray-500">
+                <p className="text-[8px] text-center font-semibold text-gray-500">
                   {className}
                 </p>
               </div>

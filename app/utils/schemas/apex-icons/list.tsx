@@ -9,6 +9,7 @@ export const ApexIconsList: NodeSchema = {
       children: [
         {
           type: "h3",
+          id: "list-of-available-items",
           text: "List of available icons",
           isApplyMotion: true,
         },

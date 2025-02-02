@@ -24,7 +24,7 @@ const DEVELOPERS: Developer[] = [
   {
     shortName: "charan",
     fullName: "Charan vinay",
-    email: "charanvinay@auroraelabs.com",
+    email: "charanvinay@apexcura.com",
     gender: "male",
     avatar: IMAGES["user_male"]
   },

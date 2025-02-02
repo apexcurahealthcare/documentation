@@ -26,6 +26,7 @@ export const ApexIconsInstallation: NodeSchema = {
     },
     {
       type: "h3",
+      id: "install-the-package",
       text: "Install the Package 📦",
     },
 
@@ -46,6 +47,7 @@ export const ApexIconsInstallation: NodeSchema = {
     },
     {
       type: "h3",
+      id: "usage",
       text: "Usage 🚀",
     },
     {
@@ -98,6 +100,7 @@ export const ApexIconsInstallation: NodeSchema = {
     },
     {
       type: "h3",
+      id: "customizing-icons",
       text: "Customizing Icons 🎨",
     },
     {
@@ -204,6 +207,7 @@ export const ApexIconsInstallation: NodeSchema = {
     },
     {
       type: "h3",
+      id: "available-icons",
       text: "Available Icons 🖼️",
     },
     {

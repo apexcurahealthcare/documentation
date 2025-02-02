@@ -22,14 +22,18 @@ const Pagination = ({ previous, next }: props) => {
         {previous?.label ? (
           <Button
             variant="light"
+            size="lg"
             className="place-self-start"
-            startContent={<FaChevronLeft />}
+            startContent={<FaChevronLeft className="text-primary" />}
             onPress={() => {
               Utils.scrollToTop();
               router.push(previous.href);
             }}
           >
-            {previous?.label}
+            <div className="flex flex-col items-start justify-center">
+              <p className="font-medium"> {previous?.label}</p>
+              <p className="leading-3 text-gray-500 text-[10px]">Previous</p>
+            </div>
           </Button>
         ) : (
           <div></div>
@@ -37,14 +41,18 @@ const Pagination = ({ previous, next }: props) => {
         {next?.label ? (
           <Button
             variant="light"
+            size="lg"
             className="place-self-end"
-            endContent={<FaChevronRight />}
+            endContent={<FaChevronRight className="text-primary" />}
             onPress={() => {
               Utils.scrollToTop();
               router.push(next.href);
             }}
           >
-            {next?.label}
+            <div className="flex flex-col items-end justify-center">
+              <p className="font-medium"> {next?.label}</p>
+              <p className="leading-3 text-gray-500 text-[10px]">Next</p>
+            </div>
           </Button>
         ) : (
           <div></div>

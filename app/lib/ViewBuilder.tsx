@@ -195,7 +195,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
         <SyntaxHighlighter
           language="javascript"
           style={atomOneDark}
-          customStyle={{ borderRadius: "10px", padding: "15px" }}
+          customStyle={{ borderRadius: "10px", fontSize: "14px", padding: "12px" }}
         >
           {String(codeNode?.code)}
         </SyntaxHighlighter>

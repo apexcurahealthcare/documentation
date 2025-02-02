@@ -22,6 +22,7 @@ export const UIComponentsInstallation: NodeSchema = {
     },
     {
       type: "h3",
+      id: "install-the-package",
       text: "Install the Package 📦",
     },
     {
@@ -43,6 +44,7 @@ export const UIComponentsInstallation: NodeSchema = {
     },
     {
       type: "h3",
+      id: "whats-next",
       text: "What’s Next? 🚀",
     },
     {

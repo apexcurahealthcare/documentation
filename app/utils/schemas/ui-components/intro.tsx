@@ -54,6 +54,7 @@ export const UIComponentsIntro: NodeSchema = {
     },
     {
       type: "h3",
+      id: "why-this-library",
       isApplyMotion: true,
       text: "Why This Library? 🤔",
     },
