@@ -23,6 +23,7 @@ export const ApexIconsList: NodeSchema = {
     },
     {
       type: "icons",
+      isApplyMotion: false,
     },
   ],
 };

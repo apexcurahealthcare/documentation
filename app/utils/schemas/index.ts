@@ -6,10 +6,22 @@ import { ApexIconsIntro } from "./apex-icons/intro";
 import { ApexIconsInstallation } from "./apex-icons/installation";
 import { ApexIconsList } from "./apex-icons/list";
 import { ApexIconsDevelopers } from "./apex-icons/developers";
+import { UIComponentsDevelopers } from "./ui-components/developers";
+import { ViewEngineIntro } from "./view-engine/intro";
+import { ViewEngineInstallation } from "./view-engine/installation";
+import { ViewEngineDevelopers } from "./view-engine/developers";
 
-export type PageName = "apex-icons" |"ui-components" | "view-engine";
+export type PageName = "apex-icons" | "ui-components" | "view-engine";
 
-export type NestedPages = "apex-icons/installation" | "apex-icons/list" | "apex-icons/developers" | "ui-components/installation" | "ui-components/button";
+export type NestedPages =
+  | "apex-icons/installation"
+  | "apex-icons/list"
+  | "apex-icons/developers"
+  | "ui-components/installation"
+  | "ui-components/developers"
+  | "ui-components/button"
+  | "view-engine/installation"
+  | "view-engine/developers"
 
 export type AllPages = PageName | NestedPages;
 
@@ -27,8 +39,11 @@ class Schema {
     "apex-icons/list": ApexIconsList,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
+    "ui-components/developers": UIComponentsDevelopers,
     "ui-components/button": UIComponentsButton,
-    "view-engine": UIComponentsIntro
+    "view-engine": ViewEngineIntro,
+    "view-engine/installation": ViewEngineInstallation,
+    "view-engine/developers": ViewEngineDevelopers
   };
 
   static get(pageName: AllPages): NodeSchema {
@@ -42,7 +57,7 @@ class Schema {
     }
     return schema;
   }
-  static getH3Texts(schema: NodeSchema): H3Text[]{
+  static getH3Texts(schema: NodeSchema): H3Text[] {
     const h3Texts: H3Text[] = [];
 
     const traverse = (node: NodeSchema) => {
