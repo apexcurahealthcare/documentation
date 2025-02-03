@@ -21,13 +21,17 @@ const IconsList = () => {
 
   useEffect(() => {
     const script = document.createElement("script");
-    const timestamp = new Date().getTime(); // Generate a unique timestamp
+    const timestamp = new Date().getTime();
     script.src = `https://suite.apexcura.com/api/public/scripts/apexcura.icons.js?t=${timestamp}`;
     script.onload = () => {
       if (window?.acIcons) {
         setIcons(window.acIcons);
         setIsLoading(false);
       }
+    };
+    script.onerror = () => {
+      console.error("Failed to load the icons script.");
+      setIsLoading(false);
     };
     document.body.appendChild(script);
 
@@ -95,7 +99,7 @@ const IconsList = () => {
       </RevealWrapper>
 
       <div className="grid grid-cols-5 sm:grid-cols-2 gap-2">
-        {filteredIcons.length > 0 ? (
+        {filteredIcons?.length > 0 ? (
           filteredIcons.map(([className, svg], i) => (
             <RevealWrapper key={i}>
               <div
@@ -121,9 +125,11 @@ const IconsList = () => {
               </Skeleton>
             ))
         ) : (
-          <p className="col-span-5 text-sm font-medium text-center text-gray-500">
-            No icons found
-          </p>
+          <RevealWrapper>
+            <p className="col-span-5 text-sm font-medium text-center text-gray-500">
+              No icons found
+            </p>
+          </RevealWrapper>
         )}
       </div>
       <Toaster />

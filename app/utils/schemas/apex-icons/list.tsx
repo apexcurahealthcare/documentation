@@ -3,6 +3,7 @@ import { NodeSchema } from "@/app/lib/ViewBuilder";
 export const ApexIconsList: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-4",
+  isApplyMotion: false,
   children: [
     {
       type: "div",

@@ -7,6 +7,7 @@ const project = Constants.PROJECTS.find((p: any) => p.route === "/apex-icons");
 export const ApexIconsInstallation: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-4",
+  isApplyMotion: false,
   children: [
     {
       type: "h2",

@@ -4,6 +4,7 @@ import { Code } from "@heroui/react";
 export const UIComponentsButton: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-4",
+  isApplyMotion: false,
   children: [
     {
       type: "h2",

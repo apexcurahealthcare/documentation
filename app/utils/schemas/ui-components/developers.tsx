@@ -5,6 +5,7 @@ import { Developer } from "../../constants";
 export const UIComponentsDevelopers: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-4",
+  isApplyMotion: false,
   children: [
     {
       type: "h2",
