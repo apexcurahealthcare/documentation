@@ -67,14 +67,14 @@ export default function TopBar() {
             className="w-full h-full object-contain"
           />
         </Button>
-        <Button
+        {/* <Button
           isIconOnly
           variant="bordered"
           radius="full"
           className="border-[1px]"
         >
           <MdOutlineLightMode />
-        </Button>
+        </Button> */}
       </NavbarContent>
     </Navbar>
   );

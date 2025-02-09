@@ -237,6 +237,10 @@ const SIDEMENU: ISideMenu = {
         {
           route: "/button",
           title: "Button",
+        },
+        {
+          route: "/tabs",
+          title: "Tabs",
         }
       ],
     },

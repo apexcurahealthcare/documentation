@@ -10,6 +10,7 @@ import { UIComponentsDevelopers } from "./ui-components/developers";
 import { ViewEngineIntro } from "./view-engine/intro";
 import { ViewEngineInstallation } from "./view-engine/installation";
 import { ViewEngineDevelopers } from "./view-engine/developers";
+import { UIComponentsTabs } from "./ui-components/tabs";
 
 export type PageName = "apex-icons" | "ui-components" | "view-engine";
 
@@ -20,6 +21,7 @@ export type NestedPages =
   | "ui-components/installation"
   | "ui-components/developers"
   | "ui-components/button"
+  | "ui-components/tabs"
   | "view-engine/installation"
   | "view-engine/developers"
 
@@ -41,6 +43,7 @@ class Schema {
     "ui-components/installation": UIComponentsInstallation,
     "ui-components/developers": UIComponentsDevelopers,
     "ui-components/button": UIComponentsButton,
+    "ui-components/tabs": UIComponentsTabs,
     "view-engine": ViewEngineIntro,
     "view-engine/installation": ViewEngineInstallation,
     "view-engine/developers": ViewEngineDevelopers

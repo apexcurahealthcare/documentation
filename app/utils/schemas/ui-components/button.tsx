@@ -25,8 +25,8 @@ export const UIComponentsButton: NodeSchema = {
       type: "tabs",
       items: [
         {
-          key: "Download",
-          title: "Download",
+          key: "preview",
+          title: "Preview",
           schema: {
             type: "div",
             children: [
@@ -104,8 +104,8 @@ export const UIComponentsButton: NodeSchema = {
       type: "tabs",
       items: [
         {
-          key: "Download",
-          title: "Download",
+          key: "preview",
+          title: "Preview",
           schema: {
             type: "div",
             children: [
@@ -188,8 +188,8 @@ export const UIComponentsButton: NodeSchema = {
       type: "tabs",
       items: [
         {
-          key: "Download",
-          title: "Download",
+          key: "preview",
+          title: "Preview",
           schema: {
             type: "div",
             children: [
@@ -267,8 +267,8 @@ export const UIComponentsButton: NodeSchema = {
       type: "tabs",
       items: [
         {
-          key: "Download",
-          title: "Download",
+          key: "preview",
+          title: "Preview",
           schema: {
             type: "div",
             children: [
