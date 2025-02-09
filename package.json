@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apexcura/core": "^0.0.17-Beta1393",
+    "@apexcura/core": "^0.0.17-Beta1421s",
     "@heroui/react": "2.6.14",
     "motion": "^12.0.3",
     "next": "15.1.4",

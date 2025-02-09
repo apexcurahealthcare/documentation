@@ -9,6 +9,7 @@ import useScreenDimensions from "../(hooks)/useScreenDimensions";
 import IconsList from "./IconsList";
 import RevealWrapper from "./Motion";
 import TabsComponent from "./TabsComponent";
+import TableComponent from "./TableComponent";
 const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -42,6 +43,24 @@ export interface TabNode {
 interface TabsNode extends BaseNode {
   id: string;
   items: TabNode[];
+}
+export type TableRowKeys = "prop" | "type" | "default";
+export type TableRowTitles = "Prop" | "Type" | "Default";
+
+export interface TableColumn {
+  key: TableRowKeys;
+  title: TableRowTitles;
+}
+
+// Strictly allow only defined keys in TableRow
+export type TableRow = {
+  [K in TableRowKeys]: string | number | ReactNode;
+}
+
+export interface TableNode extends BaseNode {
+  type: "table";
+  columns: TableColumn[];
+  rows: TableRow[];
 }
 
 interface ExecutorNode extends BaseNode {
@@ -86,6 +105,7 @@ export type NodeSchema =
   | TextNode
   | CodeNode
   | TabsNode
+  | TableNode
   | SnippetNode
   | ExecutorNode
   | IconsListNode
@@ -221,9 +241,11 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
     case "tabs":
       const tabsNode = schema as TabsNode;
       return renderElement(<TabsComponent items={tabsNode.items} />);
+    case "table":
+      const tableNode = schema as TableNode;
+      return renderElement(<TableComponent type={tableNode.type} columns={tableNode.columns} rows={tableNode.rows} />);
     case "element-executor":
       const executorNode = schema as ExecutorNode;
-      console.log(executorNode.schema);
       return <ElementExecutor data={executorNode?.schema} />;
     case "icons":
       return renderElement(<IconsList />);
