@@ -11,13 +11,18 @@ import { ViewEngineIntro } from "./view-engine/intro";
 import { ViewEngineInstallation } from "./view-engine/installation";
 import { ViewEngineDevelopers } from "./view-engine/developers";
 import { UIComponentsTabs } from "./ui-components/tabs";
+import { ThirdPartyIntro } from "./third-party/intro";
+import { ThirdPartyDevelopers } from "./third-party/developers";
+import { ThirdPartyBull } from "./third-party/bull";
 
-export type PageName = "apex-icons" | "ui-components" | "view-engine";
+export type PageName = "apex-icons" | "third-party" | "ui-components" | "view-engine";
 
 export type NestedPages =
   | "apex-icons/installation"
   | "apex-icons/list"
   | "apex-icons/developers"
+  | "third-party/bullmq"
+  | "third-party/developers"
   | "ui-components/installation"
   | "ui-components/developers"
   | "ui-components/button"
@@ -39,6 +44,9 @@ class Schema {
     "apex-icons/installation": ApexIconsInstallation,
     "apex-icons/developers": ApexIconsDevelopers,
     "apex-icons/list": ApexIconsList,
+    "third-party": ThirdPartyIntro,
+    "third-party/bullmq": ThirdPartyBull,
+    "third-party/developers": ThirdPartyDevelopers,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
     "ui-components/developers": UIComponentsDevelopers,

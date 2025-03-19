@@ -1,12 +1,19 @@
 "use client";
-import { Button, Card, CardBody, CardHeader, Chip, Image as HeroImage } from "@heroui/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Chip,
+  Image as HeroImage,
+} from "@heroui/react";
 import GITHUB from "../public/assets/github.svg";
 import NPM from "../public/assets/npm.svg";
 import { Constants } from "./utils/constants";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import Image from "next/image";
- 
+
 export default function Home() {
   const router = useRouter();
   const openInNewTab = (url: string) => {
@@ -29,7 +36,7 @@ export default function Home() {
               transition={{
                 duration: 0.5,
                 ease: "easeInOut",
-                delay: i * 0.15
+                delay: i * 0.15,
               }}
             >
               <Card
@@ -52,36 +59,40 @@ export default function Home() {
                   }}
                 >
                   <div className="flex justify-between items-center">
-                    <h2 className="text-lg font-semibold capitalize group-hover:underline">
+                    <h2 className="text-lg font-semibold capitalize group-hover:underline line-clamp-1">
                       {project.name}
                     </h2>
                     <div className="flex flex-row-reverse items-center">
-                      <Button
-                        variant="light"
-                        isIconOnly
-                        size="sm"
-                        className="d-center p-2"
-                        onPress={() => openInNewTab(project?.git || "")}
-                      >
-                        <Image
-                          src={GITHUB}
-                          alt="GitHub"
-                          className="w-full h-full object-contain"
-                        />
-                      </Button>
-                      {project?.npm && <Button
-                        isIconOnly
-                        variant="light"
-                        size="sm"
-                        className="d-center p-1"
-                        onPress={() => openInNewTab(project?.npm || "")}
-                      >
-                        <Image
-                          src={NPM}
-                          alt="NPM"
-                          className="w-full h-full object-contain"
-                        />
-                      </Button>}
+                      {project?.git && (
+                        <Button
+                          variant="light"
+                          isIconOnly
+                          size="sm"
+                          className="d-center p-2"
+                          onPress={() => openInNewTab(project?.git || "")}
+                        >
+                          <Image
+                            src={GITHUB}
+                            alt="GitHub"
+                            className="w-full h-full object-contain"
+                          />
+                        </Button>
+                      )}
+                      {project?.npm && (
+                        <Button
+                          isIconOnly
+                          variant="light"
+                          size="sm"
+                          className="d-center p-1"
+                          onPress={() => openInNewTab(project?.npm || "")}
+                        >
+                          <Image
+                            src={NPM}
+                            alt="NPM"
+                            className="w-full h-full object-contain"
+                          />
+                        </Button>
+                      )}
                     </div>
                   </div>
                   <p className="text-xs text-gray-500 mb-2 line-clamp-2 sm:line-clamp-3 flex-1">

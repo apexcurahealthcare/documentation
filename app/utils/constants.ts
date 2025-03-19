@@ -1,24 +1,27 @@
 import UIUX from "../../public/assets/ui_ux.jpg";
 import VIEWENGINE from "../../public/assets/view_engine.jpg";
+import THIRDPARTY from "../../public/assets/third_party.jpg";
 import ICONS from "../../public/assets/icons-health.jpg";
 import AGENT from "../../public/assets/agent.svg";
 import OPRX from "../../public/assets/rx.svg";
 import { PageName } from "./schemas";
 
 const IMAGES = {
-  user_male: "https://img.freepik.com/free-psd/3d-rendering-teenager-boy-white-t-shirt_1142-53060.jpg?t=st=1738464421~exp=1738468021~hmac=61ccbd07521ae8a79186477cdb69eefe20931046de9cee39fc454e466342d0b8&w=740",
-  user_female: "https://img.freepik.com/free-psd/3d-rendering-teenager-girl-hood-isolated-white-background_1142-53817.jpg?t=st=1738466216~exp=1738469816~hmac=e97b72f87296d92f0fe440facafcb8ecc9f38485893d4a546ba0424317aaf726&w=740"
-}
+  user_male:
+    "https://img.freepik.com/free-psd/3d-rendering-teenager-boy-white-t-shirt_1142-53060.jpg?t=st=1738464421~exp=1738468021~hmac=61ccbd07521ae8a79186477cdb69eefe20931046de9cee39fc454e466342d0b8&w=740",
+  user_female:
+    "https://img.freepik.com/free-psd/3d-rendering-teenager-girl-hood-isolated-white-background_1142-53817.jpg?t=st=1738466216~exp=1738469816~hmac=e97b72f87296d92f0fe440facafcb8ecc9f38485893d4a546ba0424317aaf726&w=740",
+};
 
 export type Developer = {
-  shortName: "charan" | "srilekha";
+  shortName: "charan" | "lakshmi" | "srilekha";
   fullName: string;
   email: string;
   url?: string;
   urlName?: string;
   avatar?: string;
   gender: "male" | "female" | "other";
-}
+};
 
 const DEVELOPERS: Developer[] = [
   {
@@ -26,29 +29,86 @@ const DEVELOPERS: Developer[] = [
     fullName: "Charan vinay",
     email: "charanvinay@apexcura.com",
     gender: "male",
-    avatar: IMAGES["user_male"]
+    avatar: IMAGES["user_male"],
   },
   {
     shortName: "srilekha",
     fullName: "Srilekha Tirumalasetti",
     email: "srilekha@apexcura.com",
     gender: "female",
-    avatar: IMAGES["user_female"]
-  }
-]
+    avatar: IMAGES["user_female"],
+  },
+  {
+    shortName: "lakshmi",
+    fullName: "Lakshmi Lakku",
+    email: "lakshmilakku@apexcura.com",
+    gender: "female",
+    avatar: IMAGES["user_female"],
+  },
+];
 
 const ICONS_USAGE = [
   {
     heading: "aci",
-    description:
-      "The base class for all Apexcura Icons.",
+    description: "The base class for all Apexcura Icons.",
   },
   {
     heading: "aci-{icon-name}",
     description:
-      'The class name for the specific icon you want to show (eg: <i>aci-add</i> for the add icon).',
+      "The class name for the specific icon you want to show (eg: <i>aci-add</i> for the add icon).",
   },
-  
+];
+
+const EXISTING_QUEUES = [
+  {
+    heading: "PDF Queue",
+    description: "Handles PDF generation tasks.",
+  },
+  {
+    heading: "Email Queue",
+    description: "Handles email sending tasks.",
+  },
+  {
+    heading: "WhatsApp Queue",
+    description: "Handles WhatsApp message sending tasks.",
+  },
+];
+
+const EXISTING_QUEUES_KEY_CONFIG_OPTIONS = [
+  {
+    heading: "host",
+    description: "The Redis server host (default: localhost)",
+  },
+  {
+    heading: "port",
+    description: "The Redis server port (default: 6379).",
+  },
+  {
+    heading: "retryStrategy",
+    description: "Custom retry logic for reconnecting to Redis.",
+  },
+  {
+    heading: "maxRetriesPerRequest",
+    description: "Set to null to disable retry limits.",
+  },
+  {
+    heading: "enableReadyCheck",
+    description: "Disabled to avoid unnecessary checks.",
+  },
+];
+const EXISTING_QUEUES_AVAILABLE_QUEUES = [
+  {
+    heading: "pdfQueue",
+    description: "Handles PDF generation jobs.",
+  },
+  {
+    heading: "whatsappQueue",
+    description: "Handles WhatsApp message sending jobs.",
+  },
+  {
+    heading: "emailQueue",
+    description: "Handles email sending jobs.",
+  }
 ];
 
 const INTRO_MATTERS = [
@@ -108,16 +168,26 @@ const PROJECTS = [
     tags: ["Element Executor", "UI Renderer"],
   },
   {
-    id:5,
+    id: 3,
+    name: "Third Party Configs",
+    route: "/third-party",
+    description:
+      "Detailed explanation of how third party packages are configured in all our projects",
+    img: THIRDPARTY,
+    tags: ["Packages", "Bull", "Redis"],
+  },
+  {
+    id: 4,
     name: "Apex Icons",
     route: "/apex-icons",
-    description: "Collection of icons including most of hospital themed designed for all apex projects maintaining a common UI and theme",
+    description:
+      "Collection of icons including most of hospital themed designed for all apex projects maintaining a common UI and theme",
     img: ICONS,
     git: "https://github.com/ApexCura/icons-package",
     tags: ["Icons", "SVG", "Classnames"],
   },
   {
-    id: 3,
+    id: 5,
     name: "Ai Agent",
     route: "/agent",
     description:
@@ -157,14 +227,15 @@ const PROJECTS = [
     tags: ["Website"],
   },
   {
-    id: 4,
+    id: 9,
     name: "OP RX",
     route: "/op-rx",
-    description: "A user-friendly outpatient prescription app that enhances patient care and streamlines pharmacy operations. Designed to seamlessly integrate into your hospital’s workflow, Apex Rx ensures accuracy, efficiency, and convenience at every step.",
+    description:
+      "A user-friendly outpatient prescription app that enhances patient care and streamlines pharmacy operations. Designed to seamlessly integrate into your hospital’s workflow, Apex Rx ensures accuracy, efficiency, and convenience at every step.",
     img: OPRX,
     git: "https://github.com/ApexCura/view-engine",
     tags: ["OP Prescription", "Queue monitoring"],
-  }
+  },
 ];
 
 export interface ISideMenuItem {
@@ -207,6 +278,40 @@ const SIDEMENU: ISideMenu = {
       ],
     },
   ],
+  "third-party": [
+    {
+      key: "getting-started",
+      title: "Getting Started",
+      items: [
+        {
+          route: "/",
+          title: "Introduction",
+        },
+        {
+          route: "/developers",
+          title: "Developers",
+        },
+      ],
+    },
+    {
+      key: "configs",
+      title: "Configs",
+      items: [
+        {
+          route: "/bullmq",
+          title: "BullMQ",
+        },
+        {
+          route: "/icd-server",
+          title: "ICD Server",
+        },
+        {
+          route: "/mobaxterm",
+          title: "MobaXterm",
+        },
+      ],
+    },
+  ],
   "ui-components": [
     {
       key: "getting-started",
@@ -241,7 +346,7 @@ const SIDEMENU: ISideMenu = {
         {
           route: "/tabs",
           title: "Tabs",
-        }
+        },
       ],
     },
   ],
@@ -267,4 +372,13 @@ const SIDEMENU: ISideMenu = {
   ],
 };
 
-export const Constants = { DEVELOPERS, ICONS_USAGE, INTRO_MATTERS, PROJECTS, SIDEMENU };
+export const Constants = {
+  DEVELOPERS,
+  ICONS_USAGE,
+  INTRO_MATTERS,
+  PROJECTS,
+  SIDEMENU,
+  EXISTING_QUEUES,
+  EXISTING_QUEUES_KEY_CONFIG_OPTIONS,
+  EXISTING_QUEUES_AVAILABLE_QUEUES
+};

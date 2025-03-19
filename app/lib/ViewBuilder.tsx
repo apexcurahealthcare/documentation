@@ -1,6 +1,6 @@
 "use client";
 import { ElementExecutor } from "@apexcura/core";
-import { Image, Snippet, User } from "@heroui/react";
+import { Alert, Image, Snippet, User } from "@heroui/react";
 import { Outfit } from "next/font/google";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
@@ -22,6 +22,11 @@ interface BaseNode {
   isApplyMotion?: boolean;
 }
 
+interface AlertNode extends BaseNode {
+  type: "alert";
+  color: "primary" | "secondary" | "success" | "warning" | "danger"
+  text: string | ReactNode;
+}
 interface TextNode extends BaseNode {
   type: "h1" | "h2" | "h3" | "h4" | "p" | "li";
   text: string | ReactNode;
@@ -55,7 +60,7 @@ export interface TableColumn {
 // Strictly allow only defined keys in TableRow
 export type TableRow = {
   [K in TableRowKeys]: string | number | ReactNode;
-}
+};
 
 export interface TableNode extends BaseNode {
   type: "table";
@@ -102,6 +107,7 @@ interface ListItemNode extends BaseNode {
 }
 
 export type NodeSchema =
+  | AlertNode
   | TextNode
   | CodeNode
   | TabsNode
@@ -140,6 +146,14 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   };
 
   switch (type) {
+    case "alert":
+      const alertNode = schema as AlertNode;
+      return renderElement(
+        <Alert
+          color={alertNode?.color}
+          title={alertNode?.text}
+        />
+      );
     case "h1":
       return renderElement(
         <h1
@@ -178,9 +192,12 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       );
     case "p":
       return renderElement(
-        <p id={id} className={`leading-8 ${className}`}>
-          {(schema as TextNode).text}
-        </p>
+        <>
+          <p id={id} className={`leading-8 ${className}`}>
+            {(schema as TextNode).text}
+          </p>
+          {(schema as CodeNode)?.code && renderCode(schema as CodeNode)}
+        </>
       );
     case "li":
       return renderElement(
@@ -211,15 +228,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       );
     case "code":
       const codeNode = schema as CodeNode;
-      return renderElement(
-        <SyntaxHighlighter
-          language="javascript"
-          style={atomOneDark}
-          customStyle={{ borderRadius: "10px", fontSize: "14px", padding: "12px" }}
-        >
-          {String(codeNode?.code)}
-        </SyntaxHighlighter>
-      );
+      return renderElement(renderCode(codeNode));
     case "user":
       const userNode = schema as UserNode;
       return renderElement(
@@ -243,7 +252,13 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(<TabsComponent items={tabsNode.items} />);
     case "table":
       const tableNode = schema as TableNode;
-      return renderElement(<TableComponent type={tableNode.type} columns={tableNode.columns} rows={tableNode.rows} />);
+      return renderElement(
+        <TableComponent
+          type={tableNode.type}
+          columns={tableNode.columns}
+          rows={tableNode.rows}
+        />
+      );
     case "element-executor":
       const executorNode = schema as ExecutorNode;
       return <ElementExecutor data={executorNode?.schema} />;
@@ -261,9 +276,31 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
           {renderChildren()}
         </ul>
       );
+    case "ol":
+      return renderElement(
+        <ol id={id} className={`list-decimal ml-8 ${className}`}>
+          {renderChildren()}
+        </ol>
+      );
     default:
       console.warn(`Unknown element type: ${type}`);
       return null;
+  }
+
+  function renderCode(codeNode: CodeNode): React.ReactNode {
+    return (
+      <SyntaxHighlighter
+        language="javascript"
+        style={atomOneDark}
+        customStyle={{
+          borderRadius: "10px",
+          fontSize: "14px",
+          padding: "12px",
+        }}
+      >
+        {String(codeNode?.code)}
+      </SyntaxHighlighter>
+    );
   }
 };
 
