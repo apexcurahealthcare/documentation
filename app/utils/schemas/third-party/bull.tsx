@@ -1,7 +1,7 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import BULLMQ from "../../../../public/assets/bullmq.png";
 import DOCKERREDIS from "../../../../public/assets/docker-redis.jpg";
-import BULLUML from "../../../../public/assets/bull-uml.svg";
+import BULLUML from "@/public/assets/bull-uml.png";
 import { Constants } from "../../constants";
 import { Code } from "@heroui/react";
 const REDIS_SETUP = [
