@@ -41,8 +41,10 @@ export const ThirdPartyICDServer: NodeSchema = {
       text: "Install Docker",
     },
     {
-      type: "code",
-      code: "sudo apt install -y docker.io",
+      type: "alert",
+      variant: "side-border",
+      color: "warning",
+      text: "It would be better to check whether docker is already available in the server or not before installing it",
     },
     {
       type: "h3",
@@ -65,6 +67,16 @@ export const ThirdPartyICDServer: NodeSchema = {
       type: "code",
       code: "Docker version 27.4.1, build b9d17ea",
     },
+    {
+      type: "p",
+      text: "If Docker is not installed, follow the installation instructions for your specific operating system. Once Docker is installed, verify its version using the command above.",
+    },
+    {
+      type: "code",
+      code: "sudo apt install -y docker.io",
+    },
+    
+    
     {
       type: "h3",
       id: "pull-image",
