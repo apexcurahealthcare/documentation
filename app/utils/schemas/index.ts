@@ -14,6 +14,7 @@ import { UIComponentsTabs } from "./ui-components/tabs";
 import { ThirdPartyIntro } from "./third-party/intro";
 import { ThirdPartyDevelopers } from "./third-party/developers";
 import { ThirdPartyBull } from "./third-party/bull";
+import { ThirdPartyMobaXterm } from "./third-party/mobaxterm";
 
 export type PageName = "apex-icons" | "third-party" | "ui-components" | "view-engine";
 
@@ -23,6 +24,7 @@ export type NestedPages =
   | "apex-icons/developers"
   | "third-party/bullmq"
   | "third-party/developers"
+  | "third-party/mobaxterm"
   | "ui-components/installation"
   | "ui-components/developers"
   | "ui-components/button"
@@ -47,6 +49,7 @@ class Schema {
     "third-party": ThirdPartyIntro,
     "third-party/bullmq": ThirdPartyBull,
     "third-party/developers": ThirdPartyDevelopers,
+    "third-party/mobaxterm": ThirdPartyMobaXterm,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
     "ui-components/developers": UIComponentsDevelopers,

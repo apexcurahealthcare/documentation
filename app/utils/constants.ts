@@ -168,6 +168,33 @@ const INTRO_MATTERS = [
       "Clear examples, detailed API references, and practical guides to help you get up and running quickly.",
   },
 ];
+const MOBA_REMOTE_SERVER_STEPS = [
+  {
+    description: "Click Session in the top-left corner.",
+  },
+  {
+    description: "Select SSH from the session settings.",
+  },
+  {
+    heading: "Remote host",
+    description: "IP address or hostname of the server.",
+  },
+  {
+    heading: "Username",
+    description: "Your SSH username.",
+  },
+  {
+    heading: "Port",
+    description: "SSH port (default: 22)",
+  },
+  {
+    heading: "Advanced SSH Settings",
+    description: "Click on Use private key Checkbox and upload the .pem file",
+  },
+  {
+    description: "Click OK to save the session.",
+  },
+];
 
 const PROJECTS = [
   {
@@ -404,6 +431,7 @@ export const Constants = {
   EXISTING_QUEUES_AVAILABLE_QUEUES,
   ICONS_USAGE,
   INTRO_MATTERS,
+  MOBA_REMOTE_SERVER_STEPS,
   PROJECTS,
   REDIS_LINUX_SETUP,
   SIDEMENU,
