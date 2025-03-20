@@ -108,7 +108,32 @@ const EXISTING_QUEUES_AVAILABLE_QUEUES = [
   {
     heading: "emailQueue",
     description: "Handles email sending jobs.",
-  }
+  },
+];
+const REDIS_LINUX_SETUP = [
+  {
+    description: "Install Redis server",
+  },
+  {
+    type: "p",
+    code: "sudo apt install redis-server",
+  },
+  {
+    description: "Enable Redis to start on boot",
+  },
+  { type: "p", code: "sudo systemctl enable redis-server" },
+  {
+    description: "Start Redis server",
+  },
+  { type: "p", code: "sudo systemctl start redis-server" },
+  {
+    description: "Stop redis server",
+  },
+  { type: "p", code: "sudo systemctl stop redis-server" },
+  {
+    description: "Verify Redis is running",
+  },
+  { type: "p", code: "sudo systemctl status redis-server" },
 ];
 
 const INTRO_MATTERS = [
@@ -374,11 +399,12 @@ const SIDEMENU: ISideMenu = {
 
 export const Constants = {
   DEVELOPERS,
+  EXISTING_QUEUES,
+  EXISTING_QUEUES_KEY_CONFIG_OPTIONS,
+  EXISTING_QUEUES_AVAILABLE_QUEUES,
   ICONS_USAGE,
   INTRO_MATTERS,
   PROJECTS,
+  REDIS_LINUX_SETUP,
   SIDEMENU,
-  EXISTING_QUEUES,
-  EXISTING_QUEUES_KEY_CONFIG_OPTIONS,
-  EXISTING_QUEUES_AVAILABLE_QUEUES
 };

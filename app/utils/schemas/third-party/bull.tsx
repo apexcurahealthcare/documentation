@@ -1,9 +1,10 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
+import BULLUML from "@/public/assets/bull-uml.png";
+import { Code } from "@heroui/react";
 import BULLMQ from "../../../../public/assets/bullmq.png";
 import DOCKERREDIS from "../../../../public/assets/docker-redis.jpg";
-import BULLUML from "@/public/assets/bull-uml.png";
+import REDISLINUX from "../../../../public/assets/redis-server-status.jpg";
 import { Constants } from "../../constants";
-import { Code } from "@heroui/react";
 const REDIS_SETUP = [
   {
     id: 1,
@@ -217,11 +218,57 @@ export const ThirdPartyBull: NodeSchema = {
     },
     {
       type: "p",
-      text: "Next, click on start icon in actions column",
+      text: "Next, click on start icon in actions column. Now redis is running in your system.",
+    },
+    {
+      type: "h3",
+      id: "redis-linux",
+      text: "Redis in Linux",
+    },
+    {
+      type: "alert",
+      variant: "side-border",
+      color: "warning",
+      text: "It would be better to check whether redis is already available in the server or not before installing it",
     },
     {
       type: "p",
-      text: "Now redis is running in your system. Next we will create a queue to add scheduled jobs into that",
+      text: "If you are using Redis in Linux, you might need to configure Redis to listen on a specific IP address. Here's how to do it:",
+    },
+    {
+      type: "ol",
+      children: Constants.REDIS_LINUX_SETUP.map((matter: any) => ({
+        type: matter?.type || "li",
+        isApplyMotion: true,
+        text: (
+          <>
+            {matter?.heading && (
+              <>
+                <span className="font-semibold">{matter.heading}</span>:{" "}
+              </>
+            )}
+            {matter?.description}
+          </>
+        ),
+        code: matter?.code,
+        className: matter?.className,
+      })),
+    },
+    {
+      type: "p",
+      text: "If everything is good, then you can find like this",
+    },
+    {
+      type: "image",
+      src: REDISLINUX?.src,
+      alt: `Redis status Image`,
+      className: "h-auto",
+      isBlurred: false,
+      isApplyMotion: true,
+    },
+    {
+      type: "p",
+      text: "Next we will create a queue to add scheduled jobs into that.",
     },
     {
       type: "h3",

@@ -1,6 +1,6 @@
 "use client";
 import { ElementExecutor } from "@apexcura/core";
-import { Alert, Image, Snippet, User } from "@heroui/react";
+import { Alert, AlertProps, cn, Image, Snippet, User } from "@heroui/react";
 import { Outfit } from "next/font/google";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
@@ -8,8 +8,8 @@ import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import useScreenDimensions from "../(hooks)/useScreenDimensions";
 import IconsList from "./IconsList";
 import RevealWrapper from "./Motion";
-import TabsComponent from "./TabsComponent";
 import TableComponent from "./TableComponent";
+import TabsComponent from "./TabsComponent";
 const outfit = Outfit({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -24,7 +24,8 @@ interface BaseNode {
 
 interface AlertNode extends BaseNode {
   type: "alert";
-  color: "primary" | "secondary" | "success" | "warning" | "danger"
+  color: "primary" | "secondary" | "success" | "warning" | "danger";
+  variant?: "side-border" | "normal";
   text: string | ReactNode;
 }
 interface TextNode extends BaseNode {
@@ -148,11 +149,71 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   switch (type) {
     case "alert":
       const alertNode = schema as AlertNode;
+      const CustomAlert = ({
+        children,
+        variant,
+        color,
+        className,
+        classNames,
+        ...props
+      }: AlertProps) => {
+        const colorClass = React.useMemo(() => {
+          switch (color) {
+            case "default":
+              return "before:bg-default-300";
+            case "primary":
+              return "before:bg-primary";
+            case "secondary":
+              return "before:bg-secondary";
+            case "success":
+              return "before:bg-success";
+            case "warning":
+              return "before:bg-warning";
+            case "danger":
+              return "before:bg-danger";
+            default:
+              return "before:bg-default-200";
+          }
+        }, []);
+
+        return (
+          <Alert
+            classNames={{
+              ...classNames,
+              base: cn(
+                [
+                  "bg-slate-50 dark:bg-background",
+                  "relative before:content-[''] before:absolute before:z-10",
+                  "before:left-0 before:top-[-1px] before:bottom-[-1px] before:w-1.5",
+                  "rounded-[4px] overflow-hidden border-l-0",
+                  colorClass,
+                ],
+                classNames?.base,
+                className
+              ),
+              mainWrapper: cn("pt-1", classNames?.mainWrapper),
+              iconWrapper: cn("dark:bg-transparent", classNames?.iconWrapper),
+            }}
+            color={color}
+            variant={variant}
+            {...props}
+          >
+            {children}
+          </Alert>
+        );
+      };
+
+      CustomAlert.displayName = "CustomAlert";
       return renderElement(
-        <Alert
-          color={alertNode?.color}
-          title={alertNode?.text}
-        />
+        alertNode?.variant === "side-border" ? (
+          <CustomAlert
+            key={alertNode.color}
+            color={alertNode.color}
+            description={alertNode.text}
+          />
+        ) : (
+          <Alert color={alertNode?.color} title={alertNode?.text} />
+        )
       );
     case "h1":
       return renderElement(
