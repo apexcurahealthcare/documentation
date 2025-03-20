@@ -15,6 +15,7 @@ import { ThirdPartyIntro } from "./third-party/intro";
 import { ThirdPartyDevelopers } from "./third-party/developers";
 import { ThirdPartyBull } from "./third-party/bull";
 import { ThirdPartyMobaXterm } from "./third-party/mobaxterm";
+import { ThirdPartyICDServer } from "./third-party/icdserver";
 
 export type PageName = "apex-icons" | "third-party" | "ui-components" | "view-engine";
 
@@ -24,6 +25,7 @@ export type NestedPages =
   | "apex-icons/developers"
   | "third-party/bullmq"
   | "third-party/developers"
+  | "third-party/icd-server"
   | "third-party/mobaxterm"
   | "ui-components/installation"
   | "ui-components/developers"
@@ -49,6 +51,7 @@ class Schema {
     "third-party": ThirdPartyIntro,
     "third-party/bullmq": ThirdPartyBull,
     "third-party/developers": ThirdPartyDevelopers,
+    "third-party/icd-server": ThirdPartyICDServer,
     "third-party/mobaxterm": ThirdPartyMobaXterm,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,

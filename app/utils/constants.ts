@@ -14,7 +14,7 @@ const IMAGES = {
 };
 
 export type Developer = {
-  shortName: "charan" | "lakshmi" | "srilekha";
+  shortName: "charan" | "lakshmi" | "srilekha" | "teja";
   fullName: string;
   email: string;
   url?: string;
@@ -37,6 +37,13 @@ const DEVELOPERS: Developer[] = [
     email: "srilekha@apexcura.com",
     gender: "female",
     avatar: IMAGES["user_female"],
+  },
+  {
+    shortName: "teja",
+    fullName: "Teja Anil Kumar",
+    email: "anilteja@apexcura.com",
+    gender: "male",
+    avatar: IMAGES["user_male"],
   },
   {
     shortName: "lakshmi",

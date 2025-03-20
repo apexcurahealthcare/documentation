@@ -1,9 +1,9 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Code } from "@heroui/react";
-import MOBA from "../../../../public/assets/moba.jpg";
 import MOBACONNECTED from "../../../../public/assets/moba-connected.jpg";
 import MOBAHOME from "../../../../public/assets/moba-main-page.jpg";
 import MOBASESSION from "../../../../public/assets/moba-session.jpg";
+import MOBA from "../../../../public/assets/moba.jpg";
 import { Constants } from "../../constants";
 const STEPS_MASTER = [
   {
