@@ -174,7 +174,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
             default:
               return "before:bg-default-200";
           }
-        }, []);
+        }, [color]);
 
         return (
           <Alert
