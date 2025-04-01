@@ -403,6 +403,10 @@ const SIDEMENU: ISideMenu = {
           title: "Button",
         },
         {
+          route: "/radio",
+          title: "Radio",
+        },
+        {
           route: "/tabs",
           title: "Tabs",
         },
