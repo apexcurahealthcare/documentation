@@ -407,6 +407,10 @@ const SIDEMENU: ISideMenu = {
           title: "Text",
         },
         {
+          route: "/single-select",
+          title: "Select",
+        },
+        {
           route: "/radio",
           title: "Radio",
         },
