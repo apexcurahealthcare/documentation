@@ -1,3 +1,4 @@
+import CustomLink from "@/app/lib/CustomLink";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import NPMLOGIN from "@/public/assets/npm-login.jpg";
 import { Code } from "@heroui/react";
@@ -73,13 +74,10 @@ const PREREQUISITES = [
       {
         description: (
           <>
-            <a
+            <CustomLink
               href="https://nodejs.org/en/download"
-              target="_blank"
-              className="text-primary border-b border-primary border-dotted font-medium"
-            >
-              Node.js v16+
-            </a>{" "}
+              text="Node.js v16+"
+            />
             and npm/yarn installed
           </>
         ),

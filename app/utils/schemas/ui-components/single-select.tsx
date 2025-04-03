@@ -1,3 +1,4 @@
+import CustomLink from "@/app/lib/CustomLink";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Code } from "@heroui/react";
 
@@ -220,14 +221,10 @@ export const UIComponentsSingleSelect: NodeSchema = {
       text: (
         <>
           And other props from{" "}
-          <a
+          <CustomLink
             href="https://ant.design/components/select#api"
-            target="_blank"
-            className="text-primary border-b border-primary border-dotted font-medium"
-          >
-            AntD Select Component
-          </a>
-          .
+            text="AntD Select Component"
+          />
         </>
       ),
     },

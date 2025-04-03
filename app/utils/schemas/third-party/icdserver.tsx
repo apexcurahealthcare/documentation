@@ -4,6 +4,7 @@ import { Utils } from "../..";
 import DOCKERPS from "../../../../public/assets/docker-ps.jpg";
 import ICD from "../../../../public/assets/icd.jpg";
 import { Developer } from "../../constants";
+import CustomLink from "@/app/lib/CustomLink";
 
 export const ThirdPartyICDServer: NodeSchema = {
   type: "div",
@@ -75,8 +76,7 @@ export const ThirdPartyICDServer: NodeSchema = {
       type: "code",
       code: "sudo apt install -y docker.io",
     },
-    
-    
+
     {
       type: "h3",
       id: "pull-image",
@@ -136,13 +136,10 @@ export const ThirdPartyICDServer: NodeSchema = {
           and run the container. The ICD API should now be accessible at
           <Code>http://localhost:3123</Code>. For further assistance, refer to
           the{" "}
-          <a
+          <CustomLink
             href="https://docs.docker.com/"
-            target="_blank"
-            className="text-primary border-b border-primary border-dotted font-medium"
-          >
-            Docker documentation
-          </a>{" "}
+            text="Docker documentation"
+          />{" "}
           or contact
         </>
       ),

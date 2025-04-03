@@ -1,3 +1,4 @@
+import CustomLink from "@/app/lib/CustomLink";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Code } from "@heroui/react";
 
@@ -164,14 +165,10 @@ export const UIComponentsInputText: NodeSchema = {
       text: (
         <>
           And other props from{" "}
-          <a
+          <CustomLink
             href="https://ant.design/components/input#api"
-            target="_blank"
-            className="text-primary border-b border-primary border-dotted font-medium"
-          >
-            AntD Input Component
-          </a>
-          .
+            text="AntD Input Component"
+          />
         </>
       ),
     },

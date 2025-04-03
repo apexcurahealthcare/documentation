@@ -5,6 +5,7 @@ import BULLMQ from "../../../../public/assets/bullmq.png";
 import DOCKERREDIS from "../../../../public/assets/docker-redis.jpg";
 import REDISLINUX from "../../../../public/assets/redis-server-status.jpg";
 import { Constants } from "../../constants";
+import CustomLink from "@/app/lib/CustomLink";
 const REDIS_SETUP = [
   {
     id: 1,
@@ -15,13 +16,10 @@ const REDIS_SETUP = [
         description: (
           <>
             Go to the{" "}
-            <a
+            <CustomLink
               href="https://www.docker.com/products/docker-desktop/"
-              target="_blank"
-              className="text-primary border-b border-primary border-dotted font-medium"
-            >
-              Docker website
-            </a>{" "}
+              text="Docker website"
+            />{" "}
             and choose free plan.
           </>
         ),
@@ -175,14 +173,8 @@ export const ThirdPartyBull: NodeSchema = {
       type: "p",
       text: (
         <>
-          <a
-            href="https://docs.bullmq.io/"
-            target="_blank"
-            className="text-primary border-b border-primary border-dotted font-medium"
-          >
-            BullMQ
-          </a>{" "}
-          is a powerful and flexible queue library for Node.js, built on top of
+          <CustomLink href="https://docs.bullmq.io/" text="BullMQ" /> is a
+          powerful and flexible queue library for Node.js, built on top of
           Redis. It’s designed to handle background jobs, task scheduling, and
           distributed processing with ease. Whether you're processing thousands
           of jobs or just a few, BullMQ ensures reliability and scalability.

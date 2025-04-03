@@ -5,6 +5,7 @@ import MOBAHOME from "../../../../public/assets/moba-main-page.jpg";
 import MOBASESSION from "../../../../public/assets/moba-session.jpg";
 import MOBA from "../../../../public/assets/moba.jpg";
 import { Constants } from "../../constants";
+import CustomLink from "@/app/lib/CustomLink";
 const STEPS_MASTER = [
   {
     id: 1,
@@ -14,13 +15,10 @@ const STEPS_MASTER = [
         description: (
           <>
             Go to the{" "}
-            <a
+            <CustomLink
               href="https://mobaxterm.mobatek.net/download-home-edition.html"
-              target="_blank"
-              className="text-primary border-b border-primary border-dotted font-medium"
-            >
-              MobaXterm website
-            </a>{" "}
+              text="MobaXterm website"
+            />{" "}
           </>
         ),
       },
@@ -120,13 +118,7 @@ export const ThirdPartyMobaXterm: NodeSchema = {
       type: "p",
       text: (
         <>
-          <a
-            href="https://mobaxterm.mobatek.net/"
-            target="_blank"
-            className="text-primary border-b border-primary border-dotted font-medium"
-          >
-            MobaXterm
-          </a>{" "}
+          <CustomLink href="https://mobaxterm.mobatek.net/" text="MobaXterm" />{" "}
           is a powerful terminal for Windows that combines a multi-tabbed SSH
           client, X server, and a suite of network tools. It’s perfect for
           developers and system administrators who need to work with remote

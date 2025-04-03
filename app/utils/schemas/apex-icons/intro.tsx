@@ -1,6 +1,7 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Constants } from "../../constants";
 import { Code } from "@heroui/react";
+import CustomLink from "@/app/lib/CustomLink";
 
 const project = Constants.PROJECTS.find((p: any) => p.route === "/apex-icons");
 
@@ -41,15 +42,9 @@ export const ApexIconsIntro: NodeSchema = {
         <>
           The icons are loaded via a script file and use a class-based approach,
           similar to{" "}
-          <a
-            href="https://fontawesome.com/"
-            target="_blank"
-            className="text-primary border-b border-primary border-dotted font-medium"
-          >
-            FontAwesome
-          </a>
-          . You can customize the size, color, and behavior of the icons using
-          utility classes like <Code>aci-dynamic-size</Code> ,{" "}
+          <CustomLink href="https://fontawesome.com/" text="FontAwesome" />. You
+          can customize the size, color, and behavior of the icons using utility
+          classes like <Code>aci-dynamic-size</Code> ,{" "}
           <Code>aci-no-colorize</Code> , and Tailwind CSS classes.
         </>
       ),
