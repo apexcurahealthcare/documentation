@@ -95,6 +95,89 @@ export const UIComponentsButton: NodeSchema = {
       ],
     },
     {
+      id: "sizes",
+      type: "h3",
+      text: "Sizes",
+    },
+    {
+      id: "tabs-sizes",
+      type: "tabs",
+      items: [
+        {
+          key: "preview",
+          title: "Preview",
+          schema: {
+            type: "div",
+            children: [
+              {
+                type: "element-executor",
+                schema: {
+                  className: "flex items-end gap-2 p-4 rounded-md border-[1.5px]",
+                  schema: [
+                    {
+                      name: "btn-small",
+                      label: "Small",
+                      element: "button",
+                      variant: "solid",
+                      size: "small"
+                    },
+                    {
+                      name: "btn-medium",
+                      label: "Medium",
+                      element: "button",
+                      variant: "solid",
+                    },
+                    {
+                      name: "btn-large",
+                      label: "Large",
+                      element: "button",
+                      variant: "solid",
+                      size: "large"
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+        {
+          key: "schema",
+          title: "Schema",
+          schema: {
+            type: "div",
+            children: [
+              {
+                type: "code",
+                code: `// Small button
+{
+  name: "btn-small",
+  label: "Small",
+  element: "button",
+  variant: "solid",
+  size: "small"
+},
+// Medium Button
+{
+  name: "btn-medium",
+  label: "Medium",
+  element: "button",
+  variant: "solid",
+},
+// Large Button
+{
+  name: "btn-large",
+  label: "Large",
+  element: "button",
+  variant: "solid",
+  size: "large"
+}`,
+              },
+            ],
+          },
+        },
+      ],
+    },
+    {
       id: "colors",
       type: "h3",
       text: "Colors",
@@ -552,6 +635,15 @@ export const UIComponentsButton: NodeSchema = {
           prop: "name",
           type: <Code className="text-xs font-semibold">string</Code>,
           default: "--",
+        },
+        {
+          prop: "size",
+          type: (
+            <Code className="text-xs font-semibold">
+              small | medium | large
+            </Code>
+          ),
+          default: "medium",
         },
         {
           prop: "tooltip",
