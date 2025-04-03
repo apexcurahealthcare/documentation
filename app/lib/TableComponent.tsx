@@ -11,7 +11,7 @@ import { TableNode } from "./ViewBuilder";
 
 const TableComponent: React.FC<TableNode> = (props) => {
   return (
-    <Table removeWrapper className="w-full heroui-table">
+    <Table removeWrapper className="w-full heroui-table overflow-x-auto">
       {/* Table Headers */}
       <TableHeader>
         {props.columns.map((col) => (
