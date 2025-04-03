@@ -89,6 +89,7 @@ export const UIComponentsSingleSelect: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `// Default dropdown
 {
   name: "input-default",

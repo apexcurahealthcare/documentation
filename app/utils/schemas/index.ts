@@ -19,6 +19,7 @@ import { ThirdPartyICDServer } from "./third-party/icdserver";
 import { UIComponentsRadio } from "./ui-components/radio";
 import { UIComponentsInputText } from "./ui-components/input-text";
 import { UIComponentsSingleSelect } from "./ui-components/single-select";
+import { UIComponentsContribute } from "./ui-components/contribute";
 
 export type PageName = "apex-icons" | "third-party" | "ui-components" | "view-engine";
 
@@ -31,6 +32,7 @@ export type NestedPages =
   | "third-party/icd-server"
   | "third-party/mobaxterm"
   | "ui-components/installation"
+  | "ui-components/contribute"
   | "ui-components/developers"
   | "ui-components/button"
   | "ui-components/input-text"
@@ -61,6 +63,7 @@ class Schema {
     "third-party/mobaxterm": ThirdPartyMobaXterm,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
+    "ui-components/contribute": UIComponentsContribute,
     "ui-components/developers": UIComponentsDevelopers,
     "ui-components/button": UIComponentsButton,
     "ui-components/input-text": UIComponentsInputText,

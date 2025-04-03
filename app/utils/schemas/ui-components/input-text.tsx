@@ -61,6 +61,7 @@ export const UIComponentsInputText: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `// Default color
 {
   name: "input-default",

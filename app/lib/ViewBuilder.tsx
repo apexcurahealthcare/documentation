@@ -4,7 +4,10 @@ import { Alert, AlertProps, cn, Image, Snippet, User } from "@heroui/react";
 import { Outfit } from "next/font/google";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {
+  atomOneDark,
+  railscasts,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
 import useScreenDimensions from "../(hooks)/useScreenDimensions";
 import IconsList from "./IconsList";
 import RevealWrapper from "./Motion";
@@ -38,6 +41,7 @@ interface SnippetNode extends BaseNode {
 }
 interface CodeNode extends BaseNode {
   code: ReactNode;
+  theme?: "atomOneDark" | "railscasts";
 }
 
 export interface TabNode {
@@ -349,10 +353,14 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   }
 
   function renderCode(codeNode: CodeNode): React.ReactNode {
+    const themes = {
+      atomOneDark,
+      railscasts,
+    };
     return (
       <SyntaxHighlighter
         language="javascript"
-        style={atomOneDark}
+        style={codeNode?.theme ? themes?.[codeNode?.theme] : atomOneDark}
         customStyle={{
           borderRadius: "10px",
           fontSize: "14px",

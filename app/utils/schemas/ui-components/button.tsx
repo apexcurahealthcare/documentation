@@ -67,6 +67,7 @@ export const UIComponentsButton: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `// Solid button
 {
   name: "btn-solid",
@@ -148,6 +149,7 @@ export const UIComponentsButton: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `// Small button
 {
   name: "btn-small",
@@ -259,6 +261,7 @@ export const UIComponentsButton: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `{
   name: "btn-solid",
   label: "Primary",
@@ -365,6 +368,7 @@ export const UIComponentsButton: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `{
   name: "btn-solid",
   label: "Add New",
@@ -446,6 +450,7 @@ export const UIComponentsButton: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `// No need to pass label
 {
   name: "btn-solid",
@@ -537,6 +542,7 @@ export const UIComponentsButton: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `// Pass tooltip props tilte and placement
 {
   name: "btn-solid",

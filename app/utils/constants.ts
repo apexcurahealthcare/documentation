@@ -389,8 +389,8 @@ const SIDEMENU: ISideMenu = {
           title: "Developers",
         },
         {
-          route: "/developer-access",
-          title: "Developer Access",
+          route: "/contribute",
+          title: "Contribute",
         },
       ],
     },

@@ -101,6 +101,7 @@ export const UIComponentsRadio: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `// Button
 {
   name: "button-radio-group",
@@ -272,8 +273,8 @@ export const UIComponentsRadio: NodeSchema = {
             children: [
               {
                 type: "code",
-                code: `
-{
+                theme: "railscasts",
+                code: `{
   name: "small-radio-group",
   element: "input-radio",
   label: "Small",

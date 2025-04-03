@@ -68,6 +68,7 @@ export const UIComponentsTabs: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `{
   name: "plain-tabs",
   element: "tabs",
@@ -172,6 +173,7 @@ export const UIComponentsTabs: NodeSchema = {
             children: [
               {
                 type: "code",
+                theme: "railscasts",
                 code: `{
   name: "nested-tabs",
   element: "tabs",
