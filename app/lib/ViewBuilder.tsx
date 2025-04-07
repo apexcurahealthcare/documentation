@@ -102,7 +102,7 @@ interface ContainerNode extends BaseNode {
 }
 
 interface ListNode extends BaseNode {
-  type: "ul";
+  type: "ul" | "ol";
   children: ListItemNode[];
 }
 

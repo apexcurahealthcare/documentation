@@ -67,7 +67,7 @@ const ICONS_USAGE = [
   },
 ];
 
-const DEPLOYMENT_AGENT_DEV = {
+const DEPLOYMENT_AGENT_DEV:any = {
   CICD: [
     {
       description:
@@ -149,7 +149,7 @@ const DEPLOYMENT_AGENT_DEV = {
     { type: "p", code: "pm2 restart 4" },
   ],
 };
-const DEPLOYMENT_AGENT_PROD = {
+const DEPLOYMENT_AGENT_PROD:any = {
   CICD: [
     {
       description:
