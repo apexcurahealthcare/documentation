@@ -1,3 +1,4 @@
+import CICD from "../../public/assets/cicd.png";
 import UIUX from "../../public/assets/ui_ux.jpg";
 import VIEWENGINE from "../../public/assets/view_engine.jpg";
 import THIRDPARTY from "../../public/assets/third_party.jpg";
@@ -65,6 +66,167 @@ const ICONS_USAGE = [
       "The class name for the specific icon you want to show (eg: <i>aci-add</i> for the add icon).",
   },
 ];
+
+const DEPLOYMENT_AGENT_DEV = {
+  CICD: [
+    {
+      description:
+        "Open agent repository and create a PR from any branch to the master branch",
+    },
+    {
+      description:
+        "Then rise a pr to development branch from the master branch",
+    },
+    {
+      description:
+        "Once the pr is merged, then it start a new workflow which you can see in Actions tab, Github.",
+    },
+    {
+      description:
+        "This will create a new build and deploy it to the dev server.",
+    },
+    {
+      description:
+        "After 4 to 5 minutes, the build will be deployed and the workflow will turn from yellow to green",
+    },
+  ],
+  manual: [
+    {
+      description: "First check the branch you are in",
+    },
+    {
+      type: "p",
+      code: "git branch",
+    },
+    {
+      description:
+        "If it shows development, then you are good to go. Else checkout",
+    },
+    {
+      type: "p",
+      code: "git checkout development",
+    },
+    { description: "Next pull code from development branch" },
+    {
+      type: "p",
+      code: "git pull origin development",
+    },
+    {
+      description: "Next, install the latest version of the core package",
+    },
+    {
+      type: "p",
+      code: "npm uninstall @apexcura/core \nnpm install @apexcura/core",
+    },
+    {
+      description: "This will install latest version of the core package",
+    },
+    {
+      description: "Then hit the following command to start the build process",
+    },
+    { type: "p", code: "npm run build:dev" },
+    {
+      description:
+        "Once build is done, then run the following command to replace the build folder in the actual domain mapped project",
+    },
+    {
+      type: "p",
+      code: 'sudo cp -r "/home/ubuntu/apex/UI/PRODUCT_ADMIN/build/" "/home/ubuntu/apex/UI/BUILDS/DEV_PRODUCT_ADMIN/"',
+    },
+    {
+      description:
+        "This will copy the build folder to the dev product admin folder",
+    },
+    {
+      description:
+        "Then run the following command to know the process id of this project",
+    },
+    { type: "p", code: "pm2 list" },
+    {
+      description:
+        "Among all the processes, find the process id(4) of the dev product admin project",
+    },
+    { type: "p", code: "pm2 restart 4" },
+  ],
+};
+const DEPLOYMENT_AGENT_PROD = {
+  CICD: [
+    {
+      description:
+        "Open agent repository and create a PR from development branch to prod branch",
+    },
+    {
+      description:
+        "Once the pr is merged, then it start a new workflow which you can see in Actions tab, Github.",
+    },
+    {
+      description:
+        "This will create a new build and deploy it to the production server.",
+    },
+    {
+      description:
+        "After 4 to 5 minutes, the build will be deployed and the workflow will turn from yellow to green",
+    },
+  ],
+  manual: [
+    {
+      description: "First check the branch you are in",
+    },
+    {
+      type: "p",
+      code: "git branch",
+    },
+    {
+      description:
+        "If it shows prod, then you are good to go. Else checkout",
+    },
+    {
+      type: "p",
+      code: "git checkout prod",
+    },
+    { description: "Next pull code from prod branch" },
+    {
+      type: "p",
+      code: "git pull origin prod",
+    },
+    {
+      description: "Next, install the latest version of the core package",
+    },
+    {
+      type: "p",
+      code: "npm uninstall @apexcura/core \nnpm install @apexcura/core",
+    },
+    {
+      description: "This will install latest version of the core package",
+    },
+    {
+      description: "Then hit the following command to start the build process",
+    },
+    { type: "p", code: "npm run build:prod" },
+    {
+      description:
+        "Once build is done, then run the following command to replace the build folder in the actual domain mapped project",
+    },
+    {
+      type: "p",
+      code: 'sudo cp -r "/home/ubuntu/apex/UI/PRODUCT_ADMIN/build/" "/home/ubuntu/apex/UI/BUILDS/LIVE_PRODUCT_ADMIN/"',
+    },
+    {
+      description:
+        "This will copy the build folder to the production product admin folder",
+    },
+    {
+      description:
+        "Then run the following command to know the process id of this project",
+    },
+    { type: "p", code: "pm2 list" },
+    {
+      description:
+        "Among all the processes, find the process id(3) of the prod product admin project",
+    },
+    { type: "p", code: "pm2 restart 3" },
+  ],
+};
 
 const EXISTING_QUEUES = [
   {
@@ -228,6 +390,15 @@ const PROJECTS = [
   },
   {
     id: 3,
+    name: "Deployment (Manual & CI/CD)",
+    route: "/deployment",
+    description:
+      "This will explain how to deploy the projects in production mannually and using CI/CD",
+    img: CICD,
+    tags: ["Build", "CI/CD", "Prod", "Dev"],
+  },
+  {
+    id: 4,
     name: "Third Party Configs",
     route: "/third-party",
     description:
@@ -236,7 +407,7 @@ const PROJECTS = [
     tags: ["Packages", "Bull", "Redis"],
   },
   {
-    id: 4,
+    id: 5,
     name: "Apex Icons",
     route: "/apex-icons",
     description:
@@ -246,7 +417,7 @@ const PROJECTS = [
     tags: ["Icons", "SVG", "Classnames"],
   },
   {
-    id: 5,
+    id: 6,
     name: "Ai Agent",
     route: "/agent",
     description:
@@ -256,7 +427,7 @@ const PROJECTS = [
     tags: ["Calls", "Leads", "Chatbot", "Campaigns"],
   },
   {
-    id: 6,
+    id: 7,
     name: "Ai Chatbot",
     route: "/chat-bot",
     description:
@@ -266,7 +437,7 @@ const PROJECTS = [
     tags: ["Chatbot"],
   },
   {
-    id: 7,
+    id: 8,
     name: "Appointment Widget",
     route: "/appt-widget",
     description:
@@ -276,7 +447,7 @@ const PROJECTS = [
     tags: ["Appointments"],
   },
   {
-    id: 8,
+    id: 9,
     name: "Apex Website",
     route: "/apex-web",
     description:
@@ -286,7 +457,7 @@ const PROJECTS = [
     tags: ["Website"],
   },
   {
-    id: 9,
+    id: 10,
     name: "OP RX",
     route: "/op-rx",
     description:
@@ -333,6 +504,36 @@ const SIDEMENU: ISideMenu = {
         {
           route: "/developers",
           title: "Developers",
+        },
+      ],
+    },
+  ],
+  deployment: [
+    {
+      key: "getting-started",
+      title: "Getting Started",
+      items: [
+        {
+          route: "/",
+          title: "Introduction",
+        },
+        {
+          route: "/developers",
+          title: "Developers",
+        },
+      ],
+    },
+    {
+      key: "frontend",
+      title: "Frontend",
+      items: [
+        {
+          route: "/agent-dev",
+          title: "Agent Dev",
+        },
+        {
+          route: "/agent-prod",
+          title: "Agent Prod",
         },
       ],
     },
@@ -454,4 +655,6 @@ export const Constants = {
   PROJECTS,
   REDIS_LINUX_SETUP,
   SIDEMENU,
+  DEPLOYMENT_AGENT_DEV,
+  DEPLOYMENT_AGENT_PROD
 };

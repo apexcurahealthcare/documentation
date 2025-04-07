@@ -1,32 +1,39 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
-import { UIComponentsIntro } from "./ui-components/intro";
-import { UIComponentsInstallation } from "./ui-components/installation";
-import { UIComponentsButton } from "./ui-components/button";
-import { ApexIconsIntro } from "./apex-icons/intro";
-import { ApexIconsInstallation } from "./apex-icons/installation";
-import { ApexIconsList } from "./apex-icons/list";
 import { ApexIconsDevelopers } from "./apex-icons/developers";
-import { UIComponentsDevelopers } from "./ui-components/developers";
-import { ViewEngineIntro } from "./view-engine/intro";
-import { ViewEngineInstallation } from "./view-engine/installation";
-import { ViewEngineDevelopers } from "./view-engine/developers";
-import { UIComponentsTabs } from "./ui-components/tabs";
-import { ThirdPartyIntro } from "./third-party/intro";
-import { ThirdPartyDevelopers } from "./third-party/developers";
+import { ApexIconsInstallation } from "./apex-icons/installation";
+import { ApexIconsIntro } from "./apex-icons/intro";
+import { ApexIconsList } from "./apex-icons/list";
+import { DeploymentAgentDev } from "./deployment/agent-dev";
+import { DeploymentDevelopers } from "./deployment/developers";
+import { DeploymentIntro } from "./deployment/intro";
 import { ThirdPartyBull } from "./third-party/bull";
-import { ThirdPartyMobaXterm } from "./third-party/mobaxterm";
+import { ThirdPartyDevelopers } from "./third-party/developers";
 import { ThirdPartyICDServer } from "./third-party/icdserver";
-import { UIComponentsRadio } from "./ui-components/radio";
-import { UIComponentsInputText } from "./ui-components/input-text";
-import { UIComponentsSingleSelect } from "./ui-components/single-select";
+import { ThirdPartyIntro } from "./third-party/intro";
+import { ThirdPartyMobaXterm } from "./third-party/mobaxterm";
+import { UIComponentsButton } from "./ui-components/button";
 import { UIComponentsContribute } from "./ui-components/contribute";
+import { UIComponentsDevelopers } from "./ui-components/developers";
+import { UIComponentsInputText } from "./ui-components/input-text";
+import { UIComponentsInstallation } from "./ui-components/installation";
+import { UIComponentsIntro } from "./ui-components/intro";
+import { UIComponentsRadio } from "./ui-components/radio";
+import { UIComponentsSingleSelect } from "./ui-components/single-select";
+import { UIComponentsTabs } from "./ui-components/tabs";
+import { ViewEngineDevelopers } from "./view-engine/developers";
+import { ViewEngineInstallation } from "./view-engine/installation";
+import { ViewEngineIntro } from "./view-engine/intro";
+import { DeploymentAgentProd } from "./deployment/agent-prod";
 
-export type PageName = "apex-icons" | "third-party" | "ui-components" | "view-engine";
+export type PageName = "apex-icons" | "deployment" | "third-party" | "ui-components" | "view-engine";
 
 export type NestedPages =
   | "apex-icons/installation"
   | "apex-icons/list"
   | "apex-icons/developers"
+  | "deployment/developers"
+  | "deployment/agent-dev"
+  | "deployment/agent-prod"
   | "third-party/bullmq"
   | "third-party/developers"
   | "third-party/icd-server"
@@ -56,6 +63,10 @@ class Schema {
     "apex-icons/installation": ApexIconsInstallation,
     "apex-icons/developers": ApexIconsDevelopers,
     "apex-icons/list": ApexIconsList,
+    "deployment": DeploymentIntro,
+    "deployment/developers": DeploymentDevelopers,
+    "deployment/agent-dev": DeploymentAgentDev,
+    "deployment/agent-prod": DeploymentAgentProd,
     "third-party": ThirdPartyIntro,
     "third-party/bullmq": ThirdPartyBull,
     "third-party/developers": ThirdPartyDevelopers,

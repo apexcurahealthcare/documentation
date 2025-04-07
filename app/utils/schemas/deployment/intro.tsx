@@ -1,9 +1,9 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Constants } from "../../constants";
 
-const project = Constants.PROJECTS.find((p: any) => p.route === "/third-party");
+const project = Constants.PROJECTS.find((p: any) => p.route === "/deployment");
 
-export const ThirdPartyIntro: NodeSchema = {
+export const DeploymentIntro: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-6 sm:gap-4",
   isApplyMotion: false,
@@ -27,12 +27,9 @@ export const ThirdPartyIntro: NodeSchema = {
       isApplyMotion: true,
       text: (
         <>
-          This section provides detailed documentation for third-party tools and
-          services used in our projects. Whether you're setting up{" "}
-          <span className="font-semibold">BullMQ</span> for queue management,
-          configuring an <span className="font-semibold">ICD Server</span> on
-          Linux, or using <span className="font-semibold">MobaXterm</span> for
-          remote connections, you'll find everything you need here.
+          Here&apos;s a comprehensive Deployment Documentation covering both
+          Manual Build & Deployment and CI/CD Pipeline approaches for our
+          applications.
         </>
       ),
     },
