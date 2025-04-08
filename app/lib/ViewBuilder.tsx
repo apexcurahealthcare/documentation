@@ -1,7 +1,6 @@
 "use client";
 import { ElementExecutor } from "@apexcura/core";
 import { Alert, AlertProps, cn, Image, Snippet, User } from "@heroui/react";
-import { Outfit } from "next/font/google";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {
@@ -13,11 +12,7 @@ import IconsList from "./IconsList";
 import RevealWrapper from "./Motion";
 import TableComponent from "./TableComponent";
 import TabsComponent from "./TabsComponent";
-const outfit = Outfit({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"],
-  variable: "--font-outfit",
-});
+
 interface BaseNode {
   type: string;
   className?: string;
@@ -223,7 +218,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h1
           id={id}
-          className={`text-4xl sm:font-semibold font-bold ${outfit.className} ${className}`}
+          className={`text-4xl sm:font-semibold font-bold font-inter ${className}`}
         >
           {(schema as TextNode).text}
         </h1>
@@ -232,7 +227,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h2
           id={id}
-          className={`text-3xl sm:font-semibold font-bold ${outfit.className} ${className}`}
+          className={`text-3xl sm:font-semibold font-bold font-inter ${className}`}
         >
           {(schema as TextNode).text}
         </h2>
@@ -241,7 +236,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h3
           id={id}
-          className={`text-2xl sm:font-semibold font-bold ${outfit.className} ${className}`}
+          className={`text-2xl sm:font-semibold font-bold font-inter ${className}`}
         >
           {(schema as TextNode).text}
         </h3>
@@ -250,7 +245,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h4
           id={id}
-          className={`text-lg sm:font-semibold font-bold ${outfit.className} ${className}`}
+          className={`text-lg sm:font-semibold font-bold font-inter ${className}`}
         >
           {(schema as TextNode).text}
         </h4>

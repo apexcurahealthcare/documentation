@@ -21,7 +21,10 @@ export default {
     extend: {
       boxShadow: {
         projectCard: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
-      }
+      },
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+      },
     },
   },
   darkMode: "class",
