@@ -30,6 +30,7 @@ interface BaseNode {
   className?: string;
   id?: string;
   isApplyMotion?: boolean;
+  children?: NodeSchema[]; // Add optional children property
 }
 
 interface AlertNode extends BaseNode {
@@ -38,7 +39,7 @@ interface AlertNode extends BaseNode {
   variant?: "side-border" | "normal";
   text: string | ReactNode;
 }
-interface ButtonNode extends BaseNode, ButtonProps {
+interface ButtonNode extends BaseNode, Omit<ButtonProps, "children"> {
   type: "button";
   text: string;
 }
@@ -152,7 +153,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   const dimensions = useScreenDimensions();
 
   const renderChildren = () => {
-    if ("children" in schema) {
+    if (Array.isArray(schema?.children)) {
       return schema.children.map((child, index) => (
         <ViewBuilder key={index} schema={child} />
       ));
