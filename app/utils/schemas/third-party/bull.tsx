@@ -213,6 +213,10 @@ export const ThirdPartyBull: NodeSchema = {
       text: "Next, click on start icon in actions column. Now redis is running in your system.",
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       type: "h3",
       id: "redis-linux",
       text: "Redis in Linux",
@@ -263,6 +267,10 @@ export const ThirdPartyBull: NodeSchema = {
       text: "Next we will create a queue to add scheduled jobs into that.",
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       type: "h3",
       id: "queue-creation",
       text: "Queue Creation",
@@ -294,6 +302,10 @@ if (ENVIRONMENT === "prod") {
       type: "alert",
       color: "secondary",
       text: "If we dont check the environment, jobs like sending reports to whatsapp or email will be created in development environment also which will send duplicate reports if recipients are same in both live and development database.",
+    },
+    {
+      type: "divider",
+      variant: "dotted"
     },
     {
       type: "h3",
@@ -363,6 +375,10 @@ redis.on("error", (err) => {
       children: renderList(Constants.EXISTING_QUEUES_KEY_CONFIG_OPTIONS),
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       type: "h3",
       id: "queue-setup",
       text: "Queue Setup",
@@ -409,6 +425,10 @@ export const emailQueue = createQueueWithListeners("sendEmail");
     {
       type: "ul",
       children: renderList(Constants.EXISTING_QUEUES_AVAILABLE_QUEUES),
+    },
+    {
+      type: "divider",
+      variant: "dotted"
     },
     {
       type: "h3",
@@ -464,6 +484,10 @@ pdfWorker.on("failed", (job, err) => {
     {
       type: "p",
       text: "Similarly, the Whatsapp and Email Workers are implemented in the respective worker files.",
+    },
+    {
+      type: "divider",
+      variant: "dotted"
     },
     {
       type: "h3",

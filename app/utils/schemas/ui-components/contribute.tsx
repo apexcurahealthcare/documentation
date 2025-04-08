@@ -174,6 +174,10 @@ export const UIComponentsContribute: NodeSchema = {
       isApplyMotion: true,
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       id: "installation",
       type: "h3",
       text: "Installation",

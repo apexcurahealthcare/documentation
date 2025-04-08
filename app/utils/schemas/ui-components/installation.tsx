@@ -22,6 +22,10 @@ export const UIComponentsInstallation: NodeSchema = {
       ),
     },
     {
+      type: "divider",
+      // variant: "dotted"
+    },
+    {
       type: "h3",
       id: "install-the-package",
       text: "Install the Package 📦",

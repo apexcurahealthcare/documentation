@@ -423,7 +423,7 @@ const PROJECTS = [
     description:
       "Apex Agent is a cutting-edge, AI-powered solution designed to revolutionize hospital management. Seamlessly integrating with your existing hospital management system (HIMS), Apex Agent provides a suite of advanced features to streamline operations, enhance patient engagement, and boost overall efficiency.",
     img: AGENT,
-    git: "https://github.com/ApexCura/view-engine",
+    git: "https://github.com/ApexCura/apexcura-agent-frontend",
     tags: ["Calls", "Leads", "Chatbot", "Campaigns"],
   },
   {

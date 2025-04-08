@@ -1,6 +1,18 @@
 "use client";
+import { HiLink } from "react-icons/hi";
+
 import { ElementExecutor } from "@apexcura/core";
-import { Alert, AlertProps, cn, Image, Snippet, User } from "@heroui/react";
+import {
+  Alert,
+  AlertProps,
+  cn,
+  Image,
+  Snippet,
+  User,
+  Button,
+  ButtonProps,
+  Divider,
+} from "@heroui/react";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {
@@ -25,6 +37,14 @@ interface AlertNode extends BaseNode {
   color: "primary" | "secondary" | "success" | "warning" | "danger";
   variant?: "side-border" | "normal";
   text: string | ReactNode;
+}
+interface ButtonNode extends BaseNode, ButtonProps {
+  type: "button";
+  text: string;
+}
+interface DividerNode extends BaseNode {
+  type: "divider";
+  variant?: "line" | "dotted";
 }
 interface TextNode extends BaseNode {
   type: "h1" | "h2" | "h3" | "h4" | "p" | "li";
@@ -108,6 +128,8 @@ interface ListItemNode extends BaseNode {
 
 export type NodeSchema =
   | AlertNode
+  | ButtonNode
+  | DividerNode
   | TextNode
   | CodeNode
   | TabsNode
@@ -214,6 +236,26 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
           <Alert color={alertNode?.color} title={alertNode?.text} />
         )
       );
+    case "button":
+      const buttonNode = schema as ButtonNode;
+      return renderElement(
+        <Button {...buttonNode} className={`w-full ${className}`}>
+          {buttonNode?.text}
+        </Button>
+      );
+    case "divider":
+      const dividerNode = schema as DividerNode;
+      return renderElement(
+        dividerNode?.variant === "dotted" ? (
+          <div className="w-full my-4 flex gap-2 items-center justify-center">
+            {[1, 2, 3].map((e) => (
+              <div key={e} className="size-1 bg-gray-500 rounded-full"></div>
+            ))}
+          </div>
+        ) : (
+          <Divider className="bg-gray-100"/>
+        )
+      );
     case "h1":
       return renderElement(
         <h1
@@ -236,9 +278,10 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return renderElement(
         <h3
           id={id}
-          className={`text-2xl sm:font-semibold font-bold font-inter ${className}`}
+          className={`text-2xl flex items-center gap-1 sm:font-semibold font-bold font-inter cursor-pointer ${className}`}
+          onClick={() => (id ? (window.location.hash = id) : {})}
         >
-          {(schema as TextNode).text}
+          {(schema as TextNode).text} <HiLink />
         </h3>
       );
     case "h4":

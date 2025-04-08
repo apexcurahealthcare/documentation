@@ -128,6 +128,10 @@ export const ThirdPartyMobaXterm: NodeSchema = {
       ),
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       type: "h3",
       id: "installation",
       text: "Installation",
@@ -144,6 +148,10 @@ export const ThirdPartyMobaXterm: NodeSchema = {
       className: "h-auto",
       isBlurred: false,
       isApplyMotion: true,
+    },
+    {
+      type: "divider",
+      variant: "dotted"
     },
     {
       type: "h3",

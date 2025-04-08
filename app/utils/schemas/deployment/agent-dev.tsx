@@ -1,10 +1,18 @@
+"use client";
+
 import CustomLink from "@/app/lib/CustomLink";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import AGENTDEVPM2 from "@/public/assets/agent-dev-pm2.jpg";
+import Image from "next/image";
+import INPROGRESS from "@/public/assets/in-progress.png";
 import AGENTDEVPIPELINE from "@/public/assets/agent-dev-pipeline.png";
 import { Code } from "@heroui/react";
-import { Constants } from "../../constants";
+import GIT from "@/public/assets/github.svg";
 
+import { Constants } from "../../constants";
+const project = Constants.PROJECTS.find(
+  (project) => project.route === "/agent"
+);
 export const DeploymentAgentDev: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-4",
@@ -13,6 +21,38 @@ export const DeploymentAgentDev: NodeSchema = {
     {
       type: "h2",
       text: "ApexCura Agent",
+    },
+    {
+      type: "div",
+      className: "flex gap-2",
+      children: [
+        {
+          type: "button",
+          text: "Development",
+          color: "default",
+          size: "sm",
+          startContent: (
+            <Image
+              src={INPROGRESS.src}
+              alt="In Progress"
+              width={16}
+              height={16}
+            />
+          ),
+          className: "bg-gray-200/40 text-gray-800",
+        },
+        {
+          type: "button",
+          text: "Github Repo",
+          color: "default",
+          size: "sm",
+          startContent: (
+            <Image src={GIT.src} alt="Github repo" width={16} height={16} />
+          ),
+          onPress: () => window.open(project?.git, "_blank"),
+          className: "bg-gray-200/40 text-gray-800",
+        },
+      ],
     },
     {
       type: "p",
@@ -39,6 +79,9 @@ export const DeploymentAgentDev: NodeSchema = {
       ),
     },
     {
+      type: "divider",
+    },
+    {
       type: "h3",
       id: "manual",
       text: "Manual Deployment",
@@ -53,16 +96,12 @@ export const DeploymentAgentDev: NodeSchema = {
       // variant: "side-border",
       text: (
         <>
-          If you want to change the build version, you
-          can change it in <span className="font-semibold">src/utils/app-constants.ts</span>
+          If you want to change the build version, you can change it in{" "}
+          <span className="font-semibold">src/utils/app-constants.ts</span>. You
+          can either push it from local and merge to master or directly modify
+          in the github
         </>
       ),
-    },
-    {
-      type: "alert",
-      color: "secondary",
-      variant: "side-border",
-      text: "You can either push it from local and merge to master or directly modify in the github",
     },
     {
       type: "p",
@@ -108,6 +147,10 @@ export const DeploymentAgentDev: NodeSchema = {
       type: "alert",
       color: "success",
       text: "That's it! You have successfully deployed the agent application.",
+    },
+    {
+      type: "divider",
+      variant: "dotted",
     },
     {
       type: "h3",

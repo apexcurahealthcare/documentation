@@ -1,11 +1,17 @@
+"use client";
 import CustomLink from "@/app/lib/CustomLink";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import AGENTPRODPM2 from "@/public/assets/agent-prod-pm2.jpg";
 import AGENTDEVPIPELINE from "@/public/assets/agent-dev-pipeline.png";
+import GIT from "@/public/assets/github.svg";
 import { Code } from "@heroui/react";
+import ROCKET from "@/public/assets/rocket.png";
+
 import { Constants } from "../../constants";
-
-
+import Image from "next/image";
+const project = Constants.PROJECTS.find(
+  (project) => project.route === "/agent"
+);
 export const DeploymentAgentProd: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-4",
@@ -14,6 +20,33 @@ export const DeploymentAgentProd: NodeSchema = {
     {
       type: "h2",
       text: "ApexCura Agent",
+    },
+    {
+      type: "div",
+      className: "flex gap-2",
+      children: [
+        {
+          type: "button",
+          text: "Production",
+          color: "default",
+          size: "sm",
+          startContent: (
+            <Image src={ROCKET.src} alt="Production" width={16} height={16} />
+          ),
+          className: "bg-gray-200/40 text-gray-800",
+        },
+        {
+          type: "button",
+          text: "Github Repo",
+          color: "default",
+          size: "sm",
+          startContent: (
+            <Image src={GIT.src} alt="Github repo" width={16} height={16} />
+          ),
+          onPress: () => window.open(project?.git, "_blank"),
+          className: "bg-gray-200/40 text-gray-800",
+        },
+      ],
     },
     {
       type: "p",
@@ -38,6 +71,9 @@ export const DeploymentAgentProd: NodeSchema = {
           and follow the installation steps. Once done, proceed with this guide.
         </>
       ),
+    },
+    {
+      type: "divider",
     },
     {
       type: "h3",
@@ -94,13 +130,17 @@ export const DeploymentAgentProd: NodeSchema = {
       text: "That's it! You have successfully deployed the agent application.",
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       type: "h3",
       id: "cicd",
       text: "CI/CD Deployment",
     },
     {
       type: "p",
-      text: "This is a very simple process."
+      text: "This is a very simple process.",
     },
     {
       type: "ol",

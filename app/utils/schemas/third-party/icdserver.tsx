@@ -28,6 +28,10 @@ export const ThirdPartyICDServer: NodeSchema = {
       text: "This guide will walk you through the process of installing Docker, pulling the ICD API Docker image, and running the container. By the end of this guide, you’ll have the ICD API up and running on your machine.",
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       type: "h3",
       id: "introduction",
       text: "Introduction",
