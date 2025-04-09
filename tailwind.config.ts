@@ -22,6 +22,9 @@ export default {
       boxShadow: {
         projectCard: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
       },
+      colors: {
+        primary: "#3341bb",
+      },
       fontFamily: {
         inter: ['var(--font-inter)'],
       },

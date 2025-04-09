@@ -5,13 +5,13 @@ import { ElementExecutor } from "@apexcura/core";
 import {
   Alert,
   AlertProps,
+  Button,
+  ButtonProps,
   cn,
+  Divider,
   Image,
   Snippet,
   User,
-  Button,
-  ButtonProps,
-  Divider,
 } from "@heroui/react";
 import React, { ReactNode } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
@@ -26,11 +26,11 @@ import TableComponent from "./TableComponent";
 import TabsComponent from "./TabsComponent";
 
 interface BaseNode {
-  type: string;
+  children?: NodeSchema[]; // Add optional children property
   className?: string;
   id?: string;
   isApplyMotion?: boolean;
-  children?: NodeSchema[]; // Add optional children property
+  type: string;
 }
 
 interface AlertNode extends BaseNode {
@@ -113,7 +113,7 @@ interface ImageNode extends BaseNode {
 }
 
 interface ContainerNode extends BaseNode {
-  type: "div" | "ul";
+  type: "div";
   children: NodeSchema[];
 }
 
@@ -130,26 +130,26 @@ interface ListItemNode extends BaseNode {
 export type NodeSchema =
   | AlertNode
   | ButtonNode
-  | DividerNode
-  | TextNode
   | CodeNode
-  | TabsNode
-  | TableNode
-  | SnippetNode
+  | ContainerNode
+  | DividerNode
   | ExecutorNode
   | IconsListNode
   | ImageNode
-  | ContainerNode
+  | ListItemNode
   | ListNode
-  | UserNode
-  | ListItemNode;
+  | SnippetNode
+  | TableNode
+  | TabsNode
+  | TextNode
+  | UserNode;
 
 interface ViewBuilderProps {
   schema: NodeSchema;
 }
 
 const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
-  const { type, className, id, isApplyMotion } = schema;
+  const { type, className, isApplyMotion } = schema;
   const dimensions = useScreenDimensions();
 
   const renderChildren = () => {
@@ -254,58 +254,66 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
             ))}
           </div>
         ) : (
-          <Divider className="bg-gray-100"/>
+          <Divider className="bg-gray-100" />
         )
       );
     case "h1":
+      const h1Node = schema as TextNode;
       return renderElement(
         <h1
-          id={id}
+          id={h1Node?.id}
           className={`text-4xl sm:font-semibold font-bold font-inter ${className}`}
         >
           {(schema as TextNode).text}
         </h1>
       );
     case "h2":
+      const h2Node = schema as TextNode;
       return renderElement(
         <h2
-          id={id}
+          id={h2Node?.id}
           className={`text-3xl sm:font-semibold font-bold font-inter ${className}`}
         >
           {(schema as TextNode).text}
         </h2>
       );
     case "h3":
+      const h3Node = schema as TextNode;
       return renderElement(
         <h3
-          id={id}
+          id={h3Node?.id}
           className={`text-2xl flex items-center gap-1 sm:font-semibold font-bold font-inter cursor-pointer ${className}`}
-          onClick={() => (id ? (window.location.hash = id) : {})}
+          onClick={() =>
+            h3Node?.id ? (window.location.hash = h3Node?.id) : {}
+          }
         >
           {(schema as TextNode).text} <HiLink />
         </h3>
       );
     case "h4":
+      const h4Node = schema as TextNode;
       return renderElement(
         <h4
-          id={id}
+          id={h4Node?.id}
           className={`text-lg sm:font-semibold font-bold font-inter ${className}`}
         >
           {(schema as TextNode).text}
         </h4>
       );
     case "p":
+      const pNode = schema as TextNode;
       return renderElement(
         <>
-          <p id={id} className={`leading-8 ${className}`}>
+          <p id={pNode?.id} className={`leading-8 ${className}`}>
             {(schema as TextNode).text}
           </p>
           {(schema as CodeNode)?.code && renderCode(schema as CodeNode)}
         </>
       );
     case "li":
+      const liNode = schema as ListItemNode;
       return renderElement(
-        <li id={id} className={`leading-8 ${className}`}>
+        <li id={liNode?.id} className={`leading-8 ${className}`}>
           {(schema as TextNode).text}
         </li>
       );
@@ -369,20 +377,23 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
     case "icons":
       return renderElement(<IconsList />);
     case "div":
+      const divNode = schema as ContainerNode;
       return renderElement(
-        <div id={id} className={className}>
+        <div id={divNode?.id} className={className}>
           {renderChildren()}
         </div>
       );
     case "ul":
+      const ulNode = schema as ListNode;
       return renderElement(
-        <ul id={id} className={`list-disc ml-8 ${className}`}>
+        <ul id={ulNode?.id} className={`list-disc ml-8 ${className}`}>
           {renderChildren()}
         </ul>
       );
     case "ol":
+      const olNode = schema as ListNode;
       return renderElement(
-        <ol id={id} className={`list-decimal ml-8 ${className}`}>
+        <ol id={olNode?.id} className={`list-decimal ml-8 ${className}`}>
           {renderChildren()}
         </ol>
       );

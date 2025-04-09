@@ -24,6 +24,7 @@ import { ViewEngineDevelopers } from "./view-engine/developers";
 import { ViewEngineInstallation } from "./view-engine/installation";
 import { ViewEngineIntro } from "./view-engine/intro";
 import { DeploymentAgentProd } from "./deployment/agent-prod";
+import { UIComponentsGradientCardGroup } from "./ui-components/gradient-card-group";
 
 export type PageName = "apex-icons" | "deployment" | "third-party" | "ui-components" | "view-engine";
 
@@ -42,6 +43,7 @@ export type NestedPages =
   | "ui-components/contribute"
   | "ui-components/developers"
   | "ui-components/button"
+  | "ui-components/gradient-card-group"
   | "ui-components/input-text"
   | "ui-components/radio"
   | "ui-components/single-select"
@@ -77,6 +79,7 @@ class Schema {
     "ui-components/contribute": UIComponentsContribute,
     "ui-components/developers": UIComponentsDevelopers,
     "ui-components/button": UIComponentsButton,
+    "ui-components/gradient-card-group": UIComponentsGradientCardGroup,
     "ui-components/input-text": UIComponentsInputText,
     "ui-components/radio": UIComponentsRadio,
     "ui-components/single-select": UIComponentsSingleSelect,

@@ -604,6 +604,10 @@ const SIDEMENU: ISideMenu = {
           title: "Button",
         },
         {
+          route: "/gradient-card-group",
+          title: "Gradient Card Group",
+        },
+        {
           route: "/input-text",
           title: "Text",
         },
