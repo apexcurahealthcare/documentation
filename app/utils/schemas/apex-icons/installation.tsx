@@ -71,7 +71,7 @@ export const ApexIconsInstallation: NodeSchema = {
     },
     {
       type: "ul",
-      children: Constants.ICONS_USAGE.map((matter: any, index: number) => ({
+      children: Constants.ICONS_USAGE.map((matter: any) => ({
         type: "li",
         isApplyMotion: true,
         text: (

@@ -48,7 +48,7 @@ interface DividerNode extends BaseNode {
   variant?: "line" | "dotted";
 }
 interface TextNode extends BaseNode {
-  type: "h1" | "h2" | "h3" | "h4" | "p" | "li";
+  type: "h1" | "h2" | "h3" | "h4" | "p";
   text: string | ReactNode;
 }
 
@@ -122,9 +122,11 @@ interface ListNode extends BaseNode {
   children: ListItemNode[];
 }
 
-interface ListItemNode extends BaseNode {
+interface ListItemNode {
+  id?: string;
+  isApplyMotion?: boolean;
   type: "li";
-  text: string;
+  text: string | ReactNode;
 }
 
 export type NodeSchema =
@@ -149,11 +151,12 @@ interface ViewBuilderProps {
 }
 
 const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
-  const { type, className, isApplyMotion } = schema;
+  const { type, isApplyMotion } = schema;
+  const className = 'className' in schema ? schema.className : undefined;
   const dimensions = useScreenDimensions();
 
   const renderChildren = () => {
-    if (Array.isArray(schema?.children)) {
+    if ('children' in schema && Array.isArray(schema.children)) {
       return schema.children.map((child, index) => (
         <ViewBuilder key={index} schema={child} />
       ));

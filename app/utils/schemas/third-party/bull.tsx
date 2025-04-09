@@ -176,7 +176,7 @@ export const ThirdPartyBull: NodeSchema = {
           <CustomLink href="https://docs.bullmq.io/" text="BullMQ" /> is a
           powerful and flexible queue library for Node.js, built on top of
           Redis. It’s designed to handle background jobs, task scheduling, and
-          distributed processing with ease. Whether you're processing thousands
+          distributed processing with ease. Whether you&apos;re processing thousands
           of jobs or just a few, BullMQ ensures reliability and scalability.
         </>
       ),
