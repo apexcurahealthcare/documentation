@@ -202,7 +202,7 @@ export const ApexIconsInstallation: NodeSchema = {
         },
         {
           type: "p",
-          text: "You can combine multiple classes to achieve the desired look and behavior.",
+          text: "You can combine multiple classes to achieve the desired look and behavior. ",
         },
         {
           type: "code",
