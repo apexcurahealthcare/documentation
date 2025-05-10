@@ -33,7 +33,7 @@ export default function TopBar() {
                 Apex
               </p>
               <p className="text-lg font-medium">
-                Docs
+                Documentation
               </p>
             </div>
           </div>
