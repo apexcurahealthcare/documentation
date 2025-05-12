@@ -4,6 +4,7 @@ import { ApexIconsInstallation } from "./apex-icons/installation";
 import { ApexIconsIntro } from "./apex-icons/intro";
 import { ApexIconsList } from "./apex-icons/list";
 import { DeploymentAgentDev } from "./deployment/agent-dev";
+import { DeploymentAgentProd } from "./deployment/agent-prod";
 import { DeploymentDevelopers } from "./deployment/developers";
 import { DeploymentIntro } from "./deployment/intro";
 import { ThirdPartyBull } from "./third-party/bull";
@@ -11,9 +12,13 @@ import { ThirdPartyDevelopers } from "./third-party/developers";
 import { ThirdPartyICDServer } from "./third-party/icdserver";
 import { ThirdPartyIntro } from "./third-party/intro";
 import { ThirdPartyMobaXterm } from "./third-party/mobaxterm";
+import { UIBuilderDevelopers } from "./ui-builder/developers";
+import { UIBuilderInstallation } from "./ui-builder/installation";
+import { UIBuilderIntro } from "./ui-builder/intro";
 import { UIComponentsButton } from "./ui-components/button";
 import { UIComponentsContribute } from "./ui-components/contribute";
 import { UIComponentsDevelopers } from "./ui-components/developers";
+import { UIComponentsGradientCardGroup } from "./ui-components/gradient-card-group";
 import { UIComponentsInputText } from "./ui-components/input-text";
 import { UIComponentsInstallation } from "./ui-components/installation";
 import { UIComponentsIntro } from "./ui-components/intro";
@@ -23,10 +28,14 @@ import { UIComponentsTabs } from "./ui-components/tabs";
 import { ViewEngineDevelopers } from "./view-engine/developers";
 import { ViewEngineInstallation } from "./view-engine/installation";
 import { ViewEngineIntro } from "./view-engine/intro";
-import { DeploymentAgentProd } from "./deployment/agent-prod";
-import { UIComponentsGradientCardGroup } from "./ui-components/gradient-card-group";
 
-export type PageName = "apex-icons" | "deployment" | "third-party" | "ui-components" | "view-engine";
+export type PageName =
+  | "apex-icons"
+  | "deployment"
+  | "third-party"
+  | "ui-builder"
+  | "ui-components"
+  | "view-engine";
 
 export type NestedPages =
   | "apex-icons/installation"
@@ -39,6 +48,8 @@ export type NestedPages =
   | "third-party/developers"
   | "third-party/icd-server"
   | "third-party/mobaxterm"
+  | "ui-builder/developers"
+  | "ui-builder/installation"
   | "ui-components/installation"
   | "ui-components/contribute"
   | "ui-components/developers"
@@ -49,7 +60,7 @@ export type NestedPages =
   | "ui-components/single-select"
   | "ui-components/tabs"
   | "view-engine/installation"
-  | "view-engine/developers"
+  | "view-engine/developers";
 
 export type AllPages = PageName | NestedPages;
 
@@ -65,7 +76,7 @@ class Schema {
     "apex-icons/installation": ApexIconsInstallation,
     "apex-icons/developers": ApexIconsDevelopers,
     "apex-icons/list": ApexIconsList,
-    "deployment": DeploymentIntro,
+    deployment: DeploymentIntro,
     "deployment/developers": DeploymentDevelopers,
     "deployment/agent-dev": DeploymentAgentDev,
     "deployment/agent-prod": DeploymentAgentProd,
@@ -74,6 +85,9 @@ class Schema {
     "third-party/developers": ThirdPartyDevelopers,
     "third-party/icd-server": ThirdPartyICDServer,
     "third-party/mobaxterm": ThirdPartyMobaXterm,
+    "ui-builder": UIBuilderIntro,
+    "ui-builder/developers": UIBuilderDevelopers,
+    "ui-builder/installation": UIBuilderInstallation,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,
     "ui-components/contribute": UIComponentsContribute,
@@ -86,7 +100,7 @@ class Schema {
     "ui-components/tabs": UIComponentsTabs,
     "view-engine": ViewEngineIntro,
     "view-engine/installation": ViewEngineInstallation,
-    "view-engine/developers": ViewEngineDevelopers
+    "view-engine/developers": ViewEngineDevelopers,
   };
 
   static get(pageName: AllPages): NodeSchema {

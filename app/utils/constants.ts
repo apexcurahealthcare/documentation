@@ -1,10 +1,11 @@
+import AGENT from "../../public/assets/agent.svg";
 import CICD from "../../public/assets/cicd.png";
+import ICONS from "../../public/assets/icons-health.jpg";
+import OPRX from "../../public/assets/rx.svg";
+import THIRDPARTY from "../../public/assets/third_party.jpg";
+import UIBUILDER from "../../public/assets/ui_builder.png";
 import UIUX from "../../public/assets/ui_ux.jpg";
 import VIEWENGINE from "../../public/assets/view_engine.jpg";
-import THIRDPARTY from "../../public/assets/third_party.jpg";
-import ICONS from "../../public/assets/icons-health.jpg";
-import AGENT from "../../public/assets/agent.svg";
-import OPRX from "../../public/assets/rx.svg";
 import { PageName } from "./schemas";
 
 const IMAGES = {
@@ -15,7 +16,7 @@ const IMAGES = {
 };
 
 export type Developer = {
-  shortName: "charan" | "lakshmi" | "srilekha" | "teja";
+  shortName: "charan" | "dinesh" | "lakshmi" | "swoyam" | "srilekha" | "teja";
   fullName: string;
   email: string;
   url?: string;
@@ -33,11 +34,25 @@ const DEVELOPERS: Developer[] = [
     avatar: IMAGES["user_male"],
   },
   {
+    shortName: "dinesh",
+    fullName: "Dinesh",
+    email: "dineshv@apexcura.com",
+    gender: "male",
+    avatar: IMAGES["user_male"],
+  },
+  {
     shortName: "srilekha",
     fullName: "Srilekha Tirumalasetti",
     email: "srilekha@apexcura.com",
     gender: "female",
     avatar: IMAGES["user_female"],
+  },
+  {
+    shortName: "swoyam",
+    fullName: "Swoyam Pant",
+    email: "swoyampant@apexcura.com",
+    gender: "male",
+    avatar: IMAGES["user_male"],
   },
   {
     shortName: "teja",
@@ -389,6 +404,17 @@ const PROJECTS = [
     tags: ["Element Executor", "UI Renderer"],
   },
   {
+    id: 11,
+    name: "UI Builder",
+    route: "/ui-builder",
+    description:
+      "An interface that renders components based on the schema received from the other projects",
+    img: UIBUILDER,
+    git: "https://github.com/ApexCura/apexcura-ui-builder",
+    npm: "https://www.npmjs.com/package/@apexcura/ui-builder",
+    tags: ["UI Builder", "Schema Driven", "Handlers"],
+  },
+  {
     id: 3,
     name: "Deployment (Manual & CI/CD)",
     route: "/deployment",
@@ -568,6 +594,60 @@ const SIDEMENU: ISideMenu = {
         {
           route: "/mobaxterm",
           title: "MobaXterm",
+        },
+      ],
+    },
+  ],
+  "ui-builder": [
+    {
+      key: "getting-started",
+      title: "Getting Started",
+      items: [
+        {
+          route: "/",
+          title: "Introduction",
+        },
+        {
+          route: "/installation",
+          title: "Installation",
+        },
+        {
+          route: "/developers",
+          title: "Developers",
+        },
+        {
+          route: "/contribute",
+          title: "Contribute",
+        },
+      ],
+    },
+    {
+      key: "components",
+      title: "Components",
+      items: [
+        {
+          route: "/button",
+          title: "Button",
+        },
+        {
+          route: "/gradient-card-group",
+          title: "Gradient Card Group",
+        },
+        {
+          route: "/input-text",
+          title: "Text",
+        },
+        {
+          route: "/single-select",
+          title: "Select",
+        },
+        {
+          route: "/radio",
+          title: "Radio",
+        },
+        {
+          route: "/tabs",
+          title: "Tabs",
         },
       ],
     },
