@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import "./globals.css";
-import { Providers } from "./Providers";
-import Layout from "./lib/Layout";
 import Script from "next/script";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
+import Layout from "./lib/Layout";
+import { Providers } from "./Providers";
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -20,10 +21,10 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | ApexCura',
-    default: 'Projects',
+    template: "%s | ApexCura",
+    default: "Projects",
   },
-}
+};
 
 export default function RootLayout({
   children,
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <Providers>
           <Layout>{children}</Layout>
+          <Toaster />
         </Providers>
         {/* Load the script dynamically with Next.js Script */}
         <Script

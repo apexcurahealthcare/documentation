@@ -14,6 +14,9 @@ import {
   User,
 } from "@heroui/react";
 import React, { ReactNode } from "react";
+import toast from "react-hot-toast";
+import { IoIosCheckmarkCircle } from "react-icons/io";
+import { IoCopyOutline } from "react-icons/io5";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {
   atomOneDark,
@@ -152,11 +155,11 @@ interface ViewBuilderProps {
 
 const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   const { type, isApplyMotion } = schema;
-  const className = 'className' in schema ? schema.className : undefined;
+  const className = "className" in schema ? schema.className : undefined;
   const dimensions = useScreenDimensions();
 
   const renderChildren = () => {
-    if ('children' in schema && Array.isArray(schema.children)) {
+    if ("children" in schema && Array.isArray(schema.children)) {
       return schema.children.map((child, index) => (
         <ViewBuilder key={index} schema={child} />
       ));
@@ -411,17 +414,37 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       railscasts,
     };
     return (
-      <SyntaxHighlighter
-        language="javascript"
-        style={codeNode?.theme ? themes?.[codeNode?.theme] : atomOneDark}
-        customStyle={{
-          borderRadius: "10px",
-          fontSize: "14px",
-          padding: "12px",
-        }}
-      >
-        {String(codeNode?.code)}
-      </SyntaxHighlighter>
+      <div style={{ position: "relative" }}>
+        <SyntaxHighlighter
+          language="javascript"
+          style={codeNode?.theme ? themes?.[codeNode?.theme] : atomOneDark}
+          customStyle={{
+            borderRadius: "10px",
+            fontSize: "14px",
+            padding: "12px",
+          }}
+        >
+          {String(codeNode?.code)}
+        </SyntaxHighlighter>
+        <Button
+          onPress={() => {
+            toast("Copied to clipboard", {
+              icon: <IoIosCheckmarkCircle color="#25D366" size={20} />,
+              style: {
+                fontSize: "14px",
+                fontWeight: "500",
+                paddingLeft: "16px",
+              },
+            });
+            navigator.clipboard.writeText(String(codeNode?.code));
+          }}
+          isIconOnly={true}
+          size="sm"
+          className="absolute top-1.5 right-1 bg-transparent"
+        >
+          <IoCopyOutline size={14} color="white" />
+        </Button>
+      </div>
     );
   }
 };
