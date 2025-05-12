@@ -60,7 +60,7 @@ const INSTALLATION = [
   },
   {
     type: "p",
-    code: "github.com/ApexCura/ui-components",
+    code: "github.com/ApexCura/ui-builder",
   },
   {
     description: "Install Dependencies",
@@ -116,7 +116,7 @@ const PREREQUISITES_STEPS = PREREQUISITES.reduce((acc: any, step: any) => {
   ];
   return acc;
 }, []);
-export const UIComponentsContribute: NodeSchema = {
+export const UIBuilderContribute: NodeSchema = {
   type: "div",
   className: "flex flex-col gap-4",
   isApplyMotion: false,
@@ -129,7 +129,7 @@ export const UIComponentsContribute: NodeSchema = {
     },
     {
       type: "p",
-      text: "We welcome contributions to our UI components library! Follow this guide to set up the development environment, make changes, and publish updates.",
+      text: "We welcome contributions to our UI Bulider library! Follow this guide to set up the development environment, make changes, and publish updates.",
     },
     {
       id: "prerequisites",

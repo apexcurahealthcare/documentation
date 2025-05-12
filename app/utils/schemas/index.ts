@@ -12,6 +12,7 @@ import { ThirdPartyDevelopers } from "./third-party/developers";
 import { ThirdPartyICDServer } from "./third-party/icdserver";
 import { ThirdPartyIntro } from "./third-party/intro";
 import { ThirdPartyMobaXterm } from "./third-party/mobaxterm";
+import { UIBuilderContribute } from "./ui-builder/contribute";
 import { UIBuilderDevelopers } from "./ui-builder/developers";
 import { UIBuilderInstallation } from "./ui-builder/installation";
 import { UIBuilderIntro } from "./ui-builder/intro";
@@ -48,6 +49,7 @@ export type NestedPages =
   | "third-party/developers"
   | "third-party/icd-server"
   | "third-party/mobaxterm"
+  | "ui-builder/contribute"
   | "ui-builder/developers"
   | "ui-builder/installation"
   | "ui-components/installation"
@@ -86,6 +88,7 @@ class Schema {
     "third-party/icd-server": ThirdPartyICDServer,
     "third-party/mobaxterm": ThirdPartyMobaXterm,
     "ui-builder": UIBuilderIntro,
+    "ui-builder/contribute": UIBuilderContribute,
     "ui-builder/developers": UIBuilderDevelopers,
     "ui-builder/installation": UIBuilderInstallation,
     "ui-components": UIComponentsIntro,
