@@ -1,6 +1,6 @@
 "use client";
 import { HiLink } from "react-icons/hi";
-
+import "@apexcura/ui-builder/dist/css/styles.css";
 import { ElementExecutor } from "@apexcura/core";
 import {
   Alert,
@@ -13,7 +13,7 @@ import {
   Snippet,
   User,
 } from "@heroui/react";
-import React, { ReactNode } from "react";
+import React, { ReactNode, Suspense, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { IoCopyOutline } from "react-icons/io5";
@@ -27,6 +27,10 @@ import IconsList from "./IconsList";
 import RevealWrapper from "./Motion";
 import TableComponent from "./TableComponent";
 import TabsComponent from "./TabsComponent";
+import dynamic from "next/dynamic";
+const ApexUIBuilder = dynamic(() => import("./ApexUIBuilder"), {
+  ssr: false,
+});
 
 interface BaseNode {
   children?: NodeSchema[]; // Add optional children property
@@ -95,6 +99,9 @@ export interface TableNode extends BaseNode {
 interface ExecutorNode extends BaseNode {
   schema: any;
 }
+export interface UIBuilderNode extends BaseNode {
+  schema: any;
+}
 
 interface IconsListNode extends BaseNode {
   type: "icons";
@@ -147,6 +154,7 @@ export type NodeSchema =
   | TableNode
   | TabsNode
   | TextNode
+  | UIBuilderNode
   | UserNode;
 
 interface ViewBuilderProps {
@@ -157,6 +165,13 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
   const { type, isApplyMotion } = schema;
   const className = "className" in schema ? schema.className : undefined;
   const dimensions = useScreenDimensions();
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  if (!ready) return null;
 
   const renderChildren = () => {
     if ("children" in schema && Array.isArray(schema.children)) {
@@ -380,6 +395,11 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
     case "element-executor":
       const executorNode = schema as ExecutorNode;
       return <ElementExecutor data={executorNode?.schema} />;
+    case "ui-builder":
+      const uiBuilderNode = schema as UIBuilderNode;
+      return <Suspense fallback={<p>Loading...</p>}>
+        <ApexUIBuilder {...uiBuilderNode} />
+      </Suspense> 
     case "icons":
       return renderElement(<IconsList />);
     case "div":

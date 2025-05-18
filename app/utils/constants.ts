@@ -630,6 +630,10 @@ const SIDEMENU: ISideMenu = {
           title: "Button",
         },
         {
+          route: "/chip",
+          title: "Chip",
+        },
+        {
           route: "/gradient-card-group",
           title: "Gradient Card Group",
         },
