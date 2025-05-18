@@ -1,6 +1,8 @@
 "use client";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
+import GIT from "@/public/assets/github.svg";
 import { Code } from "@heroui/react";
+import Image from "next/image";
 import Link from "next/link";
 
 export const UIBuilderChip: NodeSchema = {
@@ -11,6 +13,27 @@ export const UIBuilderChip: NodeSchema = {
     {
       type: "h2",
       text: "Chip",
+    },
+    {
+      type: "div",
+      className: "flex gap-2",
+      children: [
+        {
+          type: "button",
+          text: "Component",
+          color: "default",
+          size: "sm",
+          startContent: (
+            <Image src={GIT.src} alt="Git file path" width={16} height={16} />
+          ),
+          onPress: () =>
+            window.open(
+              "https://github.com/ApexCura/apexcura-ui-builder/blob/development/src/Components/ACChip.tsx",
+              "_blank"
+            ),
+          className: "bg-gray-200/40 text-gray-800",
+        },
+      ],
     },
     {
       type: "p",
@@ -393,7 +416,8 @@ export const UIBuilderChip: NodeSchema = {
           prop: "iconClassName",
           type: (
             <Code className="text-xs font-semibold">
-              string. If icon.className not exists in icons, this will be the default
+              string. If icon.className not exists in icons, this will be the
+              default
             </Code>
           ),
           default: "--",
