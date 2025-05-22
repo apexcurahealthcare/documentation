@@ -1,6 +1,7 @@
 "use client";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import GIT from "@/public/assets/github.svg";
+import STYLES from "@/public/assets/tailwind.svg";
 import { Code } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,7 +32,27 @@ export const UIBuilderChip: NodeSchema = {
               "https://github.com/ApexCura/apexcura-ui-builder/blob/development/src/Components/ACChip.tsx",
               "_blank"
             ),
-          className: "bg-gray-200/40 text-gray-800",
+          className: "bg-gray-200/30 text-gray-800",
+        },
+        {
+          type: "button",
+          text: "Styles",
+          color: "default",
+          size: "sm",
+          startContent: (
+            <Image
+              src={STYLES.src}
+              alt="Styles file path"
+              width={16}
+              height={16}
+            />
+          ),
+          onPress: () =>
+            window.open(
+              "https://github.com/ApexCura/apexcura-ui-builder/blob/development/src/styles.css",
+              "_blank"
+            ),
+          className: "bg-gray-200/30 text-gray-800",
         },
       ],
     },
