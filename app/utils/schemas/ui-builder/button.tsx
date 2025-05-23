@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Code } from "@heroui/react";
 import GIT from "@/public/assets/github.svg";
@@ -30,7 +30,7 @@ export const UIBuilderButton: NodeSchema = {
           ),
           onPress: () =>
             window.open(
-              "https://github.com/ApexCura/apexcura-ui-builder/blob/development/src/Components/ACButton.tsx",
+              "https://github.com/ApexCura/apexcura-ui-builder/blob/main/src/Components/ACButton.tsx",
               "_blank"
             ),
           className: "bg-gray-200/30 text-gray-800",
@@ -41,11 +41,16 @@ export const UIBuilderButton: NodeSchema = {
           color: "default",
           size: "sm",
           startContent: (
-            <Image src={STYLES.src} alt="Styles file path" width={16} height={16} />
+            <Image
+              src={STYLES.src}
+              alt="Styles file path"
+              width={16}
+              height={16}
+            />
           ),
           onPress: () =>
             window.open(
-              "https://github.com/ApexCura/apexcura-ui-builder/blob/development/src/styles.css",
+              "https://github.com/ApexCura/apexcura-ui-builder/blob/main/src/styles.css",
               "_blank"
             ),
           className: "bg-gray-200/30 text-gray-800",
@@ -808,8 +813,11 @@ export const UIBuilderButton: NodeSchema = {
           type: (
             <Code className="text-xs font-semibold">
               Handlers are actions on click of the button. Check out{" "}
-              <Link className="text-primary underline" href="/apex-icons/list">
-                ApexIcons
+              <Link
+                className="text-primary underline"
+                href="/ui-builder/handlers"
+              >
+                Handlers
               </Link>{" "}
             </Code>
           ),

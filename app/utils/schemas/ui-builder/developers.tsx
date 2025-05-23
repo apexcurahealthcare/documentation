@@ -20,7 +20,7 @@ export const UIBuilderDevelopers: NodeSchema = {
     {
       type: "div",
       className: "grid grid-cols-2 sm:grid-cols-1 sm:gap-2 gap-4",
-      children: Utils.getDeveloperData(["charan", "swoyam", "dinesh"]).map(
+      children: Utils.getDeveloperData(["dinesh", "swoyam", "charan"]).map(
         (developer: Developer) => {
           return {
             type: "user",

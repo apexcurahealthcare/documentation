@@ -82,7 +82,7 @@ const ICONS_USAGE = [
   },
 ];
 
-const DEPLOYMENT_AGENT_DEV:any = {
+const DEPLOYMENT_AGENT_DEV: any = {
   CICD: [
     {
       description:
@@ -164,7 +164,7 @@ const DEPLOYMENT_AGENT_DEV:any = {
     { type: "p", code: "pm2 restart 4" },
   ],
 };
-const DEPLOYMENT_AGENT_PROD:any = {
+const DEPLOYMENT_AGENT_PROD: any = {
   CICD: [
     {
       description:
@@ -192,8 +192,7 @@ const DEPLOYMENT_AGENT_PROD:any = {
       code: "git branch",
     },
     {
-      description:
-        "If it shows prod, then you are good to go. Else checkout",
+      description: "If it shows prod, then you are good to go. Else checkout",
     },
     {
       type: "p",
@@ -350,6 +349,53 @@ const INTRO_MATTERS = [
     heading: "Documentation You Can Rely On",
     description:
       "Clear examples, detailed API references, and practical guides to help you get up and running quickly.",
+  },
+];
+const WHEN_TO_USE = [
+  {
+    description:
+      "Building healthcare dashboards, patient portals, or clinical applications",
+  },
+  {
+    description: "Rapid prototyping of complex UIs",
+  },
+  {
+    description: "Creating consistent experiences across multiple applications",
+  },
+  {
+    description: "Teams with varying levels of React expertise",
+  },
+];
+const UI_BUILDER_PRE_REQUISITES = [
+  {
+    description: "React 18.x",
+  },
+  {
+    description: "Node.js 14.x or higher",
+  },
+  {
+    description: "npm 7.x or higher",
+  },
+];
+const UI_BUILDER_INSTALLATION = [
+  {
+    description: "Install the ApexCura UI Builder package:",
+  },
+  {
+    type: "p",
+    code: "npm install @apexcura/ui-builder",
+  },
+  {
+    description: "Install peer dependencies:",
+  },
+  {
+    type: "p",
+    code: "npm install @reduxjs/toolkit react-redux redux-persist",
+  },
+  { description: "Add required CSS imports to your main application file:" },
+  {
+    type: "p",
+    code: "import '@apexcura/ui-builder/dist/styles/index.css';",
   },
 ];
 const MOBA_REMOTE_SERVER_STEPS = [
@@ -615,9 +661,19 @@ const SIDEMENU: ISideMenu = {
           route: "/developers",
           title: "Developers",
         },
+      ],
+    },
+    {
+      key: "developer-guide",
+      title: "Developer Guide",
+      items: [
         {
           route: "/contribute",
           title: "Contribute",
+        },
+        {
+          route: "/linking",
+          title: "Npm Link",
         },
       ],
     },
@@ -744,5 +800,8 @@ export const Constants = {
   REDIS_LINUX_SETUP,
   SIDEMENU,
   DEPLOYMENT_AGENT_DEV,
-  DEPLOYMENT_AGENT_PROD
+  DEPLOYMENT_AGENT_PROD,
+  WHEN_TO_USE,
+  UI_BUILDER_PRE_REQUISITES,
+  UI_BUILDER_INSTALLATION
 };

@@ -29,7 +29,7 @@ export const UIBuilderChip: NodeSchema = {
           ),
           onPress: () =>
             window.open(
-              "https://github.com/ApexCura/apexcura-ui-builder/blob/development/src/Components/ACChip.tsx",
+              "https://github.com/ApexCura/apexcura-ui-builder/blob/main/src/Components/ACChip.tsx",
               "_blank"
             ),
           className: "bg-gray-200/30 text-gray-800",
@@ -49,7 +49,7 @@ export const UIBuilderChip: NodeSchema = {
           ),
           onPress: () =>
             window.open(
-              "https://github.com/ApexCura/apexcura-ui-builder/blob/development/src/styles.css",
+              "https://github.com/ApexCura/apexcura-ui-builder/blob/main/src/styles.css",
               "_blank"
             ),
           className: "bg-gray-200/30 text-gray-800",

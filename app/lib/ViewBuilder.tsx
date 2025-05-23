@@ -397,9 +397,11 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       return <ElementExecutor data={executorNode?.schema} />;
     case "ui-builder":
       const uiBuilderNode = schema as UIBuilderNode;
-      return <Suspense fallback={<p>Loading...</p>}>
-        <ApexUIBuilder {...uiBuilderNode} />
-      </Suspense> 
+      return (
+        <Suspense fallback={<p>Loading...</p>}>
+          <ApexUIBuilder {...uiBuilderNode} />
+        </Suspense>
+      );
     case "icons":
       return renderElement(<IconsList />);
     case "div":
@@ -434,7 +436,14 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       railscasts,
     };
     return (
-      <div style={{ position: "relative" }}>
+      <div
+        style={{
+          position: "relative",
+          maxHeight: "400px",
+          overflowY: "auto",
+          borderRadius: "10px",
+        }}
+      >
         <SyntaxHighlighter
           language="javascript"
           style={codeNode?.theme ? themes?.[codeNode?.theme] : atomOneDark}

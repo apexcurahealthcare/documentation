@@ -205,8 +205,7 @@ export const UIBuilderContribute: NodeSchema = {
       type: "p",
       text: (
         <>
-          Checkout to <Code>master</Code> branch and make your changes either in
-          the same branch or in a new branch.
+          Create a new branch from <Code>development</Code> branch and make your changes.
         </>
       ),
     },

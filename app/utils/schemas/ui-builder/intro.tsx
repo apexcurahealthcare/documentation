@@ -1,8 +1,7 @@
 import { NodeSchema } from "@/app/lib/ViewBuilder";
 import { Constants } from "../../constants";
-const project = Constants.PROJECTS.find(
-  (p: any) => p.route === "/ui-builder"
-);
+import { Helpers } from "../../helpers";
+const project = Constants.PROJECTS.find((p: any) => p.route === "/ui-builder");
 
 export const UIBuilderIntro: NodeSchema = {
   type: "div",
@@ -13,7 +12,7 @@ export const UIBuilderIntro: NodeSchema = {
       type: "h2",
       text: "Introduction",
       isApplyMotion: true,
-      className: "uppercase"
+      className: "uppercase",
     },
     {
       type: "image",
@@ -28,11 +27,21 @@ export const UIBuilderIntro: NodeSchema = {
       isApplyMotion: true,
       text: (
         <>
-          Hello team! 👋 Welcome to the official documentation for{" "}
+          Hello team! 👋 Welcome to the official documentation of{" "}
           <span className="font-semibold">{project?.name}</span>, our
           organization’s very own form builder library.
         </>
       ),
+    },
+    {
+      type: "p",
+      isApplyMotion: true,
+      text: "This library is designed to help you build web applications faster and more consistently using a schema-driven approach.",
+    },
+    {
+      type: "p",
+      isApplyMotion: true,
+      text: "Instead of writing complex React components from scratch, you'll define your UI through simple JSON schemas, and the library takes care of rendering them as beautiful, functional components.",
     },
     {
       type: "p",
@@ -66,16 +75,27 @@ export const UIBuilderIntro: NodeSchema = {
     },
     {
       type: "ul",
-      children: Constants.INTRO_MATTERS.map((matter: any, index: number) => ({
-        type: "li",
-        isApplyMotion: true,
-        text: (
-          <>
-            <span className="font-semibold">{matter.heading}</span>:{" "}
-            {matter.description}
-          </>
-        ),
-      })),
+      children: Helpers.renderHeadingList(Constants.INTRO_MATTERS),
+    },
+    {
+      type: "h3",
+      id: "when-should-you-use-this-library",
+      isApplyMotion: true,
+      text: "When Should You Use This Library?",
+    },
+    {
+      type: "p",
+      isApplyMotion: true,
+      text: "This library is ideal for:",
+    },
+    {
+      type: "ul",
+      children: Helpers.renderHeadingList(Constants.WHEN_TO_USE),
+    },
+    {
+      type: "p",
+      isApplyMotion: true,
+      text: "Let's get started with building your first complex application!",
     },
   ],
 };
