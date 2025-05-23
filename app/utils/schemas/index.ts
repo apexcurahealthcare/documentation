@@ -18,6 +18,7 @@ import { UIBuilderContribute } from "./ui-builder/contribute";
 import { UIBuilderDevelopers } from "./ui-builder/developers";
 import { UIBuilderInstallation } from "./ui-builder/installation";
 import { UIBuilderIntro } from "./ui-builder/intro";
+import { UIBuilderLinking } from "./ui-builder/linking";
 import { UIComponentsButton } from "./ui-components/button";
 import { UIComponentsContribute } from "./ui-components/contribute";
 import { UIComponentsDevelopers } from "./ui-components/developers";
@@ -55,6 +56,7 @@ export type NestedPages =
   | "ui-builder/chip"
   | "ui-builder/contribute"
   | "ui-builder/developers"
+  | "ui-builder/linking"
   | "ui-builder/installation"
   | "ui-components/installation"
   | "ui-components/contribute"
@@ -96,6 +98,7 @@ class Schema {
     "ui-builder/chip": UIBuilderChip,
     "ui-builder/contribute": UIBuilderContribute,
     "ui-builder/developers": UIBuilderDevelopers,
+    "ui-builder/linking": UIBuilderLinking,
     "ui-builder/installation": UIBuilderInstallation,
     "ui-components": UIComponentsIntro,
     "ui-components/installation": UIComponentsInstallation,

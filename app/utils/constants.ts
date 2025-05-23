@@ -366,6 +366,15 @@ const WHEN_TO_USE = [
     description: "Teams with varying levels of React expertise",
   },
 ];
+const NPM_LINK_WATCH = [
+  {
+    description:
+      "Watches and compiles TypeScript files (tsc -w)",
+  },
+  {
+    description: "Rebuilds Tailwind CSS on changes",
+  },
+];
 const UI_BUILDER_PRE_REQUISITES = [
   {
     description: "React 18.x",
@@ -396,6 +405,31 @@ const UI_BUILDER_INSTALLATION = [
   {
     type: "p",
     code: "import '@apexcura/ui-builder/dist/styles/index.css';",
+  },
+];
+const NPM_LINK_STEPS = [
+  {
+    description: "Handle React Instance Conflict",
+  },
+  {
+    type: "p",
+    code: `# In ui-builder project:
+npm link ../path/to/parent-react-project/node_modules/react`,
+  },
+
+  {
+    description: "Generate symlink for UI-Builder Package",
+  },
+  {
+    type: "p",
+    code: `# In your parent project:
+npm link @apexcura/ui-builder`,
+  },
+  { description: "Link UI-Builder to Parent Project" },
+  {
+    type: "p",
+    code: `cd path/to/ui-builder-package
+npm link`,
   },
 ];
 const MOBA_REMOTE_SERVER_STEPS = [
@@ -803,5 +837,7 @@ export const Constants = {
   DEPLOYMENT_AGENT_PROD,
   WHEN_TO_USE,
   UI_BUILDER_PRE_REQUISITES,
-  UI_BUILDER_INSTALLATION
+  UI_BUILDER_INSTALLATION,
+  NPM_LINK_STEPS,
+  NPM_LINK_WATCH
 };
