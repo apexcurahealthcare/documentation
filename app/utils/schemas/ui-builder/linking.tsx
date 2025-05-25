@@ -56,6 +56,10 @@ export const UIBuilderLinking: NodeSchema = {
       text: "To get the path of react package, go to node_modules/react and right click. Select Copy Path option.",
     },
     {
+      type: "divider",
+      variant: "dotted"
+    },
+    {
       type: "h3",
       id: "development-workflow",
       text: "Development Workflow",
@@ -79,6 +83,10 @@ export const UIBuilderLinking: NodeSchema = {
     {
       type: "p",
       text: "Now you are able to preview your package changes directly in a react project without pubishing the changes.",
+    },
+    {
+      type: "divider",
+      variant: "dotted"
     },
     {
       type: "h3",
@@ -115,6 +123,10 @@ export const UIBuilderLinking: NodeSchema = {
           re-establish the connection between the projects.
         </>
       ),
+    },
+    {
+      type: "divider",
+      variant: "dotted"
     },
     {
       type: "h3",

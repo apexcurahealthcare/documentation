@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: Promise<{ slug: PageName[] }> }) => {
   }
 
   return (
-    <div className="flex flex-col gap-6 mb-16 sm:mb-4" key={schemaSlug}>
+    <div className="flex flex-col gap-6 mb-4 sm:mb-4" key={schemaSlug}>
       <DetailsPage schema={schema} project={project} page={page} PREVIOUS={PREVIOUS} NEXT={NEXT} />
       <Copyright />
     </div>

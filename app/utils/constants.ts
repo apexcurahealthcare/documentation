@@ -407,6 +407,48 @@ const UI_BUILDER_INSTALLATION = [
     code: "import '@apexcura/ui-builder/dist/styles/index.css';",
   },
 ];
+const UI_BUILDER_WHAT_IT_DOES = [
+  {
+    description: "Parses schema definitions",
+  },
+  {
+    description: "Maps schema elements to React components",
+  },
+  {
+    description: "Handles component state and data binding",
+  },
+  {
+    description: "Processes events and actions",
+  },
+  {
+    description: "Manages component lifecycle",
+  }
+];
+const UI_BUILDER_SCHEMA_DRIVEN = [
+  { description: "Component types" },
+  { description: "Component properties" },
+  { description: "Layout structure" },
+  { description: "Event handlers" },
+  { description: "Data bindings" },
+];
+const UI_BUILDER_STATE_MANAGEMENT = [
+  {
+    "heading": "Automatic State Binding",
+    "description": "Components automatically connect to Redux store"
+  },
+  {
+    "heading": "Action Handlers",
+    "description": "Pre-defined handlers for common state operations"
+  },
+  {
+    "heading": "Persistence",
+    "description": "Optional state persistence through redux-persist"
+  },
+  {
+    "heading": "Dynamic Paths",
+    "description": "State values are referenced through path strings"
+  }
+];
 const NPM_LINK_STEPS = [
   {
     description: "Handle React Instance Conflict",
@@ -712,6 +754,24 @@ const SIDEMENU: ISideMenu = {
       ],
     },
     {
+      key: "core-modules",
+      title: "Core Modules",
+      items: [
+        {
+          route: "/ui-builder",
+          title: "UI Builder",
+        },
+        {
+          route: "/state-management",
+          title: "State Management",
+        },
+        {
+          route: "/handlers",
+          title: "Handlers",
+        },
+      ],
+    },
+    {
       key: "components",
       title: "Components",
       items: [
@@ -839,5 +899,8 @@ export const Constants = {
   UI_BUILDER_PRE_REQUISITES,
   UI_BUILDER_INSTALLATION,
   NPM_LINK_STEPS,
-  NPM_LINK_WATCH
+  NPM_LINK_WATCH,
+  UI_BUILDER_WHAT_IT_DOES,
+  UI_BUILDER_SCHEMA_DRIVEN,
+  UI_BUILDER_STATE_MANAGEMENT
 };

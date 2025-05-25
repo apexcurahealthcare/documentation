@@ -269,7 +269,7 @@ const ViewBuilder: React.FC<ViewBuilderProps> = ({ schema }) => {
       const dividerNode = schema as DividerNode;
       return renderElement(
         dividerNode?.variant === "dotted" ? (
-          <div className="w-full my-4 flex gap-2 items-center justify-center">
+          <div className="w-full my-2 flex gap-2 items-center justify-center">
             {[1, 2, 3].map((e) => (
               <div key={e} className="size-1 bg-gray-500 rounded-full"></div>
             ))}
