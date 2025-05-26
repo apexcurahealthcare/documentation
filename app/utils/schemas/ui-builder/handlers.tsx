@@ -31,7 +31,7 @@ export const UIBuilderHandlers: NodeSchema = {
     },
     {
       type: "h3",
-      id: "change-state",
+      id: "changeState",
       text: "changeState",
     },
     {
@@ -67,7 +67,7 @@ export const UIBuilderHandlers: NodeSchema = {
           The changeState handler takes two keys: <Code>action</Code> (set as
           changeState) and <Code>args</Code>. Inside args, you define the path
           in <Code>storedLocation</Code> where the updated value should be
-          stored
+          stored.
         </>
       ),
     },
@@ -99,7 +99,15 @@ export const UIBuilderHandlers: NodeSchema = {
     },
     {
       type: "p",
-      text: "In some cases, you might need to provide the value directly from the schema — for example, during page load. In such scenarios, you can include the value using the 'value' key along with 'storedLocation'.",
+      text: (
+        <>
+          In some cases, you might need to provide the value directly from the
+          schema — for example, during page load. In such scenarios, you can
+          include the value using the{" "}
+          <span className="font-semibold">value</span> key along with{" "}
+          <span className="font-semibold">storedLocation</span>.
+        </>
+      ),
     },
     {
       type: "code",
@@ -111,7 +119,72 @@ export const UIBuilderHandlers: NodeSchema = {
   },
 }`,
     },
-
+    {
+      type: "divider",
+      variant: "dotted",
+    },
+    {
+      type: "h3",
+      id: "displayToast",
+      text: "displayToast",
+    },
+    {
+      type: "p",
+      text: (
+        <>
+          This handler is used to display a toast notification by accepting a{" "}
+          <Code>message</Code> and an optional <Code>type</Code> from the
+          schema.
+        </>
+      ),
+    },
+    {
+      type: "code",
+      code: `{
+  action: "displayToast",
+  args: {
+    message: "Patient name is required"
+  },
+}`,
+    },
+    {
+      type: "p",
+      text: (
+        <>
+          The above example will display the provided message as an{" "}
+          <Code>error</Code> toast in the top-right corner. If the{" "}
+          <Code>type</Code> is not specified, it defaults to{" "}
+          <span className="font-semibold">error</span>.
+        </>
+      ),
+    },
+    {
+      type: "p",
+      text: (
+        <>
+          You can also specify other toast types like{" "}
+          <span className="font-semibold">success</span>,{" "}
+          <span className="font-semibold">warning</span>,{" "}
+          <span className="font-semibold">warn</span>,{" "}
+          <span className="font-semibold">info</span>, or{" "}
+          <span className="font-semibold">default</span> as shown below:
+        </>
+      ),
+    },
+    {
+      type: "code",
+      code: `{
+  action: "displayToast",
+  args: {
+    type: "success", // Can also be: 'warn' | 'warning' | 'info' | 'error' | 'default'
+    message: "Toast message"
+  },
+},`,
+    },
+    {
+      type: "divider",
+      variant: "dotted",
+    },
     {
       type: "h3",
       id: "makeApiCall",
@@ -120,6 +193,34 @@ export const UIBuilderHandlers: NodeSchema = {
     {
       type: "p",
       text: "The makeApiCall handler is used to perform API requests using axios. It helps in fetching or sending data during user interactions or when the page loads.",
+    },
+    {
+      type: "alert",
+      text: "Since each project follows its own API calling pattern, this handler will directly invoke the makeApiCall function, which must be provided through the ACWrapperContext component under the utils key in the UIBuilder.",
+      color: "warning",
+    },
+    {
+      type: "code",
+      code: `// src/index.tsx
+function App() {
+  return (
+    <ACWrapperContext
+      props={{
+        constants: CONSTANTS, 
+        store: store,         
+        utils: Utils,         // Utils object of that project (which contains makeApiCall function)
+      }}
+    >
+      <Provider store={store}>
+        ...
+      </Provider>
+    </ACWrapperContext>
+  );
+}`,
+    },
+    {
+      type: "p",
+      text: "Here is a sample schema for this handler that directly invokes the makeApiCall function using the structure passed via ACWrapperContext:",
     },
     {
       type: "code",
@@ -400,6 +501,10 @@ export const UIBuilderHandlers: NodeSchema = {
           schema.
         </>
       ),
+    },
+    {
+      type: "divider",
+      variant: "dotted",
     },
     {
       type: "h3",
