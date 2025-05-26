@@ -35,6 +35,7 @@ import { UIComponentsTabs } from "./ui-components/tabs";
 import { ViewEngineDevelopers } from "./view-engine/developers";
 import { ViewEngineInstallation } from "./view-engine/installation";
 import { ViewEngineIntro } from "./view-engine/intro";
+import { UIBuilderLifeCycleMethods } from "./ui-builder/life-cycle-methods";
 
 export type PageName =
   | "apex-icons"
@@ -61,6 +62,7 @@ export type NestedPages =
   | "ui-builder/developers"
   | "ui-builder/handlers"
   | "ui-builder/installation"
+  | "ui-builder/life-cycle-methods"
   | "ui-builder/linking"
   | "ui-builder/state-management"
   | "ui-builder/ui-builder"
@@ -106,6 +108,7 @@ class Schema {
     "ui-builder/developers": UIBuilderDevelopers,
     "ui-builder/handlers": UIBuilderHandlers,
     "ui-builder/installation": UIBuilderInstallation,
+    "ui-builder/life-cycle-methods": UIBuilderLifeCycleMethods,
     "ui-builder/linking": UIBuilderLinking,
     "ui-builder/state-management": UIBuilderStateMangement,
     "ui-builder/ui-builder": UIBuilderUIBuilder,

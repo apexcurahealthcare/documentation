@@ -766,6 +766,10 @@ const SIDEMENU: ISideMenu = {
           title: "State Management",
         },
         {
+          route: "/life-cycle-methods",
+          title: "Life Cycle Methods",
+        },
+        {
           route: "/handlers",
           title: "Handlers",
         },

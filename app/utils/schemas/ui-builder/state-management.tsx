@@ -517,7 +517,7 @@ export type RootState = ReturnType<typeof appReducer>;`,
     },
     {
       type: "p",
-      text: "Whenever name changes, the state will be"
+      text: "Whenever name changes, the state will be",
     },
     {
       type: "code",
@@ -536,7 +536,7 @@ export type RootState = ReturnType<typeof appReducer>;`,
     },
     {
       type: "p",
-      text: "Next will learn more about the handlers."
-    }
+      text: "In this section, we learned how to define and initialize state variables. Next, we'll explore how to implement lifecycle methods using UIBuilder.",
+    },
   ],
 };
