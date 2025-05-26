@@ -328,7 +328,7 @@ export type RootState = ReturnType<typeof appReducer>;`,
       initial_states: {
         name: "Jon Doe",
         org_name: "@localStorage.organization.name",
-        patient_id: "@location.rehab_id^/rehab/dashboard/:patient_id/:rehab_id"
+        patient_id: "@location.patient_id^/rehab/dashboard/:patient_id/:rehab_id"
         rehab_id: "@location.rehab_id^/rehab/dashboard/:patient_id/:rehab_id"
       },
       fields: []
@@ -390,7 +390,7 @@ export type RootState = ReturnType<typeof appReducer>;`,
       initial_states: {
         name: "Jon Doe",
         org_name: "@localStorage.organization.name",
-        patient_id: "@location.rehab_id^/rehab/dashboard/:patient_id/:rehab_id"
+        patient_id: "@location.patient_id^/rehab/dashboard/:patient_id/:rehab_id"
         rehab_id: "@location.rehab_id^/rehab/dashboard/:patient_id/:rehab_id"
       },
       fields: [
