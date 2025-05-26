@@ -38,7 +38,8 @@ export default function OnThisPage({
       const element = document.getElementById(id);
       if (element) {
         const offset = 64; // Adjust for the top bar height
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
         const offsetPosition = elementPosition - offset;
 
         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -62,7 +63,7 @@ export default function OnThisPage({
           clearInterval(checkElement);
         }
       }, 500);
-      
+
       // Stop checking after 3 seconds
       setTimeout(() => clearInterval(checkElement), 3000);
     }
@@ -95,7 +96,9 @@ export default function OnThisPage({
               fullWidth={true}
               key={i}
               className={`text-start truncate line-clamp-1 flex justify-start ${
-                selectedKey === item.id ? "text-primary font-medium" : "text-gray-700"
+                selectedKey === item.id
+                  ? "text-primary font-medium"
+                  : "text-gray-700"
               }`}
               onPress={() => {
                 scrollToId(item?.id || "");

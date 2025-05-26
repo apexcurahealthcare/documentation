@@ -1,4 +1,6 @@
 "use client";
+import React from "react";
+import useScrollToTop from "../(hooks)/useScrollToTop";
 import Breads from "../lib/Breads";
 import Pagination from "../lib/Pagination";
 import ViewBuilder from "../lib/ViewBuilder";
@@ -11,9 +13,17 @@ interface ClientPageProps {
   NEXT: { route: string; title: string } | null;
 }
 
-const DetailsPage = ({ schema, project, page, PREVIOUS, NEXT }: ClientPageProps) => {
+const DetailsPage = ({
+  schema,
+  project,
+  page,
+  PREVIOUS,
+  NEXT,
+}: ClientPageProps) => {
+  useScrollToTop();
+
   return (
-    <>
+    <React.Fragment key={page}>
       <div className="hidden sm:block">
         <Breads
           items={[
@@ -33,7 +43,7 @@ const DetailsPage = ({ schema, project, page, PREVIOUS, NEXT }: ClientPageProps)
           label: PREVIOUS?.title || "",
         }}
       />
-    </>
+    </React.Fragment>
   );
 };
 
