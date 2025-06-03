@@ -66,8 +66,8 @@ export const UIBuilderGlobalLoading: NodeSchema = {
     },
     {
       type: "h3",
-      id: "asynchronous-loader",
-      text: "Asynchronous Loader",
+      id: "synchronous-loader",
+      text: "Synchronous Loader",
     },
     {
       type: "p",
@@ -136,6 +136,11 @@ export const UIBuilderGlobalLoading: NodeSchema = {
           <Code>makeApiCall</Code> handler:
         </>
       ),
+    },
+    {
+      type: "h3",
+      id: "asynchronous-loader",
+      text: "Asynchronous Loader",
     },
     {
       type: "code",
