@@ -16,9 +16,11 @@ import { UIBuilderButton } from "./ui-builder/button";
 import { UIBuilderChip } from "./ui-builder/chip";
 import { UIBuilderContribute } from "./ui-builder/contribute";
 import { UIBuilderDevelopers } from "./ui-builder/developers";
+import { UIBuilderGlobalLoading } from "./ui-builder/global-loading";
 import { UIBuilderHandlers } from "./ui-builder/handlers";
 import { UIBuilderInstallation } from "./ui-builder/installation";
 import { UIBuilderIntro } from "./ui-builder/intro";
+import { UIBuilderLifeCycleMethods } from "./ui-builder/life-cycle-methods";
 import { UIBuilderLinking } from "./ui-builder/linking";
 import { UIBuilderStateMangement } from "./ui-builder/state-management";
 import { UIBuilderUIBuilder } from "./ui-builder/ui-builder";
@@ -35,7 +37,6 @@ import { UIComponentsTabs } from "./ui-components/tabs";
 import { ViewEngineDevelopers } from "./view-engine/developers";
 import { ViewEngineInstallation } from "./view-engine/installation";
 import { ViewEngineIntro } from "./view-engine/intro";
-import { UIBuilderLifeCycleMethods } from "./ui-builder/life-cycle-methods";
 
 export type PageName =
   | "apex-icons"
@@ -60,6 +61,7 @@ export type NestedPages =
   | "ui-builder/chip"
   | "ui-builder/contribute"
   | "ui-builder/developers"
+  | "ui-builder/global-loading"
   | "ui-builder/handlers"
   | "ui-builder/installation"
   | "ui-builder/life-cycle-methods"
@@ -106,6 +108,7 @@ class Schema {
     "ui-builder/chip": UIBuilderChip,
     "ui-builder/contribute": UIBuilderContribute,
     "ui-builder/developers": UIBuilderDevelopers,
+    "ui-builder/global-loading": UIBuilderGlobalLoading,
     "ui-builder/handlers": UIBuilderHandlers,
     "ui-builder/installation": UIBuilderInstallation,
     "ui-builder/life-cycle-methods": UIBuilderLifeCycleMethods,

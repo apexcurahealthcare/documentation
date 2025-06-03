@@ -773,6 +773,10 @@ const SIDEMENU: ISideMenu = {
           route: "/handlers",
           title: "Handlers",
         },
+        {
+          route: "/global-loading",
+          title: "Global Loading",
+        },
       ],
     },
     {
