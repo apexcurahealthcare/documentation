@@ -77,7 +77,7 @@ export const UIBuilderLifeCycleMethods: NodeSchema = {
     },
     {
       type: "divider",
-      variant: "dotted"
+      variant: "dotted",
     },
     {
       type: "h3",
@@ -117,7 +117,7 @@ export const UIBuilderLifeCycleMethods: NodeSchema = {
     },
     {
       type: "divider",
-      variant: "dotted"
+      variant: "dotted",
     },
     {
       type: "h3",
@@ -168,6 +168,98 @@ export const UIBuilderLifeCycleMethods: NodeSchema = {
     {
       type: "p",
       text: "You can define any valid action inside each handler. We’ll dive deeper into handlers and actions in the upcoming chapter.",
+    },
+    {
+      type: "divider",
+      variant: "dotted",
+    },
+    {
+      type: "h3",
+      id: "componentWillUnmount",
+      text: "componentWillUnmount",
+    },
+    {
+      type: "p",
+      text: "In React, componentWillUnmount is implemented using:",
+    },
+    {
+      type: "code",
+      code: `import { useEffect } from 'react';
+
+function MyComponent() {
+  useEffect(() => {
+    // Initialization logic (like subscriptions or timers)
+
+    return () => {
+      // Cleanup logic
+      console.log("Component is about to be unmounted");
+    };
+  }, []); // Empty dependency array → runs once on mount and once on unmount
+
+  return <div>Hello World</div>;
+}
+`,
+    },
+    {
+      type: "p",
+      text: "This lifecycle method is called just before a component is removed from the DOM.",
+    },
+    {
+      type: "p",
+      text: (
+        <>
+          To achieve this in UIBuilder, add the <Code>shouldPersistState</Code>{" "}
+          key outside the schema and set its value to either <Code>true</Code>{" "}
+          or <Code>false</Code> depending on whether you want the page state to
+          be persisted.
+        </>
+      ),
+    },
+    {
+      type: "code",
+      code: `{
+  shouldPersistState: false, // If we give false then the page state from redux will be resetted when page unmounts
+  schema: [
+    {
+      name: "add_user_form",
+      ...
+      fields: [
+        ...
+      ]
+    }
+  ]
+}`,
+    },
+    {
+      type: "alert",
+      variant: "side-border",
+      color: "warning",
+      text: "Why do we need to pass this prop? 🤔",
+    },
+    {
+      type: "p",
+      text: (
+        <>
+          In a typical React setup, when using local state via{" "}
+          <Code>useState</Code>, the state is reset automatically when the
+          component unmounts. However, with global state management tools like{" "}
+          <span className="font-semibold">Redux</span>, the state persists
+          across page transitions unless we explicitly reset it—otherwise, it
+          stays in memory until a page refresh.
+        </>
+      ),
+    },
+    {
+      type: "p",
+      text: (
+        <>
+          To prevent unwanted persistence, we use the{" "}
+          <Code>componentWillUnmount</Code> lifecycle behavior via the cleanup
+          function in the <Code>useEffect</Code> hook. This cleanup runs when
+          the component is about to be removed from the DOM, allowing us to
+          reset the state as needed.
+        </>
+      ),
     },
   ],
 };
