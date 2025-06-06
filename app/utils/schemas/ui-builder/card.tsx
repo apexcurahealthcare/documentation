@@ -94,7 +94,7 @@ export const UIBuilderCard: NodeSchema = {
                         },
                       },
                       className:
-                        "grid grid-cols-3 bg-gray-100 rounded-md p-4 space-y-2",
+                        "grid grid-cols-3 sm:grid-cols-1 bg-gray-100 rounded-md p-4 space-y-2",
                       fields: [
                         {
                           name: "item",
@@ -161,7 +161,7 @@ export const UIBuilderCard: NodeSchema = {
         },
       },
       className:
-        "grid grid-cols-3 bg-gray-100 rounded-md p-4 space-y-2",
+        "grid grid-cols-3 sm:grid-cols-1 bg-gray-100 rounded-md p-4 space-y-2",
       fields: [
         {
           name: "item",
@@ -248,7 +248,7 @@ export const UIBuilderCard: NodeSchema = {
                         },
                       },
                       className:
-                        "grid grid-cols-3 bg-gray-100 rounded-md p-4 space-y-2",
+                        "grid grid-cols-3 sm:grid-cols-1 bg-gray-100 rounded-md p-4 space-y-2",
                       fields: [
                         {
                           name: "item",
@@ -330,7 +330,7 @@ export const UIBuilderCard: NodeSchema = {
         },
       },
       className:
-        "grid grid-cols-3 bg-gray-100 rounded-md p-4 space-y-2",
+        "grid grid-cols-3 sm:grid-cols-1 bg-gray-100 rounded-md p-4 space-y-2",
       fields: [
         {
           name: "item",
@@ -434,7 +434,7 @@ export const UIBuilderCard: NodeSchema = {
                         },
                       },
                       className:
-                        "grid grid-cols-3 bg-gray-100 rounded-md p-4 space-y-2",
+                        "grid grid-cols-3 sm:grid-cols-1 bg-gray-100 rounded-md p-4 space-y-2",
                       fields: [
                         {
                           name: "item",
@@ -524,7 +524,7 @@ export const UIBuilderCard: NodeSchema = {
         },
       },
       className:
-        "grid grid-cols-3 bg-gray-100 rounded-md p-4 space-y-2",
+        "grid grid-cols-3 sm:grid-cols-1 bg-gray-100 rounded-md p-4 space-y-2",
       fields: [
         {
           name: "item",
