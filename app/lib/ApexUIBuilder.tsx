@@ -1,8 +1,9 @@
 "use client";
+import { Skeleton } from "@heroui/react";
 import React, { useEffect, useState } from "react";
-import { UIBuilderNode } from "./ViewBuilder";
-import { store } from "../(store)/store";
 import { Provider } from "react-redux";
+import { store } from "../(store)/store";
+import { UIBuilderNode } from "./ViewBuilder";
 
 const ApexUIBuilder = (props: UIBuilderNode) => {
   const [UIBuilderComp, setUIBuilderComp] = useState<any>(null);
@@ -16,7 +17,12 @@ const ApexUIBuilder = (props: UIBuilderNode) => {
     })();
   }, []);
 
-  if (!UIBuilderComp || !UIBuilderWrapper) return null;
+  if (!UIBuilderComp || !UIBuilderWrapper)
+    return (
+      <Skeleton className="rounded-lg">
+        <div className="h-40 rounded-lg bg-default-300" />
+      </Skeleton>
+    );
 
   return (
     <UIBuilderWrapper

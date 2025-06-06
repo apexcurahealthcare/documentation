@@ -788,6 +788,10 @@ const SIDEMENU: ISideMenu = {
           title: "Button",
         },
         {
+          route: "/card",
+          title: "Card",
+        },
+        {
           route: "/chip",
           title: "Chip",
         },
