@@ -796,6 +796,10 @@ const SIDEMENU: ISideMenu = {
           title: "Chip",
         },
         {
+          route: "/collection",
+          title: "Collection",
+        },
+        {
           route: "/gradient-card-group",
           title: "Gradient Card Group",
         },

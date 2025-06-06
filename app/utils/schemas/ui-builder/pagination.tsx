@@ -144,7 +144,6 @@ export const UIBuilderPagination: NodeSchema = {
           valueSource: {
             storedLocation: "pagination",
           },
-          containerClassName: "justify-end",
           handlers: [
             {
               action: "changeState",

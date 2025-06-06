@@ -15,6 +15,7 @@ import { ThirdPartyMobaXterm } from "./third-party/mobaxterm";
 import { UIBuilderButton } from "./ui-builder/button";
 import { UIBuilderCard } from "./ui-builder/card";
 import { UIBuilderChip } from "./ui-builder/chip";
+import { UIBuilderCollection } from "./ui-builder/collection";
 import { UIBuilderContribute } from "./ui-builder/contribute";
 import { UIBuilderDevelopers } from "./ui-builder/developers";
 import { UIBuilderGlobalLoading } from "./ui-builder/global-loading";
@@ -62,6 +63,7 @@ export type NestedPages =
   | "ui-builder/button"
   | "ui-builder/card"
   | "ui-builder/chip"
+  | "ui-builder/collection"
   | "ui-builder/contribute"
   | "ui-builder/developers"
   | "ui-builder/global-loading"
@@ -111,6 +113,7 @@ class Schema {
     "ui-builder/button": UIBuilderButton,
     "ui-builder/card": UIBuilderCard,
     "ui-builder/chip": UIBuilderChip,
+    "ui-builder/collection": UIBuilderCollection,
     "ui-builder/contribute": UIBuilderContribute,
     "ui-builder/developers": UIBuilderDevelopers,
     "ui-builder/global-loading": UIBuilderGlobalLoading,
