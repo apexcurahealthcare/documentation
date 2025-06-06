@@ -23,6 +23,7 @@ import { UIBuilderInstallation } from "./ui-builder/installation";
 import { UIBuilderIntro } from "./ui-builder/intro";
 import { UIBuilderLifeCycleMethods } from "./ui-builder/life-cycle-methods";
 import { UIBuilderLinking } from "./ui-builder/linking";
+import { UIBuilderPagination } from "./ui-builder/pagination";
 import { UIBuilderStateMangement } from "./ui-builder/state-management";
 import { UIBuilderUIBuilder } from "./ui-builder/ui-builder";
 import { UIComponentsButton } from "./ui-components/button";
@@ -68,6 +69,7 @@ export type NestedPages =
   | "ui-builder/installation"
   | "ui-builder/life-cycle-methods"
   | "ui-builder/linking"
+  | "ui-builder/pagination"
   | "ui-builder/state-management"
   | "ui-builder/ui-builder"
   | "ui-components/installation"
@@ -116,6 +118,7 @@ class Schema {
     "ui-builder/installation": UIBuilderInstallation,
     "ui-builder/life-cycle-methods": UIBuilderLifeCycleMethods,
     "ui-builder/linking": UIBuilderLinking,
+    "ui-builder/pagination": UIBuilderPagination,
     "ui-builder/state-management": UIBuilderStateMangement,
     "ui-builder/ui-builder": UIBuilderUIBuilder,
     "ui-components": UIComponentsIntro,

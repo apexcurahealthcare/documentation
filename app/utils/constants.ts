@@ -804,6 +804,10 @@ const SIDEMENU: ISideMenu = {
           title: "Text",
         },
         {
+          route: "/pagination",
+          title: "Pagination",
+        },
+        {
           route: "/single-select",
           title: "Select",
         },

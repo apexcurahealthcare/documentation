@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@apexcura/core": "^0.0.17-Beta1604",
-    "@apexcura/ui-builder": "^0.0.37",
+    "@apexcura/ui-builder": "^0.0.39",
     "@heroui/react": "2.6.14",
     "@reduxjs/toolkit": "1.9.5",
     "motion": "^12.0.3",
