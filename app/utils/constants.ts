@@ -462,7 +462,7 @@ npm link ../path/to/parent-react-project/node_modules/react`,
   {
     type: "p",
     code: `cd path/to/ui-builder-package
-  npm link`,
+npm link`,
   },
   {
     description: "Generate symlink for UI-Builder Package",
