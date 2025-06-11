@@ -458,7 +458,12 @@ const NPM_LINK_STEPS = [
     code: `# In ui-builder project:
 npm link ../path/to/parent-react-project/node_modules/react`,
   },
-
+  { description: "Link UI-Builder to Parent Project" },
+  {
+    type: "p",
+    code: `cd path/to/ui-builder-package
+  npm link`,
+  },
   {
     description: "Generate symlink for UI-Builder Package",
   },
@@ -466,12 +471,6 @@ npm link ../path/to/parent-react-project/node_modules/react`,
     type: "p",
     code: `# In your parent project:
 npm link @apexcura/ui-builder`,
-  },
-  { description: "Link UI-Builder to Parent Project" },
-  {
-    type: "p",
-    code: `cd path/to/ui-builder-package
-npm link`,
   },
 ];
 const MOBA_REMOTE_SERVER_STEPS = [
